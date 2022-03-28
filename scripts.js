@@ -66,13 +66,26 @@ const getFeed = async () => {
     feed.reverse()
 
     for(item of feed) {
-        console.log(item)
 
         let card = document.createElement('div');
+
+        // Convert timestamp to time
+        const date = new Date(item.mint_time*1000)
+        const readableDate = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()
+
+        let cardInfo = document.createElement("div")
+        cardInfo.classList.add("cardInfo")
+        cardInfo.innerHTML = (`
+            Source:<br>${item.mint_address}<br><br>
+            Mint Time:<br>${readableDate}
+        `)
+
         card.classList.add("card")
         card.innerHTML = item.description
 
-        let html = '<body>Foo</body>'
+        card.appendChild(cardInfo)
+
+        // let html = '<body>Foo</body>'
 
         document.getElementById("feed").appendChild(card)
     }

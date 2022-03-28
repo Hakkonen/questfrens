@@ -99,9 +99,27 @@ a {
 }
 
 #feed {
-    
+    max-width: 560px;
+    width: auto;
 }
 
 .card {
     margin: 1em;
+
+    max-width: 560px;
+    width: 100%;
+
+    text-align: center;
+
+    /* border: 2px solid black; */
+}
+
+.cardInfo {
+    margin: 1em 1em 2em 1em; 
+    
+    font-size: 0.75em;
+    max-width: 400px;
+    text-overflow:ellipsis;
+
+    text-align: left;
 }
