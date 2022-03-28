@@ -81,7 +81,11 @@ const getFeed = async () => {
         `)
 
         card.classList.add("card")
-        card.innerHTML = item.description
+        let iframeEl = (`
+            <iframe style="border:0;" width="400" height="560" src="card/index.html?fren=${item.name}"></iframe> 
+        `)
+        console.log(iframeEl)
+        card.innerHTML = iframeEl
 
         card.appendChild(cardInfo)
 
