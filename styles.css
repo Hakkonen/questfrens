@@ -123,3 +123,17 @@ a {
 
     text-align: left;
 }
+
+.header{
+    font-size: 1em;
+    width: 100%;
+
+    text-align: center;
+}
+
+#faq {
+    font-family: 'Courier New', Courier, monospace;
+
+    width: auto;
+    max-width: 400px;
+}

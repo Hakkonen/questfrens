@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUESTFRENS</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="myscripts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="feedContainer">
+        <div class="header">
+            FAQ
+        </div>
+        <div>
+            <ul id="faq">
+                <li>
+                    Q: How do I mint?<br>
+                    <br>
+                    A: First you need to acquire a Questfren mint token, this is any QUESTFREN subasset that has not been minted yet. Dispensers for them can be found here: <br>
+                    <a src="https://questfrens.io/market">Market</a><br>
+                    Then you need to broadcast a signature message in Freewallet. This is in the format as follows:<br>
+                    <br>
+                    MINT QUESTFREN number optional_name<br>
+                    <br>
+                    number: is your Questfren asset number<br>
+                    optional_name is an optional name. It cannot be a repeated name, and must be under 15 characters.
+                </li>
+                <br>
+                <li>
+                    Q: Why is an asset not appearing when I broadcast?<br>
+                    <br>
+                    A: The mint contract will only recognise the address that holds that number mint token. Counterparty tokens require XCP to mint, so it cannot be done by broadcasting alone.
+                </li>
+                <br>
+                <li>
+                    Q: How does the generation work?<br>
+                    <br>
+                    A: When you send a broadcast on the XCP network, your bitcoin private key signs the message. This one-way encryption allows the network to verify that you, and only you, are ready to mint. 
+                    <br>
+                    If someone else sends a message trying to mint your token it will not work, because the contract will not recognise a signature from an address that does not hold the mint token.
+                </li>
+                <br>
+                <li>
+                    Q: Do I have to mint my Questfren now?<br>
+                    <br>
+                    A: No, you can mint your token whenever you want. Or trade it whenver you want. 
+                </li>
+                <br>
+                <li>
+                    Q: Do I have to include a name?<br>
+                    <br>
+                    A: No. You can leave your name field blank.<br>
+                </li>
+                <br>
+                <li>
+                    Q: What are the limits for names?<br>
+                    <br>
+                    A: Names can be 15 characters or less, and cannot include spaces. If someone else has already used that names, your name choice will be invalid.
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>
