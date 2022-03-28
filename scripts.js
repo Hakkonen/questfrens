@@ -54,3 +54,26 @@ const getDispensers = async () => {
         tableEl.appendChild(row)
     }
 }
+
+// Get feed
+const getFeed = async () => {
+    const response = await fetch('https://frenzone.net/questfrens/masterlist/masterlist.json');
+    const feed = await response.json();
+
+    //Reverse feed for chronology 
+    console.log(feed)
+
+    feed.reverse()
+
+    for(item of feed) {
+        console.log(item)
+
+        let card = document.createElement('div');
+        card.classList.add("card")
+        card.innerHTML = item.description
+
+        let html = '<body>Foo</body>'
+
+        document.getElementById("feed").appendChild(card)
+    }
+}
