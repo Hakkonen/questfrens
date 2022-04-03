@@ -107,7 +107,7 @@ function App() {
         <Route path="/account" element={<Account address={address} />} />
         <Route path="/feed" element={<Feed />} />
         <Route path="/market" element={<Market />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setAddress={setAddress} setSignature={setSignature} />} />
         <Route path="about" element={<About />} />
       </Routes>
     </div>

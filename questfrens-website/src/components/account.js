@@ -20,7 +20,6 @@ export default function Account(props) {
         
             setCardlist(res)
         }
-
     }, [])
 
     useEffect(() => {
@@ -85,6 +84,10 @@ const getFeed = async (address) => {
             parsedFeed.push(card)
         }
     }
+
+    // Timer
+    let end = Date.now()
+    console.log(`Get balance load time: ${(end - start) / 1000}s`)
 
     parsedFeed.reverse()
     return parsedFeed

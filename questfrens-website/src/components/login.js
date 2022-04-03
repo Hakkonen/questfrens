@@ -51,7 +51,7 @@ const CssTextField = styled(TextField)({
     },
 });
 
-export default function Login() {
+export default function Login(props) {
     const navigate = useNavigate();
     Buffer.from('anything','base64');
 
@@ -75,6 +75,9 @@ export default function Login() {
             // Add to cookies
             document.cookie = `address=${data.get('address')}; max-age=604800; path=/`;
             document.cookie = `signature=${data.get('signature')}; max-age=604800; path=/`;
+
+            props.setAddress(data.get('address'))
+            props.setSignature(data.get('signature'))
 
             alert("Signature valid")
 
