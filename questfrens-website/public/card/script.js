@@ -373,57 +373,57 @@ function nextBg() {
         {
             "number": 1,
             "name": "FOREST",
-            "src": "./bg/FOREST.gif"
+            "src": "../card/bg/FOREST.gif"
         },
         {
             "number": 2,
             "name": "FIREFLY",
-            "src": "./bg/FIREFLY.gif"
+            "src": "../card/bg/FIREFLY.gif"
         },
         {
             "number": 3,
             "name": "ICECAVE",
-            "src": "./bg/ICECAVE.gif"
+            "src": "../card/bg/ICECAVE.gif"
         },
         {
             "number": 4,
             "name": "TREASURE2",
-            "src": "./bg/TREASURE2.gif"
+            "src": "../card/bg/TREASURE2.gif"
         },
         {
             "number": 5,
             "name": "PEPEROOM",
-            "src": "./bg/PEPEROOM.png"
+            "src": "../card/bg/PEPEROOM.png"
         },
         {
             "number": 6,
             "name": "PIRATE",
-            "src": "./bg/PIRATE.gif"
+            "src": "../card/bg/PIRATE.gif"
         },
         {
             "number": 7,
             "name": "CASTLE_OS",
-            "src": "./bg/CASTLE_OS.png"
+            "src": "../card/bg/CASTLE_OS.png"
         },
         {
             "number": 8,
             "name": "CASTLE",
-            "src": "./bg/CASTLE.png"
+            "src": "../card/bg/CASTLE.png"
         },
         {
             "number": 9,
             "name": "TREASURE",
-            "src": "./bg/TREASURE.gif"
+            "src": "../card/card/bg/TREASURE.gif"
         },
         {
             "number": 10,
             "name": "NEBULA",
-            "src": "./bg/NEBULA.png"
+            "src": "../card/bg/NEBULA.png"
         },
         {
             "number": 11,
             "name": "DARKFOREST",
-            "src": "./bg/DARKFOREST.png"
+            "src": "../card/bg/DARKFOREST.png"
         }
     ]
 
