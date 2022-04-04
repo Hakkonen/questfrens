@@ -429,14 +429,11 @@ function nextBg() {
 
     // Get current background
     bgEl = document.getElementById("scene").src
-    console.log(bgEl)
 
-    const bgSep = bgEl.split(".")
-    console.log(bgSep)
-    const bgSep2 = bgSep[0].split("/")
-    console.log(bgSep2)
-    const scene = bgSep2.slice(-1)[0]
-    console.log(scene)
+    const bgSep = bgEl.split("/")
+    const bgEnd = bgSep.slice(-1)[0]
+    const bgSep2 = bgEnd.split(".")
+    const scene = bgSep2[0]
 
     // Get next in list and update bg
     for(let item of backgrounds) {
