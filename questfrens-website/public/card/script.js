@@ -93,7 +93,7 @@ const getFrenData = async () => {
 
                 // Get item slot
                 slot = item.slot
-                console.log("Slot: " + slot)
+                // console.log("Slot: " + slot)
 
                 // Add item to inventory
                 if(slot == "clothes") {
@@ -101,7 +101,7 @@ const getFrenData = async () => {
                 } else if (slot == "head") {
                     inventory.head = item.name
                 } else if (slot == "main") {
-                    console.log("to main")
+                    // console.log("to main")
                     inventory.main_hand = item.name
                 } else if (slot == "off") {
                     inventory.off_hand = item.name
@@ -148,8 +148,7 @@ const getFrenData = async () => {
 
                 }
 
-                console.log("uniq atk")
-                console.log(uniq_attack_floor + "-" + uniq_attack_ceil)
+                console.log("uniq atk: " + uniq_attack_floor + "-" + uniq_attack_ceil)
             }
         }
     }
@@ -329,6 +328,7 @@ const getFrenData = async () => {
     
     // Update HP
     document.getElementById('hp').innerHTML = hitpoints
+
     // If HP is low set HP colour to red
     if(hitpoints < 10) {
         document.getElementById('hp').style.color = "red"
@@ -353,7 +353,7 @@ const getFrenData = async () => {
     document.getElementById('char').innerHTML = charisma
 
     // Update inventory
-    console.log(inventory)
+    // console.log(inventory)
 
     document.getElementById("clothes").innerHTML = inventory.clothes
     document.getElementById("head").innerHTML = inventory.head
@@ -368,8 +368,79 @@ getFrenData();
 // Swap background
 function nextBg() {
     console.log("Changing bg")
-    backgrounds = ["./bg/FIREFLY.gif", "./bg/CASTLE.png", "./bg/DARKFOREST.png", "./bg/FOREST.gif", "./bg/ICECAVE.gif", "./bg/NEBULA.png", "./bg/PEPEROOM.png"]
 
-    randomNum = Math.floor(Math.random() * 7);
-    document.getElementById("scene").src = backgrounds[randomNum]
+    const backgrounds = [
+        {
+            "number": 1,
+            "name": "FOREST",
+            "src": "./bg/FOREST.gif"
+        },
+        {
+            "number": 2,
+            "name": "FIREFLY",
+            "src": "./bg/FIREFLY.gif"
+        },
+        {
+            "number": 3,
+            "name": "ICECAVE",
+            "src": "./bg/ICECAVE.gif"
+        },
+        {
+            "number": 4,
+            "name": "TREASURE2",
+            "src": "./bg/TREASURE2.gif"
+        },
+        {
+            "number": 5,
+            "name": "PEPEROOM",
+            "src": "./bg/PEPEROOM.png"
+        },
+        {
+            "number": 6,
+            "name": "PIRATE",
+            "src": "./bg/PIRATE.gif"
+        },
+        {
+            "number": 7,
+            "name": "CASTLE_OS",
+            "src": "./bg/CASTLE_OS.png"
+        },
+        {
+            "number": 8,
+            "name": "CASTLE",
+            "src": "./bg/CASTLE.png"
+        },
+        {
+            "number": 9,
+            "name": "TREASURE",
+            "src": "./bg/TREASURE.gif"
+        },
+        {
+            "number": 10,
+            "name": "NEBULA",
+            "src": "./bg/NEBULA.png"
+        },
+        {
+            "number": 11,
+            "name": "DARKFOREST",
+            "src": "./bg/DARKFOREST.png"
+        }
+    ]
+
+    // Get current background
+    bgEl = document.getElementById("scene").src
+    console.log(bgEl)
+
+    const bgSep = bgEl.split(".")
+    const bgSep2 = bgSep[0].split("/")
+    const scene = bgSep2.slice(-1)[0]
+
+    // Get next in list and update bg
+    for(let item of backgrounds) {
+        if(item.name == scene) {
+            let n = (item.number + 1) % 12
+            if(n == 0) {n += 1}
+            document.getElementById("scene").src = backgrounds[n - 1].src
+        }
+    }
 }
