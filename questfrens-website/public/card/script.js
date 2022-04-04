@@ -373,57 +373,57 @@ function nextBg() {
         {
             "number": 1,
             "name": "FOREST",
-            "src": "../card/bg/FOREST.gif"
+            "src": "/card/bg/FOREST.gif"
         },
         {
             "number": 2,
             "name": "FIREFLY",
-            "src": "../card/bg/FIREFLY.gif"
+            "src": "/card/bg/FIREFLY.gif"
         },
         {
             "number": 3,
             "name": "ICECAVE",
-            "src": "../card/bg/ICECAVE.gif"
+            "src": "/card/bg/ICECAVE.gif"
         },
         {
             "number": 4,
             "name": "TREASURE2",
-            "src": "../card/bg/TREASURE2.gif"
+            "src": "/card/bg/TREASURE2.gif"
         },
         {
             "number": 5,
             "name": "PEPEROOM",
-            "src": "../card/bg/PEPEROOM.png"
+            "src": "/card/bg/PEPEROOM.png"
         },
         {
             "number": 6,
             "name": "PIRATE",
-            "src": "../card/bg/PIRATE.gif"
+            "src": "/card/bg/PIRATE.gif"
         },
         {
             "number": 7,
             "name": "CASTLE_OS",
-            "src": "../card/bg/CASTLE_OS.png"
+            "src": "/card/bg/CASTLE_OS.png"
         },
         {
             "number": 8,
             "name": "CASTLE",
-            "src": "../card/bg/CASTLE.png"
+            "src": "/card/bg/CASTLE.png"
         },
         {
             "number": 9,
             "name": "TREASURE",
-            "src": "../card/card/bg/TREASURE.gif"
+            "src": "/card/bg/TREASURE.gif"
         },
         {
             "number": 10,
             "name": "NEBULA",
-            "src": "../card/bg/NEBULA.png"
+            "src": "/card/bg/NEBULA.png"
         },
         {
             "number": 11,
             "name": "DARKFOREST",
-            "src": "../card/bg/DARKFOREST.png"
+            "src": "/card/bg/DARKFOREST.png"
         }
     ]
 
@@ -432,8 +432,11 @@ function nextBg() {
     console.log(bgEl)
 
     const bgSep = bgEl.split(".")
+    console.log(bgSep)
     const bgSep2 = bgSep[0].split("/")
+    console.log(bgSep2)
     const scene = bgSep2.slice(-1)[0]
+    console.log(scene)
 
     // Get next in list and update bg
     for(let item of backgrounds) {
