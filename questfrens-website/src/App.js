@@ -9,6 +9,7 @@ import Login from "./components/login"
 import Account from "./components/account"
 import Market from "./components/market"
 import Feed from "./components/feed"
+import Instructions from "./components/instructions"
 
 
 function Home() {
@@ -108,6 +109,7 @@ function App() {
         <Route path="/feed" element={<Feed />} />
         <Route path="/market" element={<Market />} />
         <Route path="/login" element={<Login setAddress={setAddress} setSignature={setSignature} />} />
+        <Route path="/instructions" element={<Instructions />} />
         <Route path="about" element={<About />} />
       </Routes>
     </div>

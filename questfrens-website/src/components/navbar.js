@@ -68,6 +68,7 @@ export default function Navbar(props) {
                 <MenuItem onClick={() => (navigate("/account"))}>My Frens</MenuItem>
                 <MenuItem onClick={() => (navigate("/market"))}>Market</MenuItem>
                 <MenuItem onClick={() => (navigate("/feed"))}>Feed</MenuItem>
+                <MenuItem onClick={() => (navigate("/instructions"))}>Help</MenuItem>
                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </Menu>
             {/* MENU END */}
