@@ -14,6 +14,9 @@ export default function Market(props) {
         console.log(marketList)
     }, [marketList])
 
+    // TODO
+    // 1. Create market system that shows unminted tokens and minted tokens
+
     return (
         <div
             style={{ width: '100%', display: "flex", justifyContent: "center", alignContent: "center" }}
