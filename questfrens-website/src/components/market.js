@@ -19,18 +19,22 @@ export default function Market(props) {
             style={{ width: '100%', display: "flex", justifyContent: "center", alignContent: "center" }}
         >
             <table
-                sx={{ width: 1 }}
+                sx={{ width: "100%" }}
+                style={{ textAlign: "left" }}
             >
                 <thead>
                 <tr>
-                    <th>Source</th>
+                    <th>QuestFren</th>
                     <th>Satoshirate</th>
                     <th>Link</th>
                 </tr>
                 </thead>
                     {marketList.map((item, i) => (
-                        <tr>
-                            <td>{item.source}</td>
+                        <tr
+                            style={{ backgroundColor: "black" }}
+                            key={i}
+                        >
+                            <td>{item.asset_longname}</td>
                             <td>{item.satoshirate}</td>
                             <td><a href={"https://xchain.io/tx/" + item.tx_hash} target="_blank">LINK</a></td>
                         </tr>
