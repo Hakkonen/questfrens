@@ -7,14 +7,34 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
 import { textAlign } from '@mui/system';
 import { Container } from '@mui/material';
 
 export default function Instructions(props) {
+    // When true shows mint help, when false shows combat
+    const [ toggleHelp, setToggleHelp ] = useState(true)
+
     return (
         <Box style={{ textAlign: "left", display: "flex", justifyContent: "center", alignItems: "center", flexFlow: "column nowrap" }}>
-            MINTING
-            <Card sx={{ maxWidth: 300, backgroundColor: "rgb(30,30,30)" }}>
+
+            <Container  style={{ width: "100%", height: "4em", display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <Stack spacing={2} direction="row">
+                <Button 
+                    variant={toggleHelp ? "contained" : "outlined"}
+                    onClick={() => setToggleHelp(true)}
+                >Minting</Button>
+                <Button 
+                    variant={toggleHelp ? "outlined" : "contained"}
+                    onClick={() => setToggleHelp(false)}
+                >Combat</Button>
+            </Stack>
+            </Container>
+
+            { toggleHelp && 
+            <Container style={{ padding: ".5em" }}>
+            <Stack spacing={3} direction="column" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)" }}>
                 <CardMedia
                     component="img"
                     // height="50"
@@ -35,7 +55,7 @@ export default function Instructions(props) {
                 </CardActions> */}
             </Card>
 
-            <Card sx={{ maxWidth: 425, backgroundColor: "rgb(30,30,30)" }}>
+            <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)" }}>
                 <CardMedia
                     component="img"
                     // height="50"
@@ -68,7 +88,7 @@ export default function Instructions(props) {
                 </CardContent>
             </Card>
 
-            <Card sx={{ maxWidth: 500, backgroundColor: "rgb(30,30,30)" }}>
+            <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)" }}>
                 <CardMedia
                     component="img"
                     // height="50"
@@ -80,12 +100,15 @@ export default function Instructions(props) {
                     Step 3
                     </Typography>
                     <Typography variant="body2" color="white">
-                    Wait for the broadcast to be confirmed on the chain...
+                    Wait for the broadcast to be confirmed on the chain...<br></br>
+                    <br></br>
+                    If you are getting a "Signature not found error": <br></br>
+                    go to <a href="https://xchain.io/" target="_blank">xchain.io</a> and confirm that your Mint Signature has been broadcasted under the "Broadcast" tab
                     </Typography>
                 </CardContent>
             </Card>
 
-            <Card sx={{ maxWidth: 500, backgroundColor: "rgb(30,30,30)" }}>
+            <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)" }}>
                 <CardMedia
                     component="img"
                     image="https://imgur.com/nZKVma4.png"
@@ -120,11 +143,73 @@ export default function Instructions(props) {
                     </Typography>
                 </CardContent>
             </Card>
+            </Stack>
+            </Container> }
             
-            
+            { !toggleHelp &&
             <Container>
-            COMBAT
-            <ol>
+            <Stack spacing={3} direction="column" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+
+            <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)" }}>
+                <CardMedia
+                    component="img"
+                    image="https://i.imgur.com/hzGLKB3.png"
+                    alt="Step 1"
+                />
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div" color="white">
+                    Step 1
+                    </Typography>
+                    <Typography variant="body2" color="white">
+                    Open Freewallet and select sign message
+                    </Typography>
+                </CardContent>
+            </Card>
+
+            <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)" }}>
+                <CardMedia
+                    component="img"
+                    image="https://i.imgur.com/h4bCb6y.png"
+                    alt="Step 2"
+                />
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div" color="white">
+                    Step 2
+                    </Typography>
+                    <Typography variant="body2" color="white">
+                    Enter the address that owns the fren you would like to use
+                    <br></br>
+                    <br></br>
+                    Press "sign".<br></br><br></br>
+                    Do NOT share your signature<br></br>
+                    Your signature will not allow access to your wallet, but it will allows control over your Frens.<br></br>
+                    Signing simply proves ownership of a wallet
+                    </Typography>
+                </CardContent>
+            </Card>
+
+            <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)" }}>
+                <CardMedia
+                    component="img"
+                    image="https://i.imgur.com/lBVlKN5.png"
+                    alt="Step 3"
+                />
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div" color="white">
+                    Step 3
+                    </Typography>
+                    <Typography variant="body2" color="white">
+                        In the attack box enter:<br></br><br></br>
+                        Address: Enter your Address<br></br>
+                        Signature: Enter the signature you created above<br></br>
+                        Target: Enter the QUESTFREN number you wish to target<br></br>
+                        <br></br>
+                        Hit "Submit"
+                    </Typography>
+                </CardContent>
+            </Card>
+
+            {/* <ol>
                 <li>
                     Open Freewallet and select sign message<br></br>
                     <br></br>
@@ -145,8 +230,9 @@ export default function Instructions(props) {
                     <br></br>
                     <img src="https://i.imgur.com/lBVlKN5.png" height="auto" width="300px"></img>
                 </li>
-            </ol>
-            </Container>
+            </ol> */}
+            </Stack>
+            </Container> }
         </Box>
     )
 }
