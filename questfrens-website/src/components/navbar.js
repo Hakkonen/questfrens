@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { styled, ThemeProvider, createTheme } from '@mui/material/styles';
 
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -34,10 +35,10 @@ export default function Navbar(props) {
     return (
         <Box 
             sx={{ flexGrow: 1 }}
-            style={{ zIndex: 100, marginBottom: "1em" }}
+            style={{ zIndex: 100 }}
         >
         <AppBar position="static" enableColorOnDark
-            style={{ backgroundColor: "rgb(45,22,61)" }}
+            style={{ backgroundColor: props.theme.palette.common.black }}
         >
             <Toolbar>
             <IconButton
@@ -51,10 +52,11 @@ export default function Navbar(props) {
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
-                style={{ color: "bisque" }}
+                // style={{  }}
             >
                 <MenuIcon />
             </IconButton>
+
             {/* MENU */}
             <Menu
                 id="basic-menu"
@@ -71,17 +73,20 @@ export default function Navbar(props) {
                 <MenuItem onClick={() => (navigate("/instructions"))}>Help</MenuItem>
                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </Menu>
+
             {/* MENU END */}
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                <Link to="/"
-                    style={{ textDecoration: "none", color: "bisque" }}
+
+            <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
+                <Link to="/" style={{ textDecoration: "none", color: props.theme.palette.basque  }}
                 >QuestFrens</Link>
             </Typography>
+
             <Button 
                 color="inherit" 
-                style={{ color: "bisque" }}
+                style={{  }}
                 onClick={() => (navigate("/login"))}
             >Login</Button>
+
             </Toolbar>
         </AppBar>
         </Box>

@@ -4,6 +4,7 @@ import './App.css';
 
 import Grid from '@mui/material/Grid';
 
+import Home from "./components/home"
 import Navbar from "./components/navbar"
 import Login from "./components/login"
 import Account from "./components/account"
@@ -11,56 +12,64 @@ import Market from "./components/market"
 import Feed from "./components/feed"
 import Instructions from "./components/instructions"
 
+// themes
+import { styled, ThemeProvider, createTheme } from '@mui/material/styles';
+import { CssBaseline } from '@mui/material/';
+import { indigo, pink } from '@mui/material/colors';
+// import PressStart2P from './fonts/PressStart2P.ttf'
 
-function Home() {
+// Dashboard
+import Dashboard from "./components/dashboard"
 
-  return (
-    <div
-      style={{
-        display: "flex", justifyContent: "center", alignItems: "center", height: "auto"
-      }}
-    >
-      <Grid container spacing={2}
-        sx={{ height: "100%" }}
-      >
-        <Grid item xs={12} md={6}
-          style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
-        >
-          <main
-            style={{ maxWidth: "500px", fontSize: "1.5em" }}
-          >
-            Quest Frens is a dynamically generated NFT collection on the Counterparty network.
-            <br></br><br></br>
-            Each Quest Fren is seeded from your mint signature's unique hash, giving it it's own attributes and items.
-            <br></br><br></br>
-            The site is still under construction, with the following features in development:
-            <ul
-              style={{ textAlign: "left" }}
-            >
-              <li><Link to="/market">Market</Link></li>
-              <li><Link to="/feed">Feed</Link></li>
-              <li>Combat</li>
-              <li>Fren Wallet</li>
-            </ul>
-            <br></br>
-            <br></br>
-                Join the chat for more:<br></br>
-                <a href="https://t.me/fren_zone" target="_blank">https://t.me/fren_zone</a>
-            </main>
-          </Grid>
-          <Grid item xs={12} md={6}
-            style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
-          >
-            <iframe 
-              // style="border:0;" 
-              width="400" height="560" 
-              src={`../card/index.html?fren=1`}
-            ></iframe> 
-          </Grid>
-      </Grid>
-    </div>
-  )
-}
+const pixelFont =  "font-family: 'Press Start 2P', cursive;";
+const darkBlue = "rgb(13,25,40)"
+
+const theme = createTheme({
+  palette: {
+    mode: "dark",
+    primary: indigo,
+    secondary: pink,
+    darkBlue: darkBlue,
+    basque: "rgb(251,229,200)",
+    appleRed: "rgb(255,69,58)",
+    appleOrange: "rgb(255,159,10)",
+    appleGreen: "rgb(48,209,88)",
+    appleBlue: "rgb(10,132,255)",
+    appleDarkGrey: "rgb(28,28,30)",
+    background: {
+      // paper: darkBlue,
+      // default: darkBlue
+    },
+    action: {
+      hover: pink,
+    }
+  },
+  typography: {
+    h4: {
+      fontFamily: ['"Press Start 2P"', 'cursive'].join(','),
+    },
+    fontFamily: [
+      // "cursive",
+      // '-apple-system',
+      // 'BlinkMacSystemFont',
+      // '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Press Start 2P"',
+      // '"Apple Color Emoji"',
+      // '"Segoe UI Emoji"',
+      // '"Segoe UI Symbol"',
+    ].join(','),
+  },
+  components: {
+    MuiLink: {
+      color: "#FFF",
+      underline: "none"
+    }
+  }
+});
 
 function About() {
   return (
@@ -99,20 +108,24 @@ function App() {
   }, [])
 
   return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline/>
     <div className="App"
-      style={{ backgroundColor: "rgb(45,22,61)", height: "100vh", width: "100vw" , color: "bisque" }}
+      style={{ height: "100vh", width: "100vw" }}
     >
-      <Navbar />
+      <Navbar theme={theme} />
+      
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home theme={theme} />} />
         <Route path="/account" element={<Account address={address} />} />
-        <Route path="/feed" element={<Feed />} />
-        <Route path="/market" element={<Market />} />
+        <Route path="/feed" element={<Feed theme={theme} />} />
+        <Route path="/market" element={<Market theme={theme} />} />
         <Route path="/login" element={<Login setAddress={setAddress} setSignature={setSignature} />} />
         <Route path="/instructions" element={<Instructions />} />
-        <Route path="about" element={<About />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </div>
+    </ThemeProvider>
   );
 }
 

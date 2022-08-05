@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import Dashboard from "./dashboard"
 import FrenCard from "./frenCard"
 
 import Grid from '@mui/material/Grid';
@@ -48,3 +49,13 @@ const getFeed = async () => {
     console.log(feed)
     return feed
 }
+
+// export default function Feed(props) {
+
+//     return (
+//         <Dashboard 
+//             page={<FeedPage/>}
+//         />
+//     )
+
+// }

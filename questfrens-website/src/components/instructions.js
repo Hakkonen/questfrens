@@ -11,12 +11,18 @@ import Stack from '@mui/material/Stack';
 import { textAlign } from '@mui/system';
 import { Container } from '@mui/material';
 
+import Dashboard from "./dashboard"
+
 export default function Instructions(props) {
     // When true shows mint help, when false shows combat
     const [ toggleHelp, setToggleHelp ] = useState(true)
 
     return (
         <Box style={{ textAlign: "left", display: "flex", justifyContent: "center", alignItems: "center", flexFlow: "column nowrap" }}>
+
+            <Container style={{ textAlign: "center", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <Typography>Instructions</Typography>
+            </Container>
 
             <Container  style={{ width: "100%", height: "4em", display: "flex", justifyContent: "center", alignItems: "center" }}>
             <Stack spacing={2} direction="row">
@@ -236,3 +242,13 @@ export default function Instructions(props) {
         </Box>
     )
 }
+
+// export default function Instructions(props) {
+
+//     return (
+//         <Dashboard 
+//             page={<InstructionsPage/>}
+//         />
+//     )
+
+// }
