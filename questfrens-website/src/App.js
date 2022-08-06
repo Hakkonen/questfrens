@@ -12,6 +12,8 @@ import Market from "./components/market"
 import Feed from "./components/feed"
 import Instructions from "./components/instructions"
 
+import useWindowSize from "./components/useWindowSize"
+
 // themes
 import { styled, ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material/';
@@ -45,9 +47,9 @@ const theme = createTheme({
     }
   },
   typography: {
-    h4: {
-      fontFamily: ['"Press Start 2P"', 'cursive'].join(','),
-    },
+    // h4: {
+    //   fontFamily: ['"Press Start 2P"', 'cursive'].join(','),
+    // },
     fontFamily: [
       // "cursive",
       // '-apple-system',
@@ -90,6 +92,9 @@ function About() {
 function App() {
   const [ address, setAddress ] = useState("")
   const [ signature, setSignature ] = useState("")
+
+  // Window size
+  const size = useWindowSize();
 
   // COOKIEs
   useEffect(() => {
