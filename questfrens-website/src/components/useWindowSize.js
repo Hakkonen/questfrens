@@ -9,7 +9,7 @@ const useWindowSize = () => {
         height: undefined
     });
 
-    console.log(windowSize)
+    // console.log(windowSize)
 
     useEffect(() => {
         // only execute all the code below in client side

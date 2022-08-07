@@ -9,6 +9,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
@@ -34,18 +35,67 @@ import testDb from "../assets/testDB.json"
 
 
 export default function Market(props) {
+    // Dispenser array
     const [ marketList, setMarketList ] = useState([])
+    // Sets dispenser list master list
+    useEffect(async () => {
+        console.log("running")
+        const res = await getDispensers()
+        
+        setMarketList(res)
+    }, [])
+
     const [ collection, setCollection ] = useState({
         title: "Questfrens",
         info: "Dynamically generated, interactive NFTs on the Counterparty network."
     })
-    const [priceDirection, setPriceDirection] = useState(true)
-    const [ filterShow, toggleFilterShow ] = useState(true)
+    
 
-    const handlePriceChange = (event) => {
-        setPriceDirection(event.target.value);
+    // Filters
+    const [ filters, setFilters ] = useState({
+        minted: false,
+    })
+    
+    const [ filterMinted, toggleFilterMinted ] = useState(false)
+    const handleFilterMinted = () => {
+        toggleFilterMinted(!filterMinted)
     }
 
+    // min / max price filter vars
+    const [ minPrice, setMinPrice ] = useState("")
+    const [ maxPrice, setMaxPrice ] = useState("")
+
+    // Checks for numbers
+    const isNumbers = (str) => str == "" || /^[0-9]+(\.[0-9]*)?$|^\w$/.test(str)
+
+    // Search values
+    const [ searchValue, setSearchValue ] = useState("")
+
+    // Sorts price direction
+    const [priceDirection, setPriceDirection] = useState("")
+    const handlePriceChange = (event) => {
+        setPriceDirection(event.target.value);
+        console.log(event.target.value)
+        let sort_list = marketList
+        // If ascending
+        if(!event.target.value) {
+            // sort ascending
+            sort_list.sort(function(a, b){return a.satoshirate - b.satoshirate});
+        } else if (event.target.value) {
+            // sort ascending
+            sort_list.sort(function(a, b){return b.satoshirate - a.satoshirate});
+        }
+
+        setMarketList(sort_list)
+    }
+    useEffect(() => {
+        console.log(priceDirection)
+
+
+        
+    }, [priceDirection])
+
+    const [ filterShow, toggleFilterShow ] = useState(true)
     const handleFilterToggle = () => {
         // toggleFilterShow(!filterShow)
     }
@@ -55,18 +105,6 @@ export default function Market(props) {
     const filterHidden = {
         opacity: 0, zIndex: "-1", pointerEvents: "none", transition: "1s"
     }
-
-    useEffect(async () => {
-        console.log("running")
-        const res = await getDispensers()
-        
-        setMarketList(res)
-    }, [])
-
-    useEffect(() => {
-        console.log("COMPLETED")
-        console.log(marketList)
-    }, [marketList])
 
     // Themeing
     const filterHover = {
@@ -152,7 +190,7 @@ export default function Market(props) {
 
                     <Grid item xs={2} sm={1} lg={0.75} xl={0.75} sx={{  }}>
                     <Typography variant="h5">
-                            20
+                            -
                         </Typography>
                         <Typography variant="overline">
                             Owners
@@ -161,7 +199,7 @@ export default function Market(props) {
 
                     <Grid item xs={3} sm={1} lg={0.75} xl={0.75} sx={{  }}>
                     <Typography variant="h5">
-                            ₿1
+                            ₿-
                         </Typography>
                         <Typography variant="overline">
                             Total Vol
@@ -211,13 +249,13 @@ export default function Market(props) {
                 
                 {/* Filter */}
                 <Grid 
-                    container xs={filterShow ? 12 : 0} lg={filterShow ? 3 : 0} 
+                    container xs={filterShow ? 12 : 0} sm={filterShow ? 4 : 0} lg={filterShow ? 2 : 0} 
                     spacing={0}
                     sx={ 
                         filterShow ? filterShowing : filterHidden 
                     }>
                     {/* Price Range */}
-                    <Grid item xs={12} lg={9} sx={{ p: 0, m: 0 }}>
+                    <Grid item xs={12} lg={12} sx={{ p: 0, m: 0 }}>
                         <Grid container xs={12}>
                             <Typography variant="overline" sx={{ width: "100%", textAlign: "left", pl: 1.2 }}>
                                 Price Range (BTC)
@@ -225,11 +263,46 @@ export default function Market(props) {
                         </Grid>
                         <Grid container xs={12} sx={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center", borderBottom: "1px solid rgb(40,45,49)"}}>
                             <Grid item xs={5} sx={{ pb: 1 }}>
-                                <TextField id="outlined-basic" variant="outlined" size="small" />
+                                <TextField id="outlined-basic" variant="outlined" size="small" autoComplete="off"
+                                    label="min"
+                                    value={minPrice}
+                                    onChange={(e) => {
+                                        const { value } = e.target;
+                                        if (isNumbers(value)) {
+                                            setMinPrice(value);
+                                        }
+                                    }}
+                                />
                             </Grid>
                             <Grid item xs={5} sx={{ pb: 1 }} >
-                                <TextField id="outlined-basic" variant="outlined" size="small" />
+                                <TextField id="outlined-basic" variant="outlined" size="small" autoComplete="off" 
+                                    label="max"
+                                    value={maxPrice}
+                                    onChange={(e) => {
+                                        const { value } = e.target;
+                                        if (isNumbers(value)) {
+                                            setMaxPrice(value);
+                                        }
+                                    }}
+                                />
                             </Grid>
+                        </Grid>
+                    </Grid>
+
+                    <Grid item xs={12} lg={12} sx={{  }}>
+                        <Grid container xs={12} sx={{ pl:1 }}>
+                            <Typography variant="overline">
+                                Filter minted tokens
+                            </Typography>
+                        </Grid>
+                        <Grid container xs={12} sx={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "center", pl:1 , pb: 2, borderBottom: "1px solid rgb(40,45,49)"}}>
+                            <Button 
+                                color="secondary"
+                                variant={ filterMinted ? "outlined" : "contained"}
+                                onClick={() => {handleFilterMinted()}}
+                            >
+                                { filterMinted ? "Show Minted" : "Hide Minted" }
+                            </Button>
                         </Grid>
                     </Grid>
 
@@ -237,24 +310,25 @@ export default function Market(props) {
                 </Grid>
 
                 {/* Assets */}
-                <Grid container xs={filterShow ? 12 : 0} lg={filterShow ? 9 : 12} sx={{ width: "100%", height: "100%" }}>
+                <Grid container xs={filterShow ? 12 : 0} sm={filterShow ? 8 : 12} lg={filterShow ? 10 : 12} sx={{ width: "100%", height: "100%" }}>
                     {/* Search and price direction */}
                     <Grid item xs={12} sx={{ display: "flex", justifyContent: "flex-end", alignItems: "center", pr: 2, mb: 4 }}>
                         {/* Search bar */}
-                        <SearchBar /> 
+                        <SearchBar 
+                            searchValue={searchValue}
+                            setSearchValue={setSearchValue}
+                        /> 
 
                         {/* Price direction */}
                         <FormControl sx={{ m: 1, minWidth: 140 }} size="small">
                             <InputLabel id="demo-select-small">Price</InputLabel>
                             <Select
-                                labelId="demo-select-small"
-                                id="demo-select-small"
+                                labelId="priceDirection"
+                                id="priceDirection"
                                 value={priceDirection}
-                                label="Age"
+                                label="Price"
                                 onChange={handlePriceChange}
                             >
-                                <MenuItem value="Low to High">
-                                </MenuItem>
                                 <MenuItem value={false}>Low to High</MenuItem>
                                 <MenuItem value={true}>High to Low</MenuItem>
                             </Select>
@@ -262,15 +336,19 @@ export default function Market(props) {
                     </Grid>
                     
                     {/* Assets */}
-                    <Grid container xs={12} spacing={1} sx={{ p:0, m:2, alignContent: "center" }}>
                         {
                             marketList.map(asset => (
-                                <Grid item xs={6} lg={4} xl={3} sx={{ p: 0, m: 0 }}>
-                                    <MarketCard key={asset.asset} asset={asset} />
-                                </Grid>
+                                <CardFilter 
+                                    asset={asset} filterMinted={filterMinted} 
+                                    minPrice={minPrice} maxPrice={maxPrice}
+                                    searchValue={searchValue}
+                                />
+                                // <Grid item xs={6} lg={4} xl={3} sx={{ p: 1, m: 0 }}>
+                                //     <MarketCard key={asset.asset} asset={asset} filterMinted={filterMinted} />
+                                // </Grid>
+                                
                             ))
                         }
-                    </Grid>
                 </Grid>
 
             {/* </Container> */}
@@ -280,10 +358,75 @@ export default function Market(props) {
     )
 }
 
+// Card filter program
+function CardFilter(props) {
+    // Btc rate
+    const btcRate = parseFloat(props.asset.satoshirate) / 100000000
+
+    const [ minted, setMinted ] = useState(false)
+    useState (() => {
+        let exists = Object.keys(props.asset).includes("minted");
+
+        if (exists) {
+            setMinted(true)
+        }
+    }, [])
+
+    const Card = (
+        <Grid item xs={6} lg={4} xl={3} sx={{ p: 1, m: 0 }}>
+            <MarketCard key={props.asset.asset} asset={props.asset} filterMinted={props.filterMinted} />
+        </Grid>
+    )
+
+    let component = Card
+
+    // Create checks
+    let mintCheck = false
+    let priceRangeCheck = true
+    let searchCheck = true
+
+    // Parse for minted/unminted filter
+    if (props.filterMinted && minted == true) {
+        mintCheck = true
+    } else if ( props.filterMinted == false && minted == false ) {
+        mintCheck = true
+    } else {
+        component = null
+    }
+
+    // Parse for min / max price
+    let minPrice
+    props.minPrice == "" ? minPrice = 0 : minPrice = props.minPrice
+    let maxPrice
+    props.maxPrice == "" ? maxPrice = 999 : maxPrice = props.maxPrice
+
+    if(btcRate < minPrice) {
+        priceRangeCheck = false
+    } else if (maxPrice < btcRate) {
+        priceRangeCheck = false
+    }
+
+    // Search terms
+    const alias = props.asset.asset_longname
+    if (alias.toLowerCase().includes(props.searchValue) == false) {
+        searchCheck = false
+    }
+
+    console.log("CHECKS>>>")
+    console.log(mintCheck)
+    console.log(priceRangeCheck)
+    console.log(searchCheck)
+    if (mintCheck && priceRangeCheck && searchCheck) {
+        return component
+    } else {
+        return null
+    }
+}
+
 const getDispensers = async () => {
-    const response = await fetch('https://questfrens.herokuapp.com/get_dispensers');
-    const dispenserData = await response.json();
-    console.log(dispenserData)
-    return dispenserData
-    // return testDb
+    // const response = await fetch('https://questfrens.herokuapp.com/get_dispensers');
+    // const dispenserData = await response.json();
+    // console.log(dispenserData)
+    // return dispenserData
+    return testDb
 }
