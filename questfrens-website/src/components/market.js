@@ -124,7 +124,9 @@ export default function Market(props) {
         <Box sx={{ width: "100vw", minHeight: "90%", height: "auto" }}>
 
             {/* Header */}
-            <Container  maxWidth="0" sx={{ width: "100%", height: "340px", display: "flex", flexFlow: "column nowrap", justifyContent: "center", alignItems: "space-between"}}>
+            <Container  maxWidth="0" 
+                sx={{ width: "100%", height: "340px", display: "flex", flexFlow: "column nowrap", justifyContent: "center", alignItems: "space-between"}}
+            >
 
                 <Box disableGutters style={{ height: "340px", width: "100%", background: `url(${qfBg})`, backgroundRepeat: "no-repeat", backgroundSize: "100%", backgroundPosition: "center", zIndex: "-1", position: "absolute", left: 0, filter: "blur(0px)", opacity: 0.1, ml:0, p:0, overflow: "hidden" }}></Box>
 

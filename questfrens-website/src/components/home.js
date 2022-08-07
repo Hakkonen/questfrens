@@ -4,6 +4,7 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import { Link } from "react-router-dom";
 
 import SplashCard from "./cards/splashCard"
 
@@ -50,7 +51,9 @@ export default function Home(props) {
                         </Typography>
 
                         <Stack spacing={2} direction="row" sx={{ pb: 2, pr: 1 }}>
-                            <Button color="secondary" variant="contained">Mint</Button>
+                            <Link to="/market">
+                                <Button color="secondary" variant="contained">Mint</Button>
+                            </Link>
                             <Button color="secondary" variant="outlined">Explore</Button>
                         </Stack>
                     </Container>
