@@ -32,9 +32,9 @@ import SearchBar from "./searchBar"
 import Dashboard from "./dashboard"
 import MarketCard from "./cards/marketCard"
 import qfIcon from "../assets/QFicontemp.png"
+import qfBg from "../assets/qfBg.gif"
 
 import testDb from "../assets/testDB.json"
-
 
 export default function Market(props) {
     // Dispenser array
@@ -49,10 +49,10 @@ export default function Market(props) {
 
     const [ collection, setCollection ] = useState({
         title: "Questfrens",
-        info: "Dynamically generated, interactive NFTs on the Counterparty network."
+        info: "Dynamically generated, interactive NFTs on the Counterparty network.",
+        bg: qfBg
     })
     
-
     // Filters
     const [ filters, setFilters ] = useState({
         minted: false,
@@ -92,8 +92,6 @@ export default function Market(props) {
     }
     useEffect(() => {
         console.log(priceDirection)
-
-
         
     }, [priceDirection])
 
@@ -102,7 +100,7 @@ export default function Market(props) {
         // toggleFilterShow(!filterShow)
     }
     const filterShowing = {
-        width: "auto", height: "100%", transition: "1s"
+        width: "auto", height: "100%", transition: "1s", pl: 1, pr: 1
     }
     const filterHidden = {
         opacity: 0, zIndex: "-1", pointerEvents: "none", transition: "1s"
@@ -128,7 +126,7 @@ export default function Market(props) {
             {/* Header */}
             <Container  maxWidth="0" sx={{ width: "100%", height: "340px", display: "flex", flexFlow: "column nowrap", justifyContent: "center", alignItems: "space-between"}}>
 
-                <Box disableGutters style={{ height: "340px", width: "100%", background: `url(${qfIcon})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "bottom", zIndex: "-1", position: "absolute", left: 0, filter: "blur(0px)", opacity: 0.1, ml:0, p:0, overflow: "hidden" }}></Box>
+                <Box disableGutters style={{ height: "340px", width: "100%", background: `url(${qfBg})`, backgroundRepeat: "no-repeat", backgroundSize: "100%", backgroundPosition: "center", zIndex: "-1", position: "absolute", left: 0, filter: "blur(0px)", opacity: 0.1, ml:0, p:0, overflow: "hidden" }}></Box>
 
                 <Grid container spacing={0} sx={{ height: "auto" }}>
 
@@ -153,7 +151,7 @@ export default function Market(props) {
                     {/* Info */}
                     <Grid item xs={12} sm={12} md={12} lg={10} xl={10} sx={{  }}>
                         <Grid container xs={10} sx={{ height: "auto" }}>
-                            <Typography variant="h5" sx={{ fontWeight: "500", pl: 0, pr: 0, borderBottom: "1px solid rgba(40,45,49,1)" }}>
+                            <Typography variant="h5" sx={{ fontWeight: "500", pl: 0, pr: 0, borderBottom: "1px solid rgba(40,45,49,1)", letterSpacing: "1px" }}>
                                 {collection.title}
                             </Typography>
                         </Grid>
@@ -231,7 +229,7 @@ export default function Market(props) {
                 className="noSelect"
             >
                     {/* Filter tab toggle */}
-                    <Grid item xs={4} lg={3} sx={ filterShow ? `pt: "1px"` : filterHidden } className="hoverColor" onClick={() => {handleFilterToggle()}}>
+                    <Grid item xs={4} lg={2} sx={ filterShow ? `pt: "1px"` : filterHidden } className="hoverColor" onClick={() => {handleFilterToggle()}}>
                         <Grid container xs={12} xl={4} sx={{}}>
                             <Grid item xs={1} md={1} xl={1} />
                             <Grid item xs={1} md={1} xl={1} sx={{ display: "flex", justifyContent: "left", alignItems: "center" }}>
@@ -250,8 +248,7 @@ export default function Market(props) {
                     </Grid>
             </Grid>
 
-            {/* <Container disableGutters maxWidth="0" sx={{ width: "100%", height: "100%", display: "flex" }}> */}
-            <Grid container xs={12}>
+            <Grid container xs={12} sx={{ }}>
                 
                 {/* Filter */}
                 <Grid 

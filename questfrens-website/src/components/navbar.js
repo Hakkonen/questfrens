@@ -77,8 +77,8 @@ export default function Navbar(props) {
             {/* MENU END */}
 
             <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
-                <Link to="/" style={{ textDecoration: "none", color: props.theme.palette.basque  }}
-                >QuestFrens</Link>
+                <Link to="/" style={{ textDecoration: "none", color: props.theme.palette.secondary.main  }}
+                >QUESTFRENS</Link>
             </Typography>
 
             <Button 
