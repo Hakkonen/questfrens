@@ -115,8 +115,12 @@ export default function Market(props) {
         }
     }
 
-    // TODO
-    // 1. Create market system that shows unminted tokens and minted tokens
+    const stats = {
+        "items": 624,
+        "holders": 137,
+        "toal_btc_vol": 0.314,
+        "btc_floor": 0.001
+    }
 
     return (
         <Box sx={{ width: "100vw", minHeight: "90%", height: "auto" }}>
@@ -183,7 +187,7 @@ export default function Market(props) {
                 <Grid container spacing={1} sx={{ minHeight: "96px", height: "auto" }}>
                     <Grid item xs={2} sm={1} lg={0.75} xl={0.75} sx={{  }}>
                         <Typography variant="h5">
-                            200
+                            {stats.items}
                         </Typography>
                         <Typography variant="overline">
                             Items
@@ -192,7 +196,7 @@ export default function Market(props) {
 
                     <Grid item xs={2} sm={1} lg={0.75} xl={0.75} sx={{  }}>
                     <Typography variant="h5">
-                            -
+                            {stats.holders}
                         </Typography>
                         <Typography variant="overline">
                             Owners
@@ -201,7 +205,7 @@ export default function Market(props) {
 
                     <Grid item xs={3} sm={1} lg={0.75} xl={0.75} sx={{  }}>
                     <Typography variant="h5">
-                            ₿-
+                            ₿{stats.toal_btc_vol}
                         </Typography>
                         <Typography variant="overline">
                             Total Vol
@@ -210,7 +214,7 @@ export default function Market(props) {
 
                     <Grid item xs={2} sm={1} lg={0.75} xl={0.75} sx={{  }}>
                         <Typography variant="h5" sx={{ verticalAlign: 'middle', display: 'inline-flex' }}>
-                            ₿0.002
+                            ₿{stats.btc_floor}
                         </Typography>
                         <Typography variant="overline">
                             Floor
