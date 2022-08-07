@@ -26,6 +26,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+import LazyLoad from 'react-lazyload' //https://github.com/twobin/react-lazyload
+
 import SearchBar from "./searchBar"
 import Dashboard from "./dashboard"
 import MarketCard from "./cards/marketCard"
@@ -374,7 +376,9 @@ function CardFilter(props) {
 
     const Card = (
         <Grid item xs={6} lg={4} xl={3} sx={{ p: 1, m: 0 }}>
-            <MarketCard key={props.asset.asset} asset={props.asset} filterMinted={props.filterMinted} />
+            <LazyLoad height={200}>
+                <MarketCard key={props.asset.asset} asset={props.asset} filterMinted={props.filterMinted} />
+            </LazyLoad>
         </Grid>
     )
 
@@ -412,10 +416,6 @@ function CardFilter(props) {
         searchCheck = false
     }
 
-    console.log("CHECKS>>>")
-    console.log(mintCheck)
-    console.log(priceRangeCheck)
-    console.log(searchCheck)
     if (mintCheck && priceRangeCheck && searchCheck) {
         return component
     } else {
@@ -424,9 +424,9 @@ function CardFilter(props) {
 }
 
 const getDispensers = async () => {
-    // const response = await fetch('https://questfrens.herokuapp.com/get_dispensers');
-    // const dispenserData = await response.json();
-    // console.log(dispenserData)
-    // return dispenserData
-    return testDb
+    const response = await fetch('https://questfrens.herokuapp.com/get_dispensers');
+    const dispenserData = await response.json();
+    console.log(dispenserData)
+    return dispenserData
+    // return testDb
 }
