@@ -30,37 +30,44 @@ export default function Home(props) {
                 sx={{ height: "100%", width: "auto", maxWidth: "1300px" }}
             >
                 <Grid item xs={12} md={6}
-                    style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+                    sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
                 >
-                    <Container>
-                        <Typography
-                            variant="h2"
-                            sx={{ color: props.theme.palette.basque, fontWeight: 600, pb: 2, pr: 1 }}
-                            align="justify"
-                        >
-                            Mint, collect, and quest...
-                        </Typography>
+                    {/* <Container sx={{  }}> */}
+                    <Grid container spacing={0}>
+                        <Grid item xs={10} sm={9} sx={{ pl: 1, pt: 1}}>
+                            <Typography
+                                variant="h2"
+                                sx={{ color: props.theme.palette.basque, fontWeight: 600, pb: 2, pr: 1, pt: 2 }}
+                                align="left"
+                            >
+                                Mint, collect, and quest...
+                            </Typography>
+                        </Grid>
 
-                        <Typography
-                            variant="h5"
-                            align="justify"
-                            sx={{ pb: 2, pr: 1 }}
-                            color={theme.palette.grey[300]}
-                        >
-                            With Questfrens, generative, interactive NFTs on the Counterparty network
-                        </Typography>
+                        <Grid item xs={10} sm={9} sx={{ pl: 1, pt: 0 }}>
+                            <Typography
+                                variant="h5"
+                                align="left"
+                                sx={{ pb: 2, pr: 1, pt: 2 }}
+                                color={theme.palette.grey[300]}
+                            >
+                                With Questfrens, generative, interactive NFTs on the Counterparty network
+                            </Typography>
 
-                        <Stack spacing={2} direction="row" sx={{ pb: 2, pr: 1 }}>
-                            <Link to="/market">
-                                <Button color="secondary" variant="contained">Mint</Button>
-                            </Link>
-                            <Button color="secondary" variant="outlined">Explore</Button>
-                        </Stack>
-                    </Container>
+
+                            <Stack spacing={2} direction="row" sx={{ pb: 2, pr: 1 }}>
+                                <Link to="/market">
+                                    <Button color="secondary" variant="contained">Mint</Button>
+                                </Link>
+                                <Button color="secondary" variant="outlined">Explore</Button>
+                            </Stack>
+                        </Grid>
+                    </Grid>
+                    {/* </Container> */}
                 </Grid>
 
                 <Grid item xs={12} md={6}
-                    style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100%", width: "100%", pt: 1, pb: 1 }}
+                    style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100%", width: "100%", pt: 2, pb: 1 }}
                 >
                     <SplashCard>
                         {/* <iframe 
