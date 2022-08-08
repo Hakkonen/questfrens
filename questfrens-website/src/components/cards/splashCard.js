@@ -18,7 +18,8 @@ export default function SplashCard() {
                 <Box sx={{ width: "100%" }}>
                 <iframe 
                     style={{border: "1px solid rgba(150,150,150,0.15)"}}
-                    width="400" height="560" 
+                    // width="400" height="560"
+                    width="100%" height="560"
                     src={`https://frenzone.net/questfrens/card/index.html?fren=1`}
                 ></iframe> 
                 </Box>
