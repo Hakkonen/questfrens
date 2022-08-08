@@ -108,13 +108,16 @@ export default function Instructions(props) {
                     <Typography variant="body2" color="white">
                     Wait for the broadcast to be confirmed on the chain...<br></br>
                     <br></br>
+                    NOTE: Depending on how quickly the network is processing transactions, your mint broadcast may take as long as 10 to 30 minutes.
+                    <br></br>
+                    <br></br>
                     If you are getting a "Signature not found error": <br></br>
                     go to <a href="https://xchain.io/" target="_blank">xchain.io</a> and confirm that your Mint Signature has been broadcasted under the "Broadcast" tab
                     </Typography>
                 </CardContent>
             </Card>
 
-            <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)" }}>
+            {/* <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)" }}>
                 <CardMedia
                     component="img"
                     image="https://imgur.com/nZKVma4.png"
@@ -130,22 +133,23 @@ export default function Instructions(props) {
                     Enter the QUESTFREN number that you have broadcast a mint signature for.
                     </Typography>
                 </CardContent>
-            </Card>
+            </Card> */}
 
             <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)" }}>
                 <CardMedia
                     component="img"
                     image="https://imgur.com/e0u19M6.png"
-                    alt="Step 5"
+                    alt="Step 4"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div" color="white">
-                    Step 5
+                    Step 4
                     </Typography>
                     <Typography variant="body2" color="white">
                     Click to confirm that you have a valid mint signature broadcasted and confirmed on the network.
                     <br></br><br></br>
                     Congratultions, you're now ready to hit "Mint" and mint your QUESTFREN!
+                    
                     </Typography>
                 </CardContent>
             </Card>
