@@ -33,32 +33,121 @@ import Dashboard from "./dashboard"
 import MarketCard from "./cards/marketCard"
 import qfIcon from "../assets/QFicontemp.png"
 import qfBg from "../assets/qfBg.gif"
+import punkBg from "../assets/punkBg.png"
+import punkIcon from "../assets/pfIcon.png"
 
 import testDb from "../assets/testDB.json"
+import punkDb from "../assets/punkDb.json"
 
 export default function Market(props) {
-    // Dispenser array
-    const [ marketList, setMarketList ] = useState([])
-    // Sets dispenser list master list
-    useEffect(async () => {
-        console.log("running")
-        const res = await getDispensers()
-        
-        setMarketList(res)
-    }, [])
-
+    // Collection
     const [ collection, setCollection ] = useState({
         title: "Questfrens",
         info: "Dynamically generated, interactive NFTs on the Counterparty network.",
-        bg: qfBg
+        icon: qfIcon,
+        bg: qfBg,
+        dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers",
+        statsURL: "https://frenzone.net/questfrens/stats/questfren_stats.json",
+        attributeList: "",
+        minted: false
     })
+
+    // Dispenser array
+    const [ marketList, setMarketList ] = useState([])
+    const [ stats, setStats ] = useState({
+        "items": 0,
+        "holders": 0,
+        "total_btc_vol": 0,
+        "btc_floor": 0
+    })
+    // Sets dispenser list master list
+    const getMarketList = () => fetch(collection.dispenserListURL).then(response => response.json())
+    const getStats = () => fetch(collection.statsURL).then(response => response.json())
+    useEffect(() => {
+        (async () => {
+            // Set market list
+            // setMarketList(punkDb)
+            setMarketList(await getMarketList())
+            
+            // Set stats
+            setStats(await getStats())
+        })();
+    }, [collection]);
+
+    // Sets attribute filter list
+    const [ attrFilters, setAttrFilters ] = useState([])
+    // Gets properties of first found attribute and sets to filters
+    useEffect(() => {
+        let attrList = []
+
+        for (const asset of marketList) {
+            if (Object.keys(asset).includes("attributes")) {
+                // console.log(asset.attributes)
+                for (const attribute of Object.entries(asset.attributes)) {
+                    
+                    // console.log(attribute)
+                    // let attr_type = attribute[0]
+                    // let attr_val = attribute[1]
+
+                    // // IF key is not already present, add key
+                    // if (!Object.keys(attrList).includes(attr_type)) {
+
+                    //     attrList.push({attribute[0]: attribute[1]})
+                    // }
+
+                    // Add atr value to relevant type
+                    // attrValArray = 
+                    // attrList[attr_type] = 
+                }
+
+                // setAttrFilters(attrList)
+            }
+        }
+    }, [marketList])
+    useEffect(() => {
+        console.log(attrFilters)
+    }, [attrFilters])
+
+    // COLLECTIONS SWAP
+    const [ collectionName, setCollectionName ] = useState("Questfrens")
+    const handleCollectionChange = (event) => {
+        console.log(event.target.value)
+        setCollectionName(event.target.value)
+
+        if (event.target.value == "questfrens") {
+            setCollection({
+                title: "Questfrens",
+                info: "Dynamically generated, interactive NFTs on the Counterparty network.",
+                icon: qfIcon,
+                bg: qfBg,
+                dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers",
+                statsURL: "https://frenzone.net/questfrens/stats/questfren_stats.json",
+                attributeList: "",
+                minted: false
+            })
+
+            // RUN REFRESH ON DATA
+
+        } else if (event.target.value == "punkfrens") {
+            setCollection({
+                title: "Punk Frens",
+                info: "Counterparty's first generative art collection.",
+                icon: punkIcon,
+                bg: punkBg,
+                dispenserListURL: "https://questfrens.herokuapp.com/get_punk_dispensers",
+                statsURL: "https://frenzone.net/masterlist/punkfren_stats.json",
+                attributeList: "",
+                minted: true
+            })
+        }
+    }
     
     // Filters
     const [ filters, setFilters ] = useState({
         minted: false,
     })
     
-    const [ filterMinted, toggleFilterMinted ] = useState(false)
+    const [ filterMinted, toggleFilterMinted ] = useState(true)
     const handleFilterMinted = () => {
         toggleFilterMinted(!filterMinted)
     }
@@ -92,7 +181,7 @@ export default function Market(props) {
     }
     useEffect(() => {
         console.log(priceDirection)
-        
+        console.log(marketList)
     }, [priceDirection])
 
     const [ filterShow, toggleFilterShow ] = useState(true)
@@ -106,20 +195,6 @@ export default function Market(props) {
         opacity: 0, zIndex: "-1", pointerEvents: "none", transition: "1s"
     }
 
-    // Themeing
-    const filterHover = {
-        "& MuiGrid-root:hover": {
-            backgroundColor: props.theme.palette.secondary.main
-        }
-    }
-
-    const stats = {
-        "items": 624,
-        "holders": 137,
-        "toal_btc_vol": 0.314,
-        "btc_floor": 0.001
-    }
-
     return (
         <Box sx={{ width: "100vw", minHeight: "90%", height: "auto" }}>
 
@@ -128,7 +203,7 @@ export default function Market(props) {
                 sx={{ width: "100%", height: "340px", display: "flex", flexFlow: "column nowrap", justifyContent: "center", alignItems: "space-between"}}
             >
 
-                <Box disableGutters style={{ height: "340px", width: "100%", background: `url(${qfBg})`, backgroundRepeat: "no-repeat", backgroundSize: "100%", backgroundPosition: "center", zIndex: "-1", position: "absolute", left: 0, filter: "blur(0px)", opacity: 0.1, ml:0, p:0, overflow: "hidden" }}></Box>
+                <Box disableGutters style={{ height: "340px", width: "100%", background: `url(${collection.bg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", zIndex: "-1", position: "absolute", left: 0, filter: "blur(0px)", opacity: 0.1, ml:0, p:0, overflow: "hidden" }}></Box>
 
                 <Grid container spacing={0} sx={{ height: "auto" }}>
 
@@ -146,7 +221,7 @@ export default function Market(props) {
                                 m: 0
                             }}
                             alt="Questfrens"
-                            src={qfIcon}
+                            src={collection.icon}
                         />
                     </Grid>
 
@@ -205,7 +280,7 @@ export default function Market(props) {
 
                     <Grid item xs={3} sm={1} lg={0.75} xl={0.75} sx={{  }}>
                     <Typography variant="h5">
-                            ₿{stats.toal_btc_vol}
+                            ₿{stats.total_btc_vol}
                         </Typography>
                         <Typography variant="overline">
                             Total Vol
@@ -294,30 +369,62 @@ export default function Market(props) {
                         </Grid>
                     </Grid>
 
+                    {/* Collection */}
                     <Grid item xs={12} lg={12} sx={{  }}>
+                        <Grid container xs={12} sx={{ pt: 1, pl:1 , pr: 1, pb: 2, borderBottom: "1px solid rgb(40,45,49)" }}>
+                            <Typography variant="overline">
+                                Collections
+                            </Typography>
+                            <FormControl fullWidth>
+                            {/* <InputLabel id="demo-simple-select-label"></InputLabel> */}
+                            <Select
+                                labelId="collection-label"
+                                id="collection-select"
+                                value={collectionName}
+                                // label="Collection"
+                                onChange={handleCollectionChange}
+                            >
+                                <MenuItem value={"questfrens"}>Questfrens</MenuItem>
+                                <MenuItem value={"punkfrens"}>Punk Frens</MenuItem>
+                            </Select>
+                            </FormControl>
+                        </Grid>
+                    </Grid>
+
+                    <Grid item xs={12} lg={12} sx={{  }}>
+                        { !collection.minted ?
                         <Grid container xs={12} sx={{ pl:1 }}>
                             <Typography variant="overline">
                                 Filter minted tokens
                             </Typography>
                         </Grid>
+                        : null }
+                        { !collection.minted ?
                         <Grid container xs={12} sx={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "center", pl:1 , pb: 2, borderBottom: "1px solid rgb(40,45,49)"}}>
                             <Button 
                                 color="secondary"
                                 variant={ filterMinted ? "outlined" : "contained"}
                                 onClick={() => {handleFilterMinted()}}
                             >
-                                { filterMinted ? "Show Minted" : "Hide Minted" }
+                                { filterMinted ? "Show Unminted" : "Show Minted" }
                             </Button>
                         </Grid>
+                        : null }
                     </Grid>
 
                     {/* Filter properties */}
+                    {/* {
+                            .map(asset => (
+                                
+                            ))
+                        }
+                    } */}
                 </Grid>
 
                 {/* Assets */}
                 <Grid container xs={filterShow ? 12 : 0} sm={filterShow ? 8 : 12} lg={filterShow ? 10 : 12} sx={{ width: "100%", height: "100%" }}>
                     {/* Search and price direction */}
-                    <Grid item xs={12} sx={{ display: "flex", justifyContent: "flex-end", alignItems: "center", pr: 2, mb: 4 }}>
+                    <Grid item xs={12} sx={{ display: "flex", justifyContent: "flex-end", alignItems: "center", pr: 2, p: 2 }}>
                         {/* Search bar */}
                         <SearchBar 
                             searchValue={searchValue}
@@ -346,12 +453,13 @@ export default function Market(props) {
                                 <CardFilter 
                                     asset={asset} filterMinted={filterMinted} 
                                     minPrice={minPrice} maxPrice={maxPrice}
-                                    searchValue={searchValue}
+                                    searchValue={searchValue} collectionMinted={collection.minted}
                                 />
                                 // <Grid item xs={6} lg={4} xl={3} sx={{ p: 1, m: 0 }}>
-                                //     <MarketCard key={asset.asset} asset={asset} filterMinted={filterMinted} />
+                                //     <LazyLoad height={200}>
+                                //         <MarketCard key={asset.asset} asset={asset} />
+                                //     </LazyLoad>
                                 // </Grid>
-                                
                             ))
                         }
                 </Grid>
@@ -365,27 +473,27 @@ export default function Market(props) {
 
 // Card filter program
 function CardFilter(props) {
+    console.log(props)
+    // console.log(props.asset.asset)
+    console.log(props.asset.asset_longname)
+
     // Btc rate
     const btcRate = parseFloat(props.asset.satoshirate) / 100000000
 
-    const [ minted, setMinted ] = useState(false)
-    useState (() => {
-        let exists = Object.keys(props.asset).includes("minted");
-
-        if (exists) {
-            setMinted(true)
-        }
-    }, [])
+    let minted = Object.keys(props.asset).includes("minted")
+    console.log(minted)
 
     const Card = (
         <Grid item xs={6} lg={4} xl={3} sx={{ p: 1, m: 0 }}>
             <LazyLoad height={200}>
-                <MarketCard key={props.asset.asset} asset={props.asset} filterMinted={props.filterMinted} />
+                <MarketCard key={props.asset.asset} asset={props.asset} />
             </LazyLoad>
         </Grid>
     )
 
-    let component = Card
+    // TODO:
+    // https://d3vy6llg1tejsu.cloudfront.net/images/1.png
+    // PUNK FRENS NEED "images" folder
 
     // Create checks
     let mintCheck = false
@@ -397,9 +505,9 @@ function CardFilter(props) {
         mintCheck = true
     } else if ( props.filterMinted == false && minted == false ) {
         mintCheck = true
-    } else {
-        component = null
-    }
+    } 
+    // Cencels out if project is fully minted
+    if (props.collectionMinted) { mintCheck = true }
 
     // Parse for min / max price
     let minPrice
@@ -420,16 +528,9 @@ function CardFilter(props) {
     }
 
     if (mintCheck && priceRangeCheck && searchCheck) {
-        return component
+        console.log("component passed")
+        return Card
     } else {
         return null
     }
-}
-
-const getDispensers = async () => {
-    const response = await fetch('https://questfrens.herokuapp.com/get_dispensers');
-    const dispenserData = await response.json();
-    console.log(dispenserData)
-    return dispenserData
-    // return testDb
 }

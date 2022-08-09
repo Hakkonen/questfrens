@@ -56,10 +56,10 @@ export default function Home(props) {
 
 
                             <Stack spacing={2} direction="row" sx={{ pb: 2, pr: 1 }}>
-                                <Link to="/market">
-                                    <Button color="secondary" variant="contained">Mint</Button>
+                                <Link to="/market" style={{ textDecoration: "none" }}>
+                                    <Button color="secondary" variant="contained">Market</Button>
                                 </Link>
-                                <Button color="secondary" variant="outlined">Explore</Button>
+                                {/* <Button color="secondary" variant="outlined">Explore</Button> */}
                             </Stack>
                         </Grid>
                     </Grid>

@@ -43,7 +43,6 @@ export default function MarketCard(props) {
         <CardElement 
             asset={props.asset} 
             attributes={attributes}
-            filterMinted={props.filterMinted} 
             btcRate={btcRate}
         />
     );
