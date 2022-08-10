@@ -578,6 +578,7 @@ function CardFilter(props) {
         alias = props.asset.asset
     }
     
+    
     if (alias.toLowerCase().includes(props.searchValue) == false) {
         searchCheck = false
     }
