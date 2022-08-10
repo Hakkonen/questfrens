@@ -140,6 +140,17 @@ export default function Market(props) {
                 attributeList: "",
                 minted: false
             })
+        } else if (event.target.value == "mint") {
+            setCollection({
+                title: "Questfrens",
+                info: "Dynamically generated, interactive NFTs on the Counterparty network.",
+                icon: qfIcon,
+                bg: qfBg,
+                dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=mint",
+                statsURL: "https://frenzone.net/questfrens/stats/questfren_stats.json",
+                attributeList: "",
+                minted: true
+            })
         } else if (event.target.value == "punkfrens") {
             setCollection({
                 title: "Punk Frens",
@@ -182,9 +193,19 @@ export default function Market(props) {
     })
     
     const [ filterMinted, toggleFilterMinted ] = useState(true)
-    const handleFilterMinted = () => {
-        toggleFilterMinted(!filterMinted)
-    }
+    // const handleFilterMinted = () => {
+    //     setCollection({
+    //         title: "Questfrens",
+    //         info: "Dynamically generated, interactive NFTs on the Counterparty network.",
+    //         icon: qfIcon,
+    //         bg: qfBg,
+    //         dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=mint",
+    //         statsURL: "https://frenzone.net/questfrens/stats/questfren_stats.json",
+    //         attributeList: "",
+    //         minted: false
+    //     })
+    //     toggleFilterMinted(!filterMinted)
+    // }
 
     // min / max price filter vars
     const [ minPrice, setMinPrice ] = useState("")
@@ -419,6 +440,7 @@ export default function Market(props) {
                                 onChange={handleCollectionChange}
                             >
                                 <MenuItem value={"questfrens"}>Questfrens</MenuItem>
+                                <MenuItem value={"mint"}>Questfren Mint Tokens</MenuItem>
                                 <MenuItem value={"punkfrens"}>Punk Frens</MenuItem>
                                 <MenuItem value={"fakerares"}>Fake Rares</MenuItem>
                                 <MenuItem value={"fakecommons"}>Fake Commons</MenuItem>
@@ -427,7 +449,7 @@ export default function Market(props) {
                         </Grid>
                     </Grid>
 
-                    <Grid item xs={12} lg={12} sx={{  }}>
+                    {/* <Grid item xs={12} lg={12} sx={{  }}>
                         { !collection.minted ?
                         <Grid container xs={12} sx={{ pl:1 }}>
                             <Typography variant="overline">
@@ -446,7 +468,7 @@ export default function Market(props) {
                             </Button>
                         </Grid>
                         : null }
-                    </Grid>
+                    </Grid> */}
 
                     {/* Filter properties */}
                     {/* {
