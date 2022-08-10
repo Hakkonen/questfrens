@@ -35,6 +35,10 @@ import qfIcon from "../assets/QFicontemp.png"
 import qfBg from "../assets/qfBg.gif"
 import punkBg from "../assets/punkBg.png"
 import punkIcon from "../assets/pfIcon.png"
+import fakeBg from "../assets/fakeBg.jpg"
+import fakeIcon from "../assets/feelsfake.jpg"
+import commonIcon from "../assets/commonIcon.png"
+import commonBg from "../assets/commonBg.jpg"
 
 import testDb from "../assets/testDB.json"
 import punkDb from "../assets/punkDb.json"
@@ -46,7 +50,7 @@ export default function Market(props) {
         info: "Dynamically generated, interactive NFTs on the Counterparty network.",
         icon: qfIcon,
         bg: qfBg,
-        dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers",
+        dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=questfrens",
         statsURL: "https://frenzone.net/questfrens/stats/questfren_stats.json",
         attributeList: "",
         minted: false
@@ -70,7 +74,17 @@ export default function Market(props) {
             setMarketList(await getMarketList())
             
             // Set stats
-            setStats(await getStats())
+            if(collection.statsURL) {
+                setStats(await getStats())
+            } else {
+                setStats({
+                    "items": 0,
+                    "holders": 0,
+                    "total_btc_vol": 0,
+                    "btc_floor": 0
+                })
+            }
+            
         })();
     }, [collection]);
 
@@ -78,31 +92,32 @@ export default function Market(props) {
     const [ attrFilters, setAttrFilters ] = useState([])
     // Gets properties of first found attribute and sets to filters
     useEffect(() => {
-        let attrList = []
+        console.log(marketList)
+        // let attrList = []
 
-        for (const asset of marketList) {
-            if (Object.keys(asset).includes("attributes")) {
-                // console.log(asset.attributes)
-                for (const attribute of Object.entries(asset.attributes)) {
+        // for (const asset of marketList) {
+        //     if (Object.keys(asset).includes("attributes")) {
+        //         // console.log(asset.attributes)
+        //         for (const attribute of Object.entries(asset.attributes)) {
                     
-                    // console.log(attribute)
-                    // let attr_type = attribute[0]
-                    // let attr_val = attribute[1]
+        //             // console.log(attribute)
+        //             // let attr_type = attribute[0]
+        //             // let attr_val = attribute[1]
 
-                    // // IF key is not already present, add key
-                    // if (!Object.keys(attrList).includes(attr_type)) {
+        //             // // IF key is not already present, add key
+        //             // if (!Object.keys(attrList).includes(attr_type)) {
 
-                    //     attrList.push({attribute[0]: attribute[1]})
-                    // }
+        //             //     attrList.push({attribute[0]: attribute[1]})
+        //             // }
 
-                    // Add atr value to relevant type
-                    // attrValArray = 
-                    // attrList[attr_type] = 
-                }
+        //             // Add atr value to relevant type
+        //             // attrValArray = 
+        //             // attrList[attr_type] = 
+        //         }
 
-                // setAttrFilters(attrList)
-            }
-        }
+        //         // setAttrFilters(attrList)
+        //     }
+        // }
     }, [marketList])
     useEffect(() => {
         console.log(attrFilters)
@@ -120,22 +135,41 @@ export default function Market(props) {
                 info: "Dynamically generated, interactive NFTs on the Counterparty network.",
                 icon: qfIcon,
                 bg: qfBg,
-                dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers",
+                dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=questfrens",
                 statsURL: "https://frenzone.net/questfrens/stats/questfren_stats.json",
                 attributeList: "",
                 minted: false
             })
-
-            // RUN REFRESH ON DATA
-
         } else if (event.target.value == "punkfrens") {
             setCollection({
                 title: "Punk Frens",
                 info: "Counterparty's first generative art collection.",
                 icon: punkIcon,
                 bg: punkBg,
-                dispenserListURL: "https://questfrens.herokuapp.com/get_punk_dispensers",
+                dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=punkfrens",
                 statsURL: "https://frenzone.net/masterlist/punkfren_stats.json",
+                attributeList: "",
+                minted: true
+            })
+        } else if (event.target.value == "fakerares") {
+            setCollection({
+                title: "Fake Rares",
+                info: "The Fakest collection on XCP. Beware.",
+                icon: fakeIcon,
+                bg: fakeBg,
+                dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=fakerares",
+                statsURL: "",
+                attributeList: "",
+                minted: true
+            })
+        } else if (event.target.value == "fakecommons") {
+            setCollection({
+                title: "Fake Commons",
+                info: "Faker than fake rares.",
+                icon: commonIcon,
+                bg: commonBg,
+                dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=fakecommons",
+                statsURL: "",
                 attributeList: "",
                 minted: true
             })
@@ -386,6 +420,8 @@ export default function Market(props) {
                             >
                                 <MenuItem value={"questfrens"}>Questfrens</MenuItem>
                                 <MenuItem value={"punkfrens"}>Punk Frens</MenuItem>
+                                <MenuItem value={"fakerares"}>Fake Rares</MenuItem>
+                                <MenuItem value={"fakecommons"}>Fake Commons</MenuItem>
                             </Select>
                             </FormControl>
                         </Grid>
@@ -455,16 +491,9 @@ export default function Market(props) {
                                     minPrice={minPrice} maxPrice={maxPrice}
                                     searchValue={searchValue} collectionMinted={collection.minted}
                                 />
-                                // <Grid item xs={6} lg={4} xl={3} sx={{ p: 1, m: 0 }}>
-                                //     <LazyLoad height={200}>
-                                //         <MarketCard key={asset.asset} asset={asset} />
-                                //     </LazyLoad>
-                                // </Grid>
                             ))
                         }
                 </Grid>
-
-            {/* </Container> */}
             </Grid>
 
         </Box>
@@ -473,15 +502,11 @@ export default function Market(props) {
 
 // Card filter program
 function CardFilter(props) {
-    console.log(props)
-    // console.log(props.asset.asset)
-    console.log(props.asset.asset_longname)
 
     // Btc rate
     const btcRate = parseFloat(props.asset.satoshirate) / 100000000
 
     let minted = Object.keys(props.asset).includes("minted")
-    console.log(minted)
 
     const Card = (
         <Grid item xs={6} lg={4} xl={3} sx={{ p: 1, m: 0 }}>
@@ -522,13 +547,20 @@ function CardFilter(props) {
     }
 
     // Search terms
-    const alias = props.asset.asset_longname
+    let alias = null
+    // console.log(props.asset.hasOwnProperty("asset_longname"))
+    // Splits flow between assets that are named "asset" or "asset_longname"
+    if (props.asset.hasOwnProperty("asset_longname")) {
+        alias = props.asset.asset_longname
+    } else {
+        alias = props.asset.asset
+    }
+    
     if (alias.toLowerCase().includes(props.searchValue) == false) {
         searchCheck = false
     }
 
     if (mintCheck && priceRangeCheck && searchCheck) {
-        console.log("component passed")
         return Card
     } else {
         return null

@@ -13,6 +13,17 @@ import defaultBg from "../../assets/defaultBg.gif"
 
 export default function MarketCard(props) {
 
+    // Name
+    const [ assetName, setAssetName ] = useState("")
+    useEffect(() => {
+        // Splits flow between assets that are named "asset" or "asset_longname"
+        if (props.asset.hasOwnProperty("asset_longname")) {
+            setAssetName(props.asset.asset_longname)
+        } else {
+            setAssetName(props.asset.asset)
+        }
+    }, [props])
+
     const [ minted, setMinted ] = useState(false)
     useState (() => {
         let exists = Object.keys(props.asset).includes("minted");
@@ -42,6 +53,7 @@ export default function MarketCard(props) {
     return (
         <CardElement 
             asset={props.asset} 
+            assetName={assetName}
             attributes={attributes}
             btcRate={btcRate}
         />
@@ -65,14 +77,14 @@ function CardElement(props) {
                 height="auto"
                 minHeight="150px"
                 width="100%"
-                image={props.asset.image_large ? props.asset.image_large : mintPlaceholder}
-                alt={props.asset.asset_longname}
+                image={ props.asset.image_large ? props.asset.image_large : mintPlaceholder }
+                alt={ props.assetName }
                 sx={ props.asset.minted ? mintedStyle : unmintedStyle }
             />
             
             <CardContent sx={{ textAlign: "left" }} className="hoverColor">
                 <Typography gutterBottom variant="caption" component="div" sx={{ pl: 2, pt: 2 }}>
-                    {props.asset.asset_longname}
+                    {props.assetName}
                 </Typography>
                 <Typography variant="h6" color="" sx={{ pl: 2, pb: 2 }}>
                     {props.btcRate} btc

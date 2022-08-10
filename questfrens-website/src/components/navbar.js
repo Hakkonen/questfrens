@@ -67,11 +67,11 @@ export default function Navbar(props) {
                 'aria-labelledby': 'basic-button',
                 }}
             >
-                <MenuItem onClick={() => (navigate("/account"))}>My Frens</MenuItem>
+                {/* <MenuItem onClick={() => (navigate("/account"))}>My Frens</MenuItem> */}
                 <MenuItem onClick={() => (navigate("/market"))}>Market</MenuItem>
-                <MenuItem onClick={() => (navigate("/feed"))}>Feed</MenuItem>
+                {/* <MenuItem onClick={() => (navigate("/feed"))}>Feed</MenuItem> */}
                 <MenuItem onClick={() => (navigate("/instructions"))}>Help</MenuItem>
-                <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                {/* <MenuItem onClick={handleLogout}>Logout</MenuItem> */}
             </Menu>
 
             {/* MENU END */}
@@ -81,11 +81,11 @@ export default function Navbar(props) {
                 >QUESTFRENS</Link>
             </Typography>
 
-            <Button 
+            {/* <Button 
                 color="inherit" 
                 style={{  }}
                 onClick={() => (navigate("/login"))}
-            >Login</Button>
+            >Login</Button> */}
 
             </Toolbar>
         </AppBar>
