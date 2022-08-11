@@ -15,6 +15,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Collapse from '@mui/material/Collapse';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import IconButton from '@mui/material/IconButton';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -513,6 +514,7 @@ export default function Market(props) {
             </Grid>
 
                 {/* Assets */}
+                {marketList.length > 0 ?
                 <Grid container xs={filterShow ? 12 : 0} sm={filterShow ? 8 : 12} lg={filterShow ? 10 : 12} sx={{ width: "100%", height: "100%" }}>
                     {/* Search and price direction */}
                     <Grid item xs={12} sx={{ display: "flex", justifyContent: "flex-end", alignItems: "center", pr: 2, p: 2 }}>
@@ -550,6 +552,15 @@ export default function Market(props) {
                             ))
                         }
                 </Grid>
+                : 
+                <Grid container xs={filterShow ? 12 : 0} sm={filterShow ? 8 : 12} lg={filterShow ? 10 : 12} 
+                sx={{ width: "100%", height: "100%", minHeight: "100px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                    <Typography variant="overline" sx={{ pt: 3 }}>Reading blockchain transactions...</Typography>
+                    <Box sx={{ display: 'flex', pt: 3, pb: 5 }}>
+                        <CircularProgress />
+                    </Box>
+                </Grid>
+                }
             </Grid>
             
         </Box>
