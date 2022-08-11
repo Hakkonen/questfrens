@@ -14,6 +14,7 @@ import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
+import Collapse from '@mui/material/Collapse';
 
 import IconButton from '@mui/material/IconButton';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -276,13 +277,7 @@ export default function Market(props) {
 
     const [ filterShow, toggleFilterShow ] = useState(true)
     const handleFilterToggle = () => {
-        // toggleFilterShow(!filterShow)
-    }
-    const filterShowing = {
-        width: "auto", height: "100%", transition: "1s", pl: 1, pr: 1
-    }
-    const filterHidden = {
-        opacity: 0, zIndex: "-1", pointerEvents: "none", transition: "1s"
+        toggleFilterShow(!filterShow)
     }
 
     return (
@@ -396,11 +391,11 @@ export default function Market(props) {
                 className="noSelect"
             >
                     {/* Filter tab toggle */}
-                    <Grid item xs={4} lg={2} sx={ filterShow ? `pt: "1px"` : filterHidden } className="hoverColor" onClick={() => {handleFilterToggle()}}>
+                    <Grid item xs={4} lg={2} sx={{pt: "1px"}} className="hoverColor" onClick={() => {handleFilterToggle()}}>
                         <Grid container xs={12} xl={4} sx={{}}>
                             <Grid item xs={1} md={1} xl={1} />
                             <Grid item xs={1} md={1} xl={1} sx={{ display: "flex", justifyContent: "left", alignItems: "center" }}>
-                                <ArrowBackIosIcon sx={{ pt: 0.1, color: props.theme.palette.secondary.main }} />
+                                <ArrowBackIosIcon sx={{  color: props.theme.palette.secondary.main }} />
                             </Grid>
                             <Grid item xs={3} md={10} xl={10} sx={{ display: "flex", justifyContent: "left", alignItems: "center" }}>
                                 <Typography variant="overline" sx={{ height: "100%", pt: "2px", pl: 1, fontSize: "1rem", color: props.theme.palette.secondary.main }}>
@@ -415,15 +410,17 @@ export default function Market(props) {
                     </Grid>
             </Grid>
 
+            
             <Grid container xs={12} sx={{ }}>
+            
                 
                 {/* Filter */}
                 <Grid 
                     container xs={filterShow ? 12 : 0} sm={filterShow ? 4 : 0} lg={filterShow ? 2 : 0} 
                     spacing={0}
-                    sx={ 
-                        filterShow ? filterShowing : filterHidden 
-                    }>
+                    sx={{width: "auto", height: "100%", pl: 1, pr: 1}}>
+
+                    <Collapse in={filterShow} timeout="auto" unmountOnExit>
                     {/* Price Range */}
                     <Grid item xs={12} lg={12} sx={{ p: 0, m: 0 }}>
                         <Grid container xs={12}>
@@ -512,7 +509,8 @@ export default function Market(props) {
                             <AttrBar name={key} values={value} filters={attrFilters} setFilters={setAttrFilters} />
                         ))
                     }
-                </Grid>
+                </Collapse>
+            </Grid>
 
                 {/* Assets */}
                 <Grid container xs={filterShow ? 12 : 0} sm={filterShow ? 8 : 12} lg={filterShow ? 10 : 12} sx={{ width: "100%", height: "100%" }}>
@@ -553,7 +551,7 @@ export default function Market(props) {
                         }
                 </Grid>
             </Grid>
-
+            
         </Box>
     )
 }
@@ -621,8 +619,8 @@ function CardFilter(props) {
         // For each attr key of asset
         for (const [key, value] of Object.entries(props.asset.attributes)) {
 
-            console.log(key)
-            console.log(Object.values(props.attrFilters[key]))
+            // console.log(key)
+            // console.log(Object.values(props.attrFilters[key]))
             
             // Check that a value matches relevant filter value
             if (Object.values(props.attrFilters[key]).includes(value)) {
