@@ -14,6 +14,7 @@ import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
+
 import IconButton from '@mui/material/IconButton';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import TelegramIcon from '@mui/icons-material/Telegram';
@@ -21,10 +22,12 @@ import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
+// Custom imports
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import AttrBar from "./market/attrBar"
 
 import LazyLoad from 'react-lazyload' //https://github.com/twobin/react-lazyload
 
@@ -57,7 +60,10 @@ export default function Market(props) {
     })
 
     // Dispenser array
-    const [ marketList, setMarketList ] = useState([])
+    const [ marketList, setMarketList ] = useState([]) // Market list hosts array of objects to display as market cards
+    useEffect(() => {
+        console.log(marketList)
+    }, [marketList])
     const [ stats, setStats ] = useState({
         "items": 0,
         "holders": 0,
@@ -70,7 +76,7 @@ export default function Market(props) {
     useEffect(() => {
         (async () => {
             // Set market list
-            // setMarketList(punkDb)
+            // setMarketList(testDb)
             setMarketList(await getMarketList())
             
             // Set stats
@@ -88,46 +94,95 @@ export default function Market(props) {
         })();
     }, [collection]);
 
+    // FILTERS
+    // Filters for attributes
+    const [ attrFilters, setAttrFilters ] = useState({
+        // Takes in keys from attributes and passes through 
+        //      values to filter func when filtering by attr
+    })
+
     // Sets attribute filter list
-    const [ attrFilters, setAttrFilters ] = useState([])
+    const [ attributes, setAttributes ] = useState(false)
     // Gets properties of first found attribute and sets to filters
     useEffect(() => {
-        console.log(marketList)
-        // let attrList = []
+        // Parse through array of objects
+        //  for each asset that has attributes save to array of objects once
+        let filterKeys = {}
+        let attributeObject = {}
 
-        // for (const asset of marketList) {
-        //     if (Object.keys(asset).includes("attributes")) {
-        //         // console.log(asset.attributes)
-        //         for (const attribute of Object.entries(asset.attributes)) {
-                    
-        //             // console.log(attribute)
-        //             // let attr_type = attribute[0]
-        //             // let attr_val = attribute[1]
+        // Get attibtue values
+        for (const asset of marketList) {
+            if (Object.keys(asset).includes("attributes")) {
 
-        //             // // IF key is not already present, add key
-        //             // if (!Object.keys(attrList).includes(attr_type)) {
+                for (const [key, value] of Object.entries(asset.attributes)) {
+                    // console.log(`${key}: ${value}`)
 
-        //             //     attrList.push({attribute[0]: attribute[1]})
-        //             // }
+                    // Add atttribute key and value if key not found
+                    if (!Object.keys(attributeObject).includes(key)) {
 
-        //             // Add atr value to relevant type
-        //             // attrValArray = 
-        //             // attrList[attr_type] = 
-        //         }
+                        // Add keys to attribute list
+                        const keyName = [key]
+                        attributeObject[keyName] = []
 
-        //         // setAttrFilters(attrList)
-        //     }
-        // }
+                        // Add values to attribute list
+                        const valueName = value
+                        attributeObject[key].push(valueName)
+
+                        // Add keys to filter scheme
+                        filterKeys[keyName] = []
+
+                    } else {
+                        // Else add attribute value if doesn't already exist in key
+                        if (!Object.values(attributeObject[key]).includes(value)) {
+                            const valueName = value
+                            attributeObject[key].push(valueName)
+                        }
+                    }
+                }
+
+            }
+        }
+
+        // Sort lists
+        for (const [key, value] of Object.entries(attributeObject)) {
+            // If numeric
+            if(!isNaN(value[0])) {
+                attributeObject[key] = value.sort(function (a, b){return a - b})
+            } else {
+                // If alpha
+                attributeObject[key] = value.sort()
+            }
+        }
+        
+        // console.log(attributeObject)
+        setAttributes(attributeObject)  // Passes attribute keys and values to filter menu
+        setAttrFilters(filterKeys)  // Passes keys to attribute filter
     }, [marketList])
-    useEffect(() => {
-        console.log(attrFilters)
-    }, [attrFilters])
 
     // COLLECTIONS SWAP
     const [ collectionName, setCollectionName ] = useState("Questfrens")
     const handleCollectionChange = (event) => {
         console.log(event.target.value)
         setCollectionName(event.target.value)
+
+        // Resets collection:
+        setCollection({
+            title: "",
+            info: "",
+            icon: qfIcon,
+            bg: qfBg,
+            dispenserListURL: "",
+            statsURL: "",
+            attributeList: "",
+            minted: false
+        })
+        setMarketList([])
+        setStats({
+            "items": 0,
+            "holders": 0,
+            "total_btc_vol": 0,
+            "btc_floor": 0
+        })
 
         if (event.target.value == "questfrens") {
             setCollection({
@@ -186,26 +241,6 @@ export default function Market(props) {
             })
         }
     }
-    
-    // Filters
-    const [ filters, setFilters ] = useState({
-        minted: false,
-    })
-    
-    const [ filterMinted, toggleFilterMinted ] = useState(true)
-    // const handleFilterMinted = () => {
-    //     setCollection({
-    //         title: "Questfrens",
-    //         info: "Dynamically generated, interactive NFTs on the Counterparty network.",
-    //         icon: qfIcon,
-    //         bg: qfBg,
-    //         dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=mint",
-    //         statsURL: "https://frenzone.net/questfrens/stats/questfren_stats.json",
-    //         attributeList: "",
-    //         minted: false
-    //     })
-    //     toggleFilterMinted(!filterMinted)
-    // }
 
     // min / max price filter vars
     const [ minPrice, setMinPrice ] = useState("")
@@ -343,7 +378,7 @@ export default function Market(props) {
                     </Grid>
 
                     <Grid item xs={2} sm={1} lg={0.75} xl={0.75} sx={{  }}>
-                        <Typography variant="h5" sx={{ verticalAlign: 'middle', display: 'inline-flex' }}>
+                        <Typography variant="h5" sx={{  }}>
                             ₿{stats.btc_floor}
                         </Typography>
                         <Typography variant="overline">
@@ -471,12 +506,12 @@ export default function Market(props) {
                     </Grid> */}
 
                     {/* Filter properties */}
-                    {/* {
-                            .map(asset => (
-                                
-                            ))
-                        }
-                    } */}
+                    {
+                        Object.entries(attributes).map(([key, value]) => (
+                            // <Typography>{key} : {value.toString()}</Typography>
+                            <AttrBar name={key} values={value} filters={attrFilters} setFilters={setAttrFilters} />
+                        ))
+                    }
                 </Grid>
 
                 {/* Assets */}
@@ -507,11 +542,12 @@ export default function Market(props) {
                     
                     {/* Assets */}
                         {
-                            marketList.map(asset => (
+                            marketList.map((asset) => (
                                 <CardFilter 
-                                    asset={asset} filterMinted={filterMinted} 
+                                    asset={asset}
                                     minPrice={minPrice} maxPrice={maxPrice}
                                     searchValue={searchValue} collectionMinted={collection.minted}
+                                    attrFilters={attrFilters}
                                 />
                             ))
                         }
@@ -538,23 +574,10 @@ function CardFilter(props) {
         </Grid>
     )
 
-    // TODO:
-    // https://d3vy6llg1tejsu.cloudfront.net/images/1.png
-    // PUNK FRENS NEED "images" folder
-
     // Create checks
-    let mintCheck = false
     let priceRangeCheck = true
     let searchCheck = true
-
-    // Parse for minted/unminted filter
-    if (props.filterMinted && minted == true) {
-        mintCheck = true
-    } else if ( props.filterMinted == false && minted == false ) {
-        mintCheck = true
-    } 
-    // Cencels out if project is fully minted
-    if (props.collectionMinted) { mintCheck = true }
+    let attributeCheck = true
 
     // Parse for min / max price
     let minPrice
@@ -578,12 +601,40 @@ function CardFilter(props) {
         alias = props.asset.asset
     }
     
-    
+    // TODO: Figure out bug here
     if (alias.toLowerCase().includes(props.searchValue) == false) {
         searchCheck = false
     }
 
-    if (mintCheck && priceRangeCheck && searchCheck) {
+    // Attributes filter
+    // Check card has attributes to save time
+    let attrFilterCheck = false     // Only search if filters are active
+    for (const [key, value] of Object.entries(props.attrFilters)) {
+        if (value.length > 0) {
+            attrFilterCheck = true // sets attr filter search on
+            attributeCheck = false // turn default off default true
+        }
+    }
+    // if card has attr and attr filters active then
+    if (Object.keys(props.asset).includes("attributes") && attrFilterCheck) {
+
+        // For each attr key of asset
+        for (const [key, value] of Object.entries(props.asset.attributes)) {
+
+            console.log(key)
+            console.log(Object.values(props.attrFilters[key]))
+            
+            // Check that a value matches relevant filter value
+            if (Object.values(props.attrFilters[key]).includes(value)) {
+                console.log("INCLUDED")
+                attributeCheck = true
+            }
+        }
+    }
+
+
+
+    if (priceRangeCheck && searchCheck && attributeCheck) {
         return Card
     } else {
         return null
