@@ -16,6 +16,7 @@ import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Collapse from '@mui/material/Collapse';
 import CircularProgress from '@mui/material/CircularProgress';
+import Avatar from '@mui/material/Avatar';
 
 import IconButton from '@mui/material/IconButton';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -23,6 +24,9 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+
+// Colors
+import { grey } from '@mui/material/colors'
 
 // Custom imports
 import InputLabel from '@mui/material/InputLabel';
@@ -95,6 +99,26 @@ export default function Market(props) {
             
         })();
     }, [collection]);
+
+    // Market / Activity & switch
+    const [ activityList, setActivityList ] = useState([])
+    const [ activityToggle, setActivityToggle ] = useState(false)
+    const getActivities = () => fetch("https://questfrens.herokuapp.com/get_activity").then(response => response.json())
+    const handleActivityToggle = async () => {
+        (async () => {
+            // Toggles activity page
+            setActivityToggle(!activityToggle)
+
+            // Load activity
+            setActivityList(await getActivities())
+        })();
+    }
+    useEffect(() => {
+        console.log(activityToggle)
+    }, [activityToggle])
+    useEffect(() => {
+        console.log(activityList)
+    }, [activityList])
 
     // FILTERS
     // Filters for attributes
@@ -392,7 +416,7 @@ export default function Market(props) {
                 className="noSelect"
             >
                     {/* Filter tab toggle */}
-                    <Grid item xs={4} lg={2} sx={{pt: "1px"}} className="hoverColor" onClick={() => {handleFilterToggle()}}>
+                    <Grid item xs={4} lg={2} sx={{}} className="hoverColor" onClick={() => {handleFilterToggle()}}>
                         <Grid container xs={12} xl={4} sx={{}}>
                             <Grid item xs={1} md={1} xl={1} />
                             <Grid item xs={1} md={1} xl={1} sx={{ display: "flex", justifyContent: "left", alignItems: "center" }}>
@@ -406,8 +430,21 @@ export default function Market(props) {
                         </Grid>
                     </Grid>
 
-                    <Grid item xs={0} lg={9}>
-                        
+                    <Grid item xs={8} lg={9}>
+                        <Grid container xs={12} sx={{ height: "100%", display: "flex", justifyContent: "left", alignItems: "center" }}>
+                                <Button  
+                                    onClick={handleActivityToggle}
+                                    // onClick={() => {setActivityToggle(!activityToggle)}}
+                                    sx={{ height: "100%" }}
+                                    color={ activityToggle ? "warning" : "secondary" }
+                                >Items</Button>
+                                <Button 
+                                    onClick={handleActivityToggle}
+                                    // onClick={() => {setActivityToggle(!activityToggle)}}
+                                    sx={{ height: "100%" }}
+                                    color={ activityToggle ? "secondary" : "warning" }
+                                >Activity</Button>
+                        </Grid>
                     </Grid>
             </Grid>
 
@@ -541,16 +578,84 @@ export default function Market(props) {
                     </Grid>
                     
                     {/* Assets */}
-                        {
-                            marketList.map((asset) => (
-                                <CardFilter 
-                                    asset={asset}
-                                    minPrice={minPrice} maxPrice={maxPrice}
-                                    searchValue={searchValue} collectionMinted={collection.minted}
-                                    attrFilters={attrFilters}
-                                />
-                            ))
-                        }
+                    { !activityToggle ?
+                        marketList.map((asset) => (
+                            <CardFilter 
+                                asset={asset}
+                                minPrice={minPrice} maxPrice={maxPrice}
+                                searchValue={searchValue} collectionMinted={collection.minted}
+                                attrFilters={attrFilters}
+                            />
+                        ))
+                    : 
+                    <Grid container xs={12} sx={{ pl: 1, pr:1 }}>
+                        {activityList.length > 1 ? activityList.map((tx) => (
+                            <Grid item xs={12} 
+                                sx={{ borderBottom: "1px solid rgb(40,45,49)", backgroundColor: "rgb(34,38,42)" }}
+                                // onClick={() => {() => openInNewTab(`https://xchain.io/tx/${tx.source}`)}}
+                            >
+                                
+                                <Grid container xs={12} sx={{ pt: 2, pb: 2, pr: 2 }}>
+                                    <Grid item xs={2} sm={1} sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                        <Avatar>{tx.source[2]}</Avatar>
+                                    </Grid>
+
+                                    <Grid item xs={8} sm={9} sx={{ display: "left", justifyContent: "left", alignItems: "center", overflow: "hidden" }}>
+                                        
+                                        
+                                            <Typography align="left" sx={{ fontSize: "1.2rem" }}>
+                                                <Link href={`https://xchain.io/asset/${tx.asset}`} target="_blank" color="secondary" sx={{ textDecoration: "none" }}>
+                                                    {tx.asset}
+                                                </Link>
+                                                <Typography style={{color: "rgb(155,155,155)"}} variant="caption">
+                                            { tx.type == "dispenser" ? 
+                                                    "  Open Dispenser"
+                                                :
+                                                    "  Sale"
+                                            }
+                                            </Typography>
+                                            </Typography>
+                                        
+
+                                        <Typography align="left" variant="body2" sx={{ width: "100%" }}></Typography>
+
+                                        
+                                        {tx.type == "dispenser" ?
+                                            
+                                                <Typography align="left" variant="body2" sx={{ width: "100%" }}>
+                                                    <span style={{color: "rgb(155,155,155)"}}>Source: </span>
+                                                    <Link href={`https://xchain.io/address/${tx.source}`} target="_blank" color="rgb(255,255,255)" sx={{ textDecoration: "none" }}>
+                                                        {tx.source}
+                                                    </Link>
+                                                </Typography>
+                                            
+                                        : 
+                                            
+                                                <Typography align="left" variant="body2" sx={{ width: "100%" }}>
+                                                    <span style={{color: "rgb(155,155,155)"}}>To: </span>
+                                                    <Link href={`https://xchain.io/tx/${tx.tx_hash}`} target="_blank" color="rgb(255,255,255)" sx={{ textDecoration: "none" }}>
+                                                        {tx.source}
+                                                    </Link>
+                                                </Typography>
+                                        }
+                                        
+                                    </Grid>
+
+                                    <Grid item xs={2} sm={2} sx={{ display: "flex", justifyContent: "right", alignItems: "center" }}>
+                                        <Typography align="right" variant='overline' sx={{ fontSize: "1rem" }}>
+                                        {tx.type == "dispenser" ?
+                                            `₿${tx.satoshirate / 100000000}`
+                                            :
+                                            `QTY ${tx.dispense_quantity}`
+                                        }
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
+                                
+                            </Grid>
+                        )) : null}
+                        </Grid>
+                    }
                 </Grid>
                 : 
                 <Grid container xs={filterShow ? 12 : 0} sm={filterShow ? 8 : 12} lg={filterShow ? 10 : 12} 
