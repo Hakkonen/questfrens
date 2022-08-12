@@ -69,7 +69,7 @@ export default function Home(props) {
                 <Grid item xs={12} md={6}
                     style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100%", width: "100%", pt: 2, pb: 1 }}
                 >
-                    <SplashCard />
+                    <SplashCard windowSize={props.windowSize} />
                         {/* <iframe 
                         style={{border: 0}}
                         width="400" height="560" 

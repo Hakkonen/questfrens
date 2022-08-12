@@ -7,9 +7,15 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { address } from 'bitcoinjs-lib';
 
-export default function SplashCard() {
+export default function SplashCard(props) {
     const number = "1"
     const address = "1EWFR9dMzM2JtrXeqwVCY1LW6KMZ1iRhJ5"
+
+    let width = "401"
+    if (props.windowSize.width < 400) {
+        width = "100%"
+    }
+    console.log(props.windowSize)
 
     return (
         <Card sx={{ border: "1px solid rgba(150,150,150,0.15)" }}>
@@ -18,8 +24,8 @@ export default function SplashCard() {
                 <Box sx={{ width: "100%" }}>
                 <iframe 
                     style={{border: "1px solid rgba(150,150,150,0.15)"}}
-                    // width="400" height="560"
-                    width="100%" height="560"
+                    // width="100%" height="560"
+                    width={width} height="560"
                     src={`https://frenzone.net/questfrens/card/index.html?fren=1`}
                 ></iframe> 
                 </Box>

@@ -121,7 +121,7 @@ function App() {
       <Navbar theme={theme} />
       
       <Routes>
-        <Route path="/" element={<Home theme={theme} />} />
+        <Route path="/" element={<Home theme={theme} windowSize={size} />} />
         <Route path="/account" element={<Account address={address} />} />
         <Route path="/feed" element={<Feed theme={theme} />} />
         <Route path="/market" element={<Market theme={theme} />} />
