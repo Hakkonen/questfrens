@@ -251,7 +251,7 @@ export default function Market(props) {
                 bg: fakeBg,
                 dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=fakerares",
                 statsURL: "",
-                attributeList: "",
+                attributeList: "https://frenzone.net/questfrens/stats/fakerares_stats.json",
                 minted: true
             })
         } else if (event.target.value == "fakecommons") {
@@ -261,7 +261,7 @@ export default function Market(props) {
                 icon: commonIcon,
                 bg: commonBg,
                 dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=fakecommons",
-                statsURL: "",
+                statsURL: "https://frenzone.net/questfrens/stats/fakecommons_stats.json",
                 attributeList: "",
                 minted: true
             })
