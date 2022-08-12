@@ -250,8 +250,8 @@ export default function Market(props) {
                 icon: fakeIcon,
                 bg: fakeBg,
                 dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=fakerares",
-                statsURL: "",
-                attributeList: "https://frenzone.net/questfrens/stats/fakerares_stats.json",
+                statsURL: "https://frenzone.net/questfrens/stats/fakerares_stats.json",
+                attributeList: "",
                 minted: true
             })
         } else if (event.target.value == "fakecommons") {
