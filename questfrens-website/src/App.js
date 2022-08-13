@@ -9,6 +9,7 @@ import Navbar from "./components/navbar"
 import Login from "./components/login"
 import Account from "./components/account"
 import Market from "./components/market"
+import Asset from "./components/asset"
 import Feed from "./components/feed"
 import Instructions from "./components/instructions"
 
@@ -125,6 +126,7 @@ function App() {
         <Route path="/account" element={<Account address={address} />} />
         <Route path="/feed" element={<Feed theme={theme} />} />
         <Route path="/market" element={<Market theme={theme} />} />
+        <Route path="/asset" element={<Asset theme={theme} windowSize={size} />} />
         <Route path="/login" element={<Login setAddress={setAddress} setSignature={setSignature} />} />
         <Route path="/instructions" element={<Instructions />} />
         <Route path="/about" element={<About />} />

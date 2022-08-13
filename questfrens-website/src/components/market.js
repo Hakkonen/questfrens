@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from "react-router-dom";
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -37,6 +38,10 @@ import AttrBar from "./market/attrBar"
 
 import LazyLoad from 'react-lazyload' //https://github.com/twobin/react-lazyload
 
+// Collection JSON import
+// TODO: Streamline collections import
+
+import CollectionsDropDown from "./market/collectionsDropDown"
 import SearchBar from "./searchBar"
 import Dashboard from "./dashboard"
 import MarketCard from "./cards/marketCard"
@@ -53,17 +58,93 @@ import testDb from "../assets/testDB.json"
 import punkDb from "../assets/punkDb.json"
 
 export default function Market(props) {
+    // Gets collection header
+    const useQuery = () => new URLSearchParams(useLocation().search)
+    const query = useQuery();
+    const collectionParam = query.get('collection')
+    console.log(collectionParam)
+
     // Collection
     const [ collection, setCollection ] = useState({
-        title: "Questfrens",
-        info: "Dynamically generated, interactive NFTs on the Counterparty network.",
+        params: "",
+        title: "",
+        info: "",
         icon: qfIcon,
         bg: qfBg,
-        dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=questfrens",
-        statsURL: "https://frenzone.net/questfrens/stats/questfren_stats.json",
+        dispenserListURL: "",
+        statsURL: "",
         attributeList: "",
         minted: false
     })
+    // Set collection title
+
+    // Sets collection on load
+    useEffect(() => {
+        // If collection has a parameter, pass collection if valid
+        if (collectionParam) {
+            if (collectionParam == "questfrens") { // TODO: Social buttons
+                setCollection({
+                    param: "questfrens",
+                    title: "Questfrens",
+                    info: "Dynamically generated, interactive NFTs on the Counterparty network.",
+                    icon: qfIcon,
+                    bg: qfBg,
+                    dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=questfrens",
+                    statsURL: "https://frenzone.net/questfrens/stats/questfren_stats.json",
+                    attributeList: "",
+                    minted: false
+                })
+            } else if (collectionParam == "mint") {
+                setCollection({
+                    param: "mint",
+                    title: "Questfrens",
+                    info: "Dynamically generated, interactive NFTs on the Counterparty network.",
+                    icon: qfIcon,
+                    bg: qfBg,
+                    dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=mint",
+                    statsURL: "https://frenzone.net/questfrens/stats/questfren_stats.json",
+                    attributeList: "",
+                    minted: true
+                })
+            } else if (collectionParam == "punkfrens") {
+                setCollection({
+                    param: "punkfrens",
+                    title: "Punk Frens",
+                    info: "Counterparty's first generative art collection.",
+                    icon: punkIcon,
+                    bg: punkBg,
+                    dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=punkfrens",
+                    statsURL: "https://frenzone.net/masterlist/punkfren_stats.json",
+                    attributeList: "",
+                    minted: true
+                })
+            } else if (collectionParam == "fakerares") {
+                setCollection({
+                    param: "fakerares",
+                    title: "Fake Rares",
+                    info: "The Fakest collection on XCP. Beware.",
+                    icon: fakeIcon,
+                    bg: fakeBg,
+                    dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=fakerares",
+                    statsURL: "https://frenzone.net/questfrens/stats/fakerares_stats.json",
+                    attributeList: "",
+                    minted: true
+                })
+            } else if (collectionParam == "fakecommons") {
+                setCollection({
+                    param: "fakecommons",
+                    title: "Fake Commons",
+                    info: "Faker than fake rares.",
+                    icon: commonIcon,
+                    bg: commonBg,
+                    dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=fakecommons",
+                    statsURL: "https://frenzone.net/questfrens/stats/fakecommons_stats.json",
+                    attributeList: "",
+                    minted: true
+                })
+            }
+        }
+    }, [])
 
     // Dispenser array
     const [ marketList, setMarketList ] = useState([]) // Market list hosts array of objects to display as market cards
@@ -184,90 +265,7 @@ export default function Market(props) {
         setAttributes(attributeObject)  // Passes attribute keys and values to filter menu
         setAttrFilters(filterKeys)  // Passes keys to attribute filter
     }, [marketList])
-
-    // COLLECTIONS SWAP
-    const [ collectionName, setCollectionName ] = useState("Questfrens")
-    const handleCollectionChange = (event) => {
-        console.log(event.target.value)
-        setCollectionName(event.target.value)
-
-        // Resets collection:
-        setCollection({
-            title: "",
-            info: "",
-            icon: qfIcon,
-            bg: qfBg,
-            dispenserListURL: "",
-            statsURL: "",
-            attributeList: "",
-            minted: false
-        })
-        setMarketList([])
-        setStats({
-            "items": 0,
-            "holders": 0,
-            "total_btc_vol": 0,
-            "btc_floor": 0
-        })
-
-        if (event.target.value == "questfrens") {
-            setCollection({
-                title: "Questfrens",
-                info: "Dynamically generated, interactive NFTs on the Counterparty network.",
-                icon: qfIcon,
-                bg: qfBg,
-                dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=questfrens",
-                statsURL: "https://frenzone.net/questfrens/stats/questfren_stats.json",
-                attributeList: "",
-                minted: false
-            })
-        } else if (event.target.value == "mint") {
-            setCollection({
-                title: "Questfrens",
-                info: "Dynamically generated, interactive NFTs on the Counterparty network.",
-                icon: qfIcon,
-                bg: qfBg,
-                dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=mint",
-                statsURL: "https://frenzone.net/questfrens/stats/questfren_stats.json",
-                attributeList: "",
-                minted: true
-            })
-        } else if (event.target.value == "punkfrens") {
-            setCollection({
-                title: "Punk Frens",
-                info: "Counterparty's first generative art collection.",
-                icon: punkIcon,
-                bg: punkBg,
-                dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=punkfrens",
-                statsURL: "https://frenzone.net/masterlist/punkfren_stats.json",
-                attributeList: "",
-                minted: true
-            })
-        } else if (event.target.value == "fakerares") {
-            setCollection({
-                title: "Fake Rares",
-                info: "The Fakest collection on XCP. Beware.",
-                icon: fakeIcon,
-                bg: fakeBg,
-                dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=fakerares",
-                statsURL: "https://frenzone.net/questfrens/stats/fakerares_stats.json",
-                attributeList: "",
-                minted: true
-            })
-        } else if (event.target.value == "fakecommons") {
-            setCollection({
-                title: "Fake Commons",
-                info: "Faker than fake rares.",
-                icon: commonIcon,
-                bg: commonBg,
-                dispenserListURL: "https://questfrens.herokuapp.com/get_dispensers?collection=fakecommons",
-                statsURL: "https://frenzone.net/questfrens/stats/fakecommons_stats.json",
-                attributeList: "",
-                minted: true
-            })
-        }
-    }
-
+    
     // min / max price filter vars
     const [ minPrice, setMinPrice ] = useState("")
     const [ maxPrice, setMaxPrice ] = useState("")
@@ -450,7 +448,6 @@ export default function Market(props) {
 
             
             <Grid container xs={12} sx={{ }}>
-            
                 
                 {/* Filter */}
                 <Grid 
@@ -496,27 +493,9 @@ export default function Market(props) {
 
                     {/* Collection */}
                     <Grid item xs={12} lg={12} sx={{  }}>
-                        <Grid container xs={12} sx={{ pt: 1, pl:1 , pr: 1, pb: 2, borderBottom: "1px solid rgb(40,45,49)" }}>
-                            <Typography variant="overline">
-                                Collections
-                            </Typography>
-                            <FormControl fullWidth>
-                            {/* <InputLabel id="demo-simple-select-label"></InputLabel> */}
-                            <Select
-                                labelId="collection-label"
-                                id="collection-select"
-                                value={collectionName}
-                                // label="Collection"
-                                onChange={handleCollectionChange}
-                            >
-                                <MenuItem value={"questfrens"}>Questfrens</MenuItem>
-                                <MenuItem value={"mint"}>Questfren Mint Tokens</MenuItem>
-                                <MenuItem value={"punkfrens"}>Punk Frens</MenuItem>
-                                <MenuItem value={"fakerares"}>Fake Rares</MenuItem>
-                                <MenuItem value={"fakecommons"}>Fake Commons</MenuItem>
-                            </Select>
-                            </FormControl>
-                        </Grid>
+                        <CollectionsDropDown
+                            collection={collection}
+                        />
                     </Grid>
 
                     {/* <Grid item xs={12} lg={12} sx={{  }}>
@@ -658,12 +637,21 @@ export default function Market(props) {
                     }
                 </Grid>
                 : 
-                <Grid container xs={filterShow ? 12 : 0} sm={filterShow ? 8 : 12} lg={filterShow ? 10 : 12} 
-                sx={{ width: "100%", height: "100%", minHeight: "100px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-                    <Typography variant="overline" sx={{ pt: 3 }}>Reading blockchain transactions...</Typography>
-                    <Box sx={{ display: 'flex', pt: 3, pb: 5 }}>
-                        <CircularProgress />
-                    </Box>
+                <Grid 
+                    container xs={filterShow ? 12 : 0} sm={filterShow ? 8 : 12} lg={filterShow ? 10 : 12} 
+                    sx={{ width: "100%", height: "100%", minHeight: "100px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}
+                >
+                    
+                    { collection.params !== "" ?
+                        <Container sx={{ width: "100%", height: "100%", minHeight: "100px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                            <Typography variant="overline" sx={{ pt: 3 }}>Reading blockchain transactions...</Typography>
+                            <Box sx={{ display: 'flex', pt: 3, pb: 5 }}>
+                                <CircularProgress />
+                            </Box>
+                        </Container>
+                    :
+                        <Typography variant="overline" sx={{ pt: 3 }}>Please select a collection...</Typography>
+                    }
                 </Grid>
                 }
             </Grid>

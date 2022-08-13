@@ -91,7 +91,8 @@ function CardElement(props) {
                 </Typography>
             </CardContent>
             <CardActions sx={{ borderTop: "1px solid rgba(155,155,155,0.2)" }} className="hoverColor">
-                <Button size="small" color="secondary" href={"https://xchain.io/tx/" + props.asset.tx_hash} target="_blank">Dispenser</Button>
+                <Button size="small" color="secondary" href={"https://questfrens.io/asset?name=" + props.assetName} target="_blank">Explore</Button>
+                <Button size="small" sx={{color:"rgb(155,155,155)"}} href={"https://xchain.io/tx/" + props.asset.tx_hash} target="_blank">Dispenser</Button>
             </CardActions>
         </Card>
     )
