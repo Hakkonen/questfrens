@@ -96,6 +96,7 @@ export default function Asset(props) {
             if (parseInt(dispenser.status) === 0) {
                 if (tempFloor === -1) {
                     tempFloor = dispenser.satoshirate
+                    tempFloorDisp = dispenser.tx_hash
                 }
                 if (parseInt(dispenser.satoshirate) < parseInt(tempFloor)) {
                     tempFloor = parseInt(dispenser.satoshirate)
