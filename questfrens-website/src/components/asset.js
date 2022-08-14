@@ -145,7 +145,7 @@ export default function Asset(props) {
         // set card media type
         if (assetInfo.iframe !== "") {
             setCardMediaType("iframe")
-        } else if (assetInfo.video !== "") {
+        } else if (assetInfo.media !== "") {
             setCardMediaType("video")
         } else {
             setCardMediaType("img")
