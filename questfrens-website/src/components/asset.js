@@ -19,6 +19,7 @@ import List from '@mui/material/List';
 // Custom comps
 import Properties from "./asset/properties"
 import AssetTitle from './asset/assetTitle'
+import AssetMedia from "./asset/assetMedia"
 
 // TODO:
 // Fix a name delivery
@@ -42,6 +43,7 @@ export default function Asset(props) {
         "owner": "",
         "supply": 0,
         "media": "",
+        "image": "",
         "iframe": "",
         "properties": {}
     })
@@ -55,6 +57,7 @@ export default function Asset(props) {
     const [ lastSold, setLastSold ] = useState(0.0)
     const [ description, setDescription ] = useState("")
     const [ owner, setOwner ] = useState("")
+    const [ cardMediaType, setCardMediaType ] = useState('img')
 
     // Window size hook
     const [ width, setWidth ] = useState(0)
@@ -139,7 +142,17 @@ export default function Asset(props) {
             assetInfo.properties = false
         }
 
+        // set card media type
+        if (assetInfo.iframe !== "") {
+            setCardMediaType("iframe")
+        } else if (assetInfo.video !== "") {
+            setCardMediaType("video")
+        } else {
+            setCardMediaType("img")
+        }
+
     }, [assetInfo])
+
 
     return (
         <Container sx={{ height: "100%", width: "100%"}} >
@@ -167,35 +180,11 @@ export default function Asset(props) {
                             // Prioritises iFrame, then ternary operate between mp4 and IMG
                             sx={{ width: "100%", height: "100%", maxWidth: iframeDimensions.width }}
                         > 
-                        { 
-                            assetInfo.iframe !== ""
-                            ? <iframe width={iframeDimensions.width} height={iframeDimensions.height} src={assetInfo.iframe}></iframe>
-                            : <Box>
-                                {
-                                    assetInfo.media !== ""
-                                    ?   <CardMedia
-                                            component="video"
-                                            height="auto"
-                                            maxHeight="360"
-                                            width="100%"
-                                            image={assetInfo.media}
-                                            alt={assetInfo.asset}
-                                            sx={{ borderRadius: "5px", objectFit: "contain" }}
-                                        />
-                                    :   <CardMedia
-                                            component="img"
-                                            height="auto"
-                                            maxHeight="360"
-                                            width="100%"
-                                            image={assetInfo.image}
-                                            alt={assetInfo.asset}
-                                            sx={{ borderRadius: "5px", objectFit: "contain" }}
-                                        />
-                                }
-                            </Box>
-                        }
-
-
+                            <AssetMedia 
+                                cardMediaType={cardMediaType} 
+                                iframeDimensions={iframeDimensions}
+                                assetInfo={assetInfo}
+                            />
                         </Card>
                     </Grid>
                     </Grid>
