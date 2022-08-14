@@ -7,6 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { address } from 'bitcoinjs-lib';
+import { Link } from "react-router-dom";
 
 import mintPlaceholder from "../../assets/mintToken.png"
 import defaultBg from "../../assets/defaultBg.gif"
@@ -91,7 +92,9 @@ function CardElement(props) {
                 </Typography>
             </CardContent>
             <CardActions sx={{ borderTop: "1px solid rgba(155,155,155,0.2)" }} className="hoverColor">
-                <Button size="small" color="secondary" href={"https://questfrens.io/asset?name=" + props.assetName} target="_blank">Explore</Button>
+                <Link to={"/asset?name=" + props.assetName}  target="_blank"  style={{ textDecoration: "none" }}>
+                    <Button size="small" color="secondary">Explore</Button>
+                </Link>
                 <Button size="small" sx={{color:"rgb(155,155,155)"}} href={"https://xchain.io/tx/" + props.asset.tx_hash} target="_blank">Dispenser</Button>
             </CardActions>
         </Card>

@@ -141,9 +141,6 @@ export default function Asset(props) {
 
     }, [assetInfo])
 
-
-
-
     return (
         <Container sx={{ height: "100%", width: "100%"}} >
 
