@@ -40,30 +40,33 @@ export default function Asset(props) {
         "divisible": "false",
         "locked": "",
         "owner": "",
-        "supply": 0
+        "supply": 0,
+        "media": "",
+        "iframe": "",
+        "properties": {}
     })
     const [ assetMedia, setAssetMedia ] = useState({
         "image_large": "",
     })
 
     // Set important asset display variables
-    const [ price, setPrice ] = useState(0.0)
     const [ floorDispenser, setFloorDispenser ] = useState("")
     const [ floor, setFloor ] = useState(0.0)
     const [ lastSold, setLastSold ] = useState(0.0)
     const [ description, setDescription ] = useState("")
     const [ owner, setOwner ] = useState("")
 
-    // WIndow size hook
+    // Window size hook
     const [ width, setWidth ] = useState(0)
     useEffect(() => {
         setWidth(props.windowSize.width)
     }, [props.windowSize])
 
+    // iframe for QF
+    const [ iframeDimensions, setiFrameDimensions ] = useState({width: 360, height: 360 })
+
     // Make call to XCP node
     const getAsset = () => fetch(`https://questfrens.herokuapp.com/get_asset?name=${assetName}`).then(response => response.json())
-    // Get asset image, multimedia, or iframe
-    const getAssetMedia = () => fetch(assetInfo.description).then(response => response.json())
     useEffect(() => {
         (async () => {
             // Get asset info
@@ -74,35 +77,25 @@ export default function Asset(props) {
             setOwner(res.owner)
         })();
     }, [assetName]);
-    useEffect(() => {
-        (async () => {
-            console.log(assetInfo)
-            try {
-                if (isValidHttpUrl(assetInfo.description)) {
-                    setAssetMedia(await getAssetMedia())
-                }
-            } catch {}
-        })();
-        // If description is a url
-        // if (assetInfo.description)
-    }, [assetInfo])
-    useEffect(() => {
-        console.log(assetMedia)
-    }, [assetMedia])
     // Calculate BTCs
     useEffect(() => {
-        let tempFloor = 999999.0
+        console.log(assetInfo)
+
+        // Calculate BTC shiznit
+        let tempFloor = -1
         let tempFloorDisp = ""
         let lastDate = 0
         let lastPrice = 0.0
         // If there is a dispenser history, parse data
         for (let dispenser of assetInfo.dispensers) {
             
-
             // Check floor
             if (parseInt(dispenser.status) === 0) {
-                if (parseInt(dispenser.satoshirate / 100000000) < parseInt(tempFloor)) {
-                    tempFloor = dispenser.satoshirate / 100000000
+                if (tempFloor === -1) {
+                    tempFloor = dispenser.satoshirate
+                }
+                if (parseInt(dispenser.satoshirate) < parseInt(tempFloor)) {
+                    tempFloor = parseInt(dispenser.satoshirate)
                     tempFloorDisp = dispenser.tx_hash
                 }
             }
@@ -111,20 +104,44 @@ export default function Asset(props) {
             if (parseInt(dispenser.status) == 10) {
                 if (dispenser.block_index > lastDate) {
                     lastDate = dispenser.block_index
-                    lastPrice = (dispenser.satoshirate / 100000000)
+                    lastPrice = (parseInt(dispenser.satoshirate) / 100000000)
                 }
             }
         }
 
-        if (tempFloor < 999999) {
-            setFloor(tempFloor)
+        if (tempFloor !== -1) {
+            const conversion = tempFloor / 100000000
+            setFloor(conversion)
             setFloorDispenser(tempFloorDisp)
         }
         if (lastDate > 0) {
             setLastSold(lastPrice)
         }
 
+        // Set iframe for QF and properties
+        if (assetInfo.asset.includes("QUESTFREN")) {
+            // iframe dimensions
+            const new_obj = {width: 400, height: 565}
+            setiFrameDimensions(new_obj)
+
+            // properties   
+            const qfProperties = { 
+                "HP": assetInfo.data.HP,
+                "STR": assetInfo.data.STR,
+                "CON": assetInfo.data.CONST,
+                "DEX": assetInfo.data.DEX,
+                "INT": assetInfo.data.INTEL,
+                "WIS": assetInfo.data.WIS,
+                "CHA": assetInfo.data.CHAR,
+            }
+            assetInfo.properties = qfProperties
+        } else {
+            assetInfo.properties = false
+        }
+
     }, [assetInfo])
+
+
 
 
     return (
@@ -136,7 +153,7 @@ export default function Asset(props) {
             >
 
                 <Grid // Left Panel
-                    item xs={12} md={4} sx={{ height: "100%", width: "100%", pr: 1 }}
+                    item xs={12} md={5} sx={{ height: "100%", width: "100%", pr: 1 }}
                 >
                 { (parseInt(width) < 400) == true
                      ?  <AssetTitle // Asset title when portrait
@@ -149,18 +166,39 @@ export default function Asset(props) {
 
                     <Grid container xs={12} sx={{ height: "100%", width: "100%", pb: 1 }}>
                     <Grid item xs={12} sx={{ display: "flex", justifyContent: "center", alignContent: "center" }}>
-                        <Card // Asset image
-                            sx={{ width: "100%", height: "100%", maxWidth: 360 }}
-                        >
-                            <CardMedia
-                                component="img"
-                                height="auto"
-                                maxHeight="360"
-                                width="100%"
-                                image={assetMedia.image_large}
-                                alt={assetInfo.asset}
-                                sx={{ borderRadius: "5px", objectFit: "contain" }}
-                            />
+                        <Card // Asset media
+                            // Prioritises iFrame, then ternary operate between mp4 and IMG
+                            sx={{ width: "100%", height: "100%", maxWidth: iframeDimensions.width }}
+                        > 
+                        { 
+                            assetInfo.iframe !== ""
+                            ? <iframe width={iframeDimensions.width} height={iframeDimensions.height} src={assetInfo.iframe}></iframe>
+                            : <Box>
+                                {
+                                    assetInfo.media !== ""
+                                    ?   <CardMedia
+                                            component="video"
+                                            height="auto"
+                                            maxHeight="360"
+                                            width="100%"
+                                            image={assetInfo.media}
+                                            alt={assetInfo.asset}
+                                            sx={{ borderRadius: "5px", objectFit: "contain" }}
+                                        />
+                                    :   <CardMedia
+                                            component="img"
+                                            height="auto"
+                                            maxHeight="360"
+                                            width="100%"
+                                            image={assetInfo.image}
+                                            alt={assetInfo.asset}
+                                            sx={{ borderRadius: "5px", objectFit: "contain" }}
+                                        />
+                                }
+                            </Box>
+                        }
+
+
                         </Card>
                     </Grid>
                     </Grid>
@@ -175,12 +213,30 @@ export default function Asset(props) {
                                     <Grid container xs={12} sx={{  }}>
 
                                         <Grid container xs={12} sx={{  }}>
-                                            <Grid item xs={6}>
-                                                <Typography textAlign="left" sx={{ color: "rgb(155,155,155)" }}>Properties</Typography>
-                                            </Grid>
-                                            <Grid item xs={6}>
-                                                <Typography textAlign="right">N/A</Typography>
-                                            </Grid>
+                                            
+                                                {/* <Typography textAlign="right">N/A</Typography> */}
+                                                { 
+                                                assetInfo.properties ?
+                                                        Object.entries(assetInfo.properties).map(([key, value]) => (
+                                                        <Grid container xs={12}>
+                                                            <Grid item xs={6}>
+                                                                <Typography textAlign="left" sx={{ color: "rgb(155,155,155)" }}>{key}</Typography>
+                                                            </Grid>
+                                                            <Grid item xs={6}>
+                                                                <Typography textAlign="right">{value}</Typography>
+                                                            </Grid>
+                                                        </Grid>
+                                                        ))
+                                                    :   <Grid container xs={12}>
+                                                            <Grid item xs={6}>
+                                                                <Typography textAlign="left" sx={{ color: "rgb(155,155,155)" }}>Properties</Typography>
+                                                            </Grid>
+                                                            <Grid item xs={6}>
+                                                                <Typography textAlign="right">N/A</Typography>
+                                                            </Grid>
+                                                        </Grid>
+                                                }
+                                            
                                         </Grid>
 
                                     </Grid>
