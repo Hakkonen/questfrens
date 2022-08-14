@@ -42,6 +42,7 @@ export default function AssetTitle(props) {
                     variant="outlined" startIcon={<ShareIcon />}
                     color="secondary"
                     // sx={{ color: "rgb(255,255,255)" }}
+                    onClick={() => {navigator.clipboard.writeText(window.location.href)}}
                 >
                     Share
                 </Button>
@@ -84,8 +85,8 @@ export default function AssetTitle(props) {
             <Grid item xs={2} sm={1} sx={{  display: "flex", justifyContent: "left", alignItems: "center" }}>
                 <Avatar>{props.owner[1]}</Avatar>
             </Grid>
-            <Grid container xs={3}>
-                <Grid item xs={12} textAlign="left">
+            <Grid container xs={3} sx={{ pl: 1 }}>
+                <Grid item xs={12} textAlign="left" >
                     <Typography sx={{ fontWeight: "100", color: "rgb(155,155,155)" }}>Creator</Typography>
                 </Grid>
                 <Grid item xs={12} textAlign="left">
