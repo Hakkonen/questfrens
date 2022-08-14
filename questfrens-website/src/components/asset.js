@@ -163,7 +163,7 @@ export default function Asset(props) {
             >
 
                 <Grid // Left Panel
-                    item xs={12} md={5} sx={{ height: "100%", width: "100%", pr: 1 }}
+                    item xs={12} md={4} sx={{ height: "100%", width: "100%", pr: 1, pl: 1 }}
                 >
                 { (parseInt(width) < 400) == true
                      ?  <AssetTitle // Asset title when portrait
@@ -320,7 +320,7 @@ export default function Asset(props) {
             </Grid>
 
                 <Grid // Right panel
-                    item xs={12} md={6} sx={{  }}
+                    item xs={12} md={6} sx={{ pr: 1, pl: 1 }}
                 >
 
                 { (parseInt(width) < 400) == false
