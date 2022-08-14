@@ -16,6 +16,7 @@ export default function AssetMedia(props) {
             height="auto"
             maxHeight="360"
             width="100%"
+            controls
             image={props.assetInfo.media}
             alt={props.assetInfo.asset}
             sx={{ borderRadius: "5px", objectFit: "contain" }}
