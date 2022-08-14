@@ -17,6 +17,7 @@ export default function AssetMedia(props) {
             maxHeight="360"
             width="100%"
             controls
+            autoPlay
             image={props.assetInfo.media}
             alt={props.assetInfo.asset}
             sx={{ borderRadius: "5px", objectFit: "contain" }}
