@@ -187,6 +187,7 @@ export default function Asset(props) {
                                 cardMediaType={cardMediaType} 
                                 iframeDimensions={iframeDimensions}
                                 assetInfo={assetInfo}
+                                width={width}
                             />
                         </Card>
                     </Grid>
@@ -331,6 +332,7 @@ export default function Asset(props) {
                             assetInfo={assetInfo}
                             description={description}
                             owner={owner}
+                            width={width}
                         />
                     : null
                 }

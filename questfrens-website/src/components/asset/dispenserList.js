@@ -53,7 +53,7 @@ export default function DispenserList(props) {
                             <Grid container xs={12}>
                                     { (dispensers.slice(0, dispCount)).map((dispenser) => {
                                         return (
-                                            <Grid container xs={12}>
+                                            <Grid container xs={12} key={dispenser.id}>
                                                 <Grid item xs={3} sm={3}>
                                                     { parseInt(dispenser.status) === 10 
                                                         ? <Typography textAlign="left" sx={{ color: "rgb(155,155,155)" }}>Closed</Typography>

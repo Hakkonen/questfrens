@@ -13,6 +13,7 @@ import ShareIcon from '@mui/icons-material/Share';
 
 
 export default function AssetTitle(props) {
+    console.log(props)
 
     // Asset info for twitter share
     const tweet = `Check out ${props.assetInfo.asset} on the @Questfrens_XCP marketplace:`
@@ -98,11 +99,12 @@ export default function AssetTitle(props) {
         >
 
             <Grid // Asset name
-                item xs={12} sx={{ display: "flex", justifyContent: "left", pb: 1 }}
+                item xs={12} sx={{ width: "100%", maxWidth: props.width, display: "flex", justifyContent: "left", pb: 1, overflow: "hidden" }}
             >
                 <Typography
-                    variant="h3"
-                    sx={{ fontWeight: "500" }}
+                    variant={(props.width > 400 ? "h3" : "h4")}
+                    textAlign="left"
+                    sx={{ width: "100%", maxWidth: props.width, textOverflow: "ellipsis", whiteSpace: "wrap", fontWeight: "500" }}
                 >
                     {props.assetInfo.asset}
                 </Typography>
