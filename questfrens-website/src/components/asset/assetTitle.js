@@ -106,7 +106,7 @@ export default function AssetTitle(props) {
                     textAlign="left"
                     sx={{ width: "100%", maxWidth: props.width, textOverflow: "ellipsis", whiteSpace: "wrap", fontWeight: "500" }}
                 >
-                    {props.assetInfo.asset}
+                    {props.assetInfo.name}
                 </Typography>
             </Grid>
 

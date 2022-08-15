@@ -36,18 +36,25 @@ export default function Asset(props) {
 
     // Asset Info
     const [ assetInfo, setAssetInfo ] = useState({
-        "asset": "",
-        "asset_longname": "",
-        "dispensers": [],
+        "version": "",
+        "name": "",
+        "artist": "",
         "description": "",
-        "divisible": "false",
+        "attributes": [],
+        "media": {
+            "image": "",
+            "video": "",
+            "iframe": {
+                "height": 0,
+                "width": 0,
+                "src": ""
+            }
+        },
+        "external_url": "",
+        "divisible": "",
         "locked": "",
-        "owner": "",
-        "supply": 0,
-        "media": "",
-        "image": "",
-        "iframe": "",
-        "properties": {}
+        "supply": "",
+        "dispensers": []
     })
     const [ assetMedia, setAssetMedia ] = useState({
         "image_large": "",
@@ -125,7 +132,7 @@ export default function Asset(props) {
         }
 
         // Set iframe for QF and properties
-        if (assetInfo.asset.includes("QUESTFREN")) {
+        if (assetInfo.name.includes("QUESTFREN")) {
             // iframe dimensions
             const new_obj = {width: 400, height: 565}
             setiFrameDimensions(new_obj)
@@ -146,9 +153,9 @@ export default function Asset(props) {
         }
 
         // set card media type
-        if (assetInfo.iframe !== "") {
+        if (assetInfo.media.iframe.src !== "") {
             setCardMediaType("iframe")
-        } else if (assetInfo.media !== "") {
+        } else if (assetInfo.media.video !== "") {
             setCardMediaType("video")
         } else {
             setCardMediaType("img")

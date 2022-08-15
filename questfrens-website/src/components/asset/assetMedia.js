@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import CardMedia from '@mui/material/CardMedia';
 
 export default function AssetMedia(props) {
+    console.log(props)
 
     // media components for card image
     if (props.cardMediaType == "iframe") {
@@ -21,8 +22,8 @@ export default function AssetMedia(props) {
             width="100%"
             controls
             autoPlay
-            image={props.assetInfo.media}
-            alt={props.assetInfo.asset}
+            image={props.assetInfo.media.video}
+            alt={props.assetInfo.name}
             sx={{ borderRadius: "5px", objectFit: "contain" }}
         />
         )
@@ -33,8 +34,8 @@ export default function AssetMedia(props) {
             height="auto"
             // maxHeight="360"
             width="100%"
-            image={props.assetInfo.image}
-            alt={props.assetInfo.asset}
+            image={props.assetInfo.media.image}
+            alt={props.assetInfo.name}
             sx={{ borderRadius: "5px", objectFit: "contain" }}
         />
         )
