@@ -21,6 +21,7 @@ import Properties from "./asset/properties"
 import AssetTitle from './asset/assetTitle'
 import AssetMedia from "./asset/assetMedia"
 import DispenserList from './asset/dispenserList';
+import FooterEl from './footerEl';
 
 // TODO:
 // Fix a name delivery
@@ -384,7 +385,7 @@ export default function Asset(props) {
                 </Grid>
 
             </Grid>
-            
+            <FooterEl />
         </Container>
     )
 }

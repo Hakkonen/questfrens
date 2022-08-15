@@ -132,7 +132,6 @@ function App() {
         <Route path="/instructions" element={<Instructions />} />
         <Route path="/about" element={<About />} />
       </Routes>
-      <FooterEl />
     </div>
     </ThemeProvider>
   );

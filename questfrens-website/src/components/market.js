@@ -35,6 +35,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import AttrBar from "./market/attrBar"
+import FooterEl from './footerEl';
 
 import LazyLoad from 'react-lazyload' //https://github.com/twobin/react-lazyload
 
@@ -655,7 +656,7 @@ export default function Market(props) {
                 </Grid>
                 }
             </Grid>
-            
+            <FooterEl />
         </Box>
     )
 }
