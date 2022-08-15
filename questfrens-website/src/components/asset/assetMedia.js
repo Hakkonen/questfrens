@@ -7,7 +7,10 @@ export default function AssetMedia(props) {
     // media components for card image
     if (props.cardMediaType == "iframe") {
         return (
-            <iframe width={props.iframeDimensions.width} height={props.iframeDimensions.height} src={props.assetInfo.iframe}></iframe>
+            <iframe 
+                width={props.iframeDimensions.width} height={props.iframeDimensions.height} src={props.assetInfo.iframe}
+                style={{ backgroundColor: "rgb(255,255,255)", border: "none" }}
+            ></iframe>
         )
     } else if (props.cardMediaType == "video") {
         return (
@@ -28,7 +31,7 @@ export default function AssetMedia(props) {
             <CardMedia
             component="img"
             height="auto"
-            maxHeight="360"
+            // maxHeight="360"
             width="100%"
             image={props.assetInfo.image}
             alt={props.assetInfo.asset}

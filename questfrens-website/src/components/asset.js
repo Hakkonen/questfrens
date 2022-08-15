@@ -66,7 +66,7 @@ export default function Asset(props) {
     }, [props.windowSize])
 
     // iframe for QF
-    const [ iframeDimensions, setiFrameDimensions ] = useState({width: 360, height: 360 })
+    const [ iframeDimensions, setiFrameDimensions ] = useState({width: 420, height: 560 })
 
     // Make call to XCP node
     const getAsset = () => fetch(`https://questfrens.herokuapp.com/get_asset?name=${assetName}`).then(response => response.json())
@@ -152,6 +152,22 @@ export default function Asset(props) {
             setCardMediaType("img")
         }
 
+        // Parse Dispenser list, sort by new and cut at 25
+        if (assetInfo.dispensers.length > 0) {
+            console.log(assetInfo.dispensers)
+            let sortedDisp = assetInfo.dispensers.sort(function(a, b) {
+                console.log(a.tx_index)
+                return parseFloat(b.tx_index) - parseFloat(parseInt(a.tx_index));
+            });
+            console.log(sortedDisp)
+
+            if (assetInfo.dispensers.length > 25) {
+                sortedDisp = sortedDisp.slice(0, 24)
+            }
+
+            assetInfo.dispensers = sortedDisp
+        }
+
     }, [assetInfo])
 
 
@@ -164,7 +180,7 @@ export default function Asset(props) {
             >
 
                 <Grid // Left Panel
-                    item xs={12} md={4} sx={{ height: "100%", width: "100%", pr: 1, pl: 1 }}
+                    item xs={12} md={4} lg={5} sx={{ height: "100%", width: "100%", pr: 1, pl: 1 }}
                 >
                 { (parseInt(width) < 400) == true
                      ?  <AssetTitle // Asset title when portrait
@@ -321,7 +337,7 @@ export default function Asset(props) {
             </Grid>
 
                 <Grid // Right panel
-                    item xs={12} md={6} sx={{ pr: 1, pl: 1 }}
+                    item xs={12} md={8} lg={7} sx={{ pr: 1, pl: 1 }}
                 >
 
                 { (parseInt(width) < 400) == false
@@ -334,7 +350,9 @@ export default function Asset(props) {
                 }
 
 
-                <Grid container xs={12} sx={{ pt: 2, pl: 0 }}>
+                <Grid // Dispenser floor container
+                    container xs={12} sx={{ pt: 2, pl: 0 }}
+                >
                     <Card
                         sx={{ width: "100%", border: "1px solid rgba(155,155,155, 0.1)", p: 0, m: 0 }}
                     >
@@ -369,6 +387,47 @@ export default function Asset(props) {
                             </Grid>
                             
                         </Grid>
+                    </Card>
+                </Grid>
+
+                <Grid // Dispenser list container
+                    container xs={12} sx={{ pt: 2, pl: 0 }}
+                >
+                    <Card
+                        sx={{ width: "100%", border: "1px solid rgba(155,155,155, 0.1)", p: 0, m: 0 }}
+                    >
+                        <Properties title="Dispensers" bgColor="rgb(19,22,25)"
+                            content={
+                                <Box sx={{ p: 2 }}>
+                                    <Grid container xs={12} sx={{  }}>
+                                        <Grid container xs={12} sx={{  }}>
+                                                {assetInfo.dispensers.map((dispenser) => {
+                                                    // console.log(dispenser); 
+                                                    return (
+                                                        <Grid container xs={12}>
+                                                            <Grid item xs={4}>
+                                                                { parseInt(dispenser.status) === 10 
+                                                                    ? <Typography textAlign="left" sx={{ color: "rgb(155,155,155)" }}>Closed</Typography>
+                                                                    : <Typography textAlign="left" sx={{ color: "rgb(254,254,254)" }}>Open</Typography>
+                                                                }
+                                                            </Grid>
+                                                            <Grid item xs={4}>
+                                                                <a href={`https://xchain.io/tx/${dispenser.tx_hash}`} target="_blank" style={{ textDecoration: "none", color: "rgb(65,102,128)" }}>
+                                                                    <Typography textAlign="left" color="warning">{dispenser.source.substring(0, 7)}</Typography>
+                                                                </a>
+                                                            </Grid>
+                                                            <Grid item xs={4}>
+                                                                <Typography textAlign="right">{dispenser.satoshirate / 100000000} BTC</Typography>
+                                                            </Grid>
+                                                        </Grid>
+                                                    )
+                                                })}
+                                        </Grid>
+                                    </Grid>
+                                </Box>
+                            }
+                        >
+                        </Properties>
                     </Card>
                 </Grid>
 

@@ -28,7 +28,7 @@ export default function AssetTitle(props) {
             <Grid // Floor
                 item xs={12} sx={{ display: "left", justifyContent: "left", alignItems: "center"  }}
             >
-                <Typography  sx={{ textAlign: "left", fontWeight: "100", color: "rgb(155,155,155)" }}>Floor 0.00btc</Typography>
+                <Typography  sx={{ textAlign: "left", fontWeight: "100", color: "rgb(155,155,155)" }}>VOL 0.00btc</Typography>
             </Grid>
 
         </Grid>
