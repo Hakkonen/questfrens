@@ -25,7 +25,6 @@ export default function DispenserList(props) {
             let sortedDisp = props.assetInfo.dispensers.sort(function(a, b) {
                 return parseFloat(b.tx_index) - parseFloat(parseInt(a.tx_index));
             });
-            console.log(sortedDisp)
 
             // append number to assets
             let count = 1

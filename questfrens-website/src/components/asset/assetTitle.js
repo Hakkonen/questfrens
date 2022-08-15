@@ -13,7 +13,6 @@ import ShareIcon from '@mui/icons-material/Share';
 
 
 export default function AssetTitle(props) {
-    console.log(props)
 
     // Asset info for twitter share
     const tweet = `Check out ${props.assetInfo.asset} on the @Questfrens_XCP marketplace:`

@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react'
 import CardMedia from '@mui/material/CardMedia';
 
 export default function AssetMedia(props) {
-    console.log(props)
-    console.log(props.assetInfo.iframe)
 
     // media components for card image
     if (props.cardMediaType == "iframe") {

@@ -13,6 +13,7 @@ import { Typography } from '@mui/material';
 import { useTheme, createTheme } from '@mui/material/styles';
 
 import bg1 from "../assets/bg1.gif"
+import FooterEl from './footerEl';
 
 export default function Home(props) {
 
@@ -24,7 +25,7 @@ export default function Home(props) {
                 display: "flex", justifyContent: "center", alignItems: "center", minHeight: "90%", height: "auto", width: "100vw"
             }}>
 
-            <Box style={{ height: "100%", width: "100%", position: "absolute", zIndex: "-1", backgroundImage: `linear-gradient(transparent, black 75%), url(${bg1})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.2 }}></Box>
+            <Box style={{ height: "100%", width: "100%", position: "absolute", top: 0, left: 0, right: 0, zIndex: "-1", backgroundImage: `linear-gradient(transparent, black 75%), url(${bg1})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.2 }}></Box>
 
             <Grid container spacing={2}
                 sx={{ height: "100%", width: "auto", maxWidth: "1300px" }}
