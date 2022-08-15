@@ -12,6 +12,7 @@ import Market from "./components/market"
 import Asset from "./components/asset"
 import Feed from "./components/feed"
 import Instructions from "./components/instructions"
+import FooterEl from './components/footerEl';
 
 import useWindowSize from "./components/useWindowSize"
 
@@ -131,6 +132,7 @@ function App() {
         <Route path="/instructions" element={<Instructions />} />
         <Route path="/about" element={<About />} />
       </Routes>
+      <FooterEl />
     </div>
     </ThemeProvider>
   );
