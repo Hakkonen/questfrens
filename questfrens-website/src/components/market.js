@@ -316,7 +316,7 @@ export default function Market(props) {
                 <Grid container spacing={0} sx={{ height: "auto" }}>
 
                     {/* Icon */}
-                    <Grid item xs={12} sm={12} md={12} lg={1} xl={1} sx={{ }}>
+                    <Grid item xs={12} sm={12} md={1} lg={1} xl={1} sx={{ }}>
                         <Box
                             disableGutters
                             component="img"

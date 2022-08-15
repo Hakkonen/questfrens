@@ -59,9 +59,11 @@ export default function SearchAppBar(props) {
           <SearchIcon />
         </SearchIconWrapper>
         <StyledInputBase
+          autoFocus
           placeholder="Search…"
           inputProps={{ 'aria-label': 'search' }}
           vale={props.searchValue}
+          sx={{ width: "100%" }}
           onChange={(e) => {
             props.setSearchValue(e.target.value);
           }}

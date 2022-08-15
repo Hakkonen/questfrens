@@ -20,6 +20,7 @@ import List from '@mui/material/List';
 import Properties from "./asset/properties"
 import AssetTitle from './asset/assetTitle'
 import AssetMedia from "./asset/assetMedia"
+import DispenserList from './asset/dispenserList';
 
 // TODO:
 // Fix a name delivery
@@ -150,22 +151,6 @@ export default function Asset(props) {
             setCardMediaType("video")
         } else {
             setCardMediaType("img")
-        }
-
-        // Parse Dispenser list, sort by new and cut at 25
-        if (assetInfo.dispensers.length > 0) {
-            console.log(assetInfo.dispensers)
-            let sortedDisp = assetInfo.dispensers.sort(function(a, b) {
-                console.log(a.tx_index)
-                return parseFloat(b.tx_index) - parseFloat(parseInt(a.tx_index));
-            });
-            console.log(sortedDisp)
-
-            if (assetInfo.dispensers.length > 25) {
-                sortedDisp = sortedDisp.slice(0, 24)
-            }
-
-            assetInfo.dispensers = sortedDisp
         }
 
     }, [assetInfo])
@@ -393,42 +378,7 @@ export default function Asset(props) {
                 <Grid // Dispenser list container
                     container xs={12} sx={{ pt: 2, pl: 0 }}
                 >
-                    <Card
-                        sx={{ width: "100%", border: "1px solid rgba(155,155,155, 0.1)", p: 0, m: 0 }}
-                    >
-                        <Properties title="Dispensers" bgColor="rgb(19,22,25)"
-                            content={
-                                <Box sx={{ p: 2 }}>
-                                    <Grid container xs={12} sx={{  }}>
-                                        <Grid container xs={12} sx={{  }}>
-                                                {assetInfo.dispensers.map((dispenser) => {
-                                                    // console.log(dispenser); 
-                                                    return (
-                                                        <Grid container xs={12}>
-                                                            <Grid item xs={4}>
-                                                                { parseInt(dispenser.status) === 10 
-                                                                    ? <Typography textAlign="left" sx={{ color: "rgb(155,155,155)" }}>Closed</Typography>
-                                                                    : <Typography textAlign="left" sx={{ color: "rgb(254,254,254)" }}>Open</Typography>
-                                                                }
-                                                            </Grid>
-                                                            <Grid item xs={4}>
-                                                                <a href={`https://xchain.io/tx/${dispenser.tx_hash}`} target="_blank" style={{ textDecoration: "none", color: "rgb(65,102,128)" }}>
-                                                                    <Typography textAlign="left" color="warning">{dispenser.source.substring(0, 7)}</Typography>
-                                                                </a>
-                                                            </Grid>
-                                                            <Grid item xs={4}>
-                                                                <Typography textAlign="right">{dispenser.satoshirate / 100000000} BTC</Typography>
-                                                            </Grid>
-                                                        </Grid>
-                                                    )
-                                                })}
-                                        </Grid>
-                                    </Grid>
-                                </Box>
-                            }
-                        >
-                        </Properties>
-                    </Card>
+                    <DispenserList assetInfo={assetInfo} />
                 </Grid>
 
                 </Grid>

@@ -6,11 +6,27 @@ import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Avatar from '@mui/material/Avatar';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 import ShareIcon from '@mui/icons-material/Share';
 
 
 export default function AssetTitle(props) {
+
+    // Asset info for twitter share
+    const tweet = `Check out ${props.assetInfo.asset} on the @Questfrens_XCP marketplace:`
+    const tweetURL = `https://questfrens.io/asset?name=${props.assetInfo.asset}`
+    const tweetVia = "questfrens_xcp"
+    // Twitter share menu
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
     
     return (
         <Grid container xs={12}>
@@ -34,18 +50,45 @@ export default function AssetTitle(props) {
         </Grid>
         </Grid>
 
-        <Grid // Share icons
+        <Grid // Share icons and share to twitter func
             item xs={6}
         >
             <Stack direction="row" spacing={5} sx={{ display: "flex", justifyContent: "right", alignItems: "center" }}>
                 <Button 
+                    // onClick={() => {navigator.clipboard.writeText(window.location.href)}}
+                    id="share-button"
+                    aria-controls={open ? 'basic-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined}
+                    onClick={handleClick}
                     variant="outlined" startIcon={<ShareIcon />}
                     color="secondary"
-                    // sx={{ color: "rgb(255,255,255)" }}
-                    onClick={() => {navigator.clipboard.writeText(window.location.href)}}
                 >
                     Share
                 </Button>
+                <Menu
+                    id="basic-menu"
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    MenuListProps={{
+                    'aria-labelledby': 'basic-button',
+                    }}
+                >
+                    <MenuItem onClick={() => {
+                        navigator.clipboard.writeText(window.location.href)
+                        handleClose()
+                    }}>Copy URL</MenuItem>
+                    <a class="twitter-share-button"
+                        href={`https://twitter.com/intent/tweet?text=${tweet}%0A${tweetURL}`}
+                        target="_blank"
+                        data-size="large"
+                        style={{ textDecoration: "none", color: "rgb(254,254,254)" }}
+                    >
+                        <MenuItem onClick={handleClose}>Share on Twitter</MenuItem>
+                    </a>
+                    
+                </Menu>
             </Stack>
         </Grid>
 
