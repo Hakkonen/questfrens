@@ -12,7 +12,7 @@ import Market from "./components/market"
 import Asset from "./components/asset"
 import Feed from "./components/feed"
 import Instructions from "./components/instructions"
-import FooterEl from './components/footerEl';
+import documentation from './components/documentation';
 
 import useWindowSize from "./components/useWindowSize"
 
@@ -24,6 +24,7 @@ import { indigo, pink } from '@mui/material/colors';
 
 // Dashboard
 import Dashboard from "./components/dashboard"
+import Documentation from './components/documentation';
 
 const pixelFont =  "font-family: 'Press Start 2P', cursive;";
 const darkBlue = "rgb(13,25,40)"
@@ -131,6 +132,8 @@ function App() {
         <Route path="/login" element={<Login setAddress={setAddress} setSignature={setSignature} />} />
         <Route path="/instructions" element={<Instructions />} />
         <Route path="/about" element={<About />} />
+        <Route path="/documentation" element={<Documentation theme={theme} windowSize={size} />} />
+
       </Routes>
     </div>
     </ThemeProvider>

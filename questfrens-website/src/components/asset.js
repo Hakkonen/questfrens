@@ -27,6 +27,9 @@ import FooterEl from './footerEl';
 // Fix a name delivery
 // parse rare pepes through back end and attach images
 
+// TODO: 
+// ADD SKELETON ON LOAD
+
 export default function Asset(props) {
 
     // Gets url params
@@ -192,14 +195,14 @@ export default function Asset(props) {
                                             
                                                 {/* <Typography textAlign="right">N/A</Typography> */}
                                                 { 
-                                                assetInfo.properties ?
-                                                        Object.entries(assetInfo.properties).map(([key, value]) => (
+                                                assetInfo.attributes ?
+                                                        assetInfo.attributes.map((attr) => (
                                                         <Grid container xs={12}>
                                                             <Grid item xs={6}>
-                                                                <Typography textAlign="left" sx={{ color: "rgb(155,155,155)" }}>{key}</Typography>
+                                                                <Typography textAlign="left" sx={{ color: "rgb(155,155,155)" }}>{attr.trait_type}</Typography>
                                                             </Grid>
                                                             <Grid item xs={6}>
-                                                                <Typography textAlign="right">{value}</Typography>
+                                                                <Typography textAlign="right">{attr.value}</Typography>
                                                             </Grid>
                                                         </Grid>
                                                         ))
@@ -236,7 +239,7 @@ export default function Asset(props) {
                                                 <Typography textAlign="left" sx={{ color: "rgb(155,155,155)" }}>Token ID</Typography>
                                             </Grid>
                                             <Grid item xs={6}>
-                                                <Typography textAlign="right">N/A</Typography>
+                                                <Typography textAlign="right">{assetInfo.id}</Typography>
                                             </Grid>
                                         </Grid>
 
