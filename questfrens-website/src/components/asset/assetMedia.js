@@ -4,12 +4,13 @@ import CardMedia from '@mui/material/CardMedia';
 
 export default function AssetMedia(props) {
     console.log(props)
+    console.log(props.assetInfo.iframe)
 
     // media components for card image
     if (props.cardMediaType == "iframe") {
         return (
             <iframe 
-                width={props.iframeDimensions.width} height={props.iframeDimensions.height} src={props.assetInfo.iframe}
+                width={parseInt(props.assetInfo.media.iframe.width)} height={parseInt(props.assetInfo.media.iframe.height)} src={props.assetInfo.media.iframe.src}
                 style={{ backgroundColor: "rgb(255,255,255)", border: "none" }}
             ></iframe>
         )

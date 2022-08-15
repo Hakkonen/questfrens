@@ -131,27 +131,6 @@ export default function Asset(props) {
             setLastSold(lastPrice)
         }
 
-        // Set iframe for QF and properties
-        if (assetInfo.name.includes("QUESTFREN")) {
-            // iframe dimensions
-            const new_obj = {width: 400, height: 565}
-            setiFrameDimensions(new_obj)
-
-            // properties   
-            const qfProperties = { 
-                "HP": assetInfo.data.HP,
-                "STR": assetInfo.data.STR,
-                "CON": assetInfo.data.CONST,
-                "DEX": assetInfo.data.DEX,
-                "INT": assetInfo.data.INTEL,
-                "WIS": assetInfo.data.WIS,
-                "CHA": assetInfo.data.CHAR,
-            }
-            assetInfo.properties = qfProperties
-        } else {
-            assetInfo.properties = false
-        }
-
         // set card media type
         if (assetInfo.media.iframe.src !== "") {
             setCardMediaType("iframe")
