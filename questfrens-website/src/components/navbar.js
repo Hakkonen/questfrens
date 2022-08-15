@@ -199,25 +199,25 @@ const Navbar = () => {
                     id="menu-appbar"
                     anchorEl={anchorElNav}
                     anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'left',
+                        vertical: 'bottom',
+                        horizontal: 'left',
                     }}
                     keepMounted
                     transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
+                        vertical: 'top',
+                        horizontal: 'left',
                     }}
                     open={Boolean(anchorElNav)}
                     onClose={handleCloseNavMenu}
                     sx={{
-                    display: { xs: 'block', md: 'none' },
+                        display: { xs: 'block', md: 'none' },
                     }}
                 >
                     
                     {pages.map((page) => (
-                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                        <Typography textAlign="center">{page}</Typography>
-                    </MenuItem>
+                        <MenuItem key={page} onClick={handleCloseNavMenu}>
+                            <Typography textAlign="center">{page}</Typography>
+                        </MenuItem>
                     ))}
                 </Menu>
             </Box>
@@ -242,13 +242,15 @@ const Navbar = () => {
 
                         <Grid item md={7} sx={{ display: "flex", justifyContent: "right", pr: 5 }}>
                             {pages.map((page) => (
-                                <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                                >
-                                {page}
-                                </Button>
+                                <Link to={`/${page}`} style={{ textDecoration: "none" }}>
+                                    <Button
+                                        key={page}
+                                        onClick={handleCloseNavMenu}
+                                        sx={{ my: 2, color: 'white', display: 'block' }}
+                                    >
+                                    {page}
+                                    </Button>
+                                </Link>
                             ))}
                         </Grid>
                 </Grid>
