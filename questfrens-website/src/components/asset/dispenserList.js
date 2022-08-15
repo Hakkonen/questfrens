@@ -54,18 +54,32 @@ export default function DispenserList(props) {
                                     { (dispensers.slice(0, dispCount)).map((dispenser) => {
                                         return (
                                             <Grid container xs={12}>
-                                                <Grid item xs={4}>
+                                                <Grid item xs={3} sm={3}>
                                                     { parseInt(dispenser.status) === 10 
                                                         ? <Typography textAlign="left" sx={{ color: "rgb(155,155,155)" }}>Closed</Typography>
                                                         : <Typography textAlign="left" sx={{ color: "rgb(254,254,254)" }}>Open</Typography>
                                                     }
                                                 </Grid>
-                                                <Grid item xs={4}>
+                                                <Grid item xs={3} sm={3}>
                                                     <a href={`https://xchain.io/tx/${dispenser.tx_hash}`} target="_blank" style={{ textDecoration: "none", color: "rgb(65,102,128)" }}>
-                                                        <Typography textAlign="left" color="warning">{dispenser.source.substring(0, 7)}</Typography>
+                                                        <Typography textAlign="left" color="warning">{dispenser.source.substring(0, 6)}...</Typography>
                                                     </a>
                                                 </Grid>
-                                                <Grid item xs={4}>
+                                                <Grid item xs={2} sm={3}>
+                                                    <a href={`https://xchain.io/tx/${dispenser.tx_hash}`} target="_blank" style={{ textDecoration: "none" }}>
+                                                        
+                                                            {
+                                                                dispenser.give_remaining > 0 ?
+                                                                <Typography sx={{ textAlign: "center", color: "rgb(254,254,255)" }}>
+                                                                    {dispenser.give_quantity} / {dispenser.give_remaining}
+                                                                </Typography>
+                                                                : <Typography sx={{ textAlign: "center", color: "rgb(155,155,157)" }}>0 / 0</Typography>
+                                                            }
+                                                            
+                                                        
+                                                    </a>
+                                                </Grid>
+                                                <Grid item xs={4} sm={3}>
                                                     <Typography textAlign="right">{dispenser.satoshirate / 100000000} BTC</Typography>
                                                 </Grid>
                                             </Grid>
