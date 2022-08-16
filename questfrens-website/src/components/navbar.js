@@ -24,11 +24,11 @@ import SearchBar from "./searchBar"
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { styled, ThemeProvider, createTheme } from '@mui/material/styles';
 
-const pages = ['Market'];
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function MobileSearch(props) {
-
+    
 
     return (
         <Box
@@ -54,7 +54,9 @@ function MobileSearch(props) {
     )
 }
 
-const Navbar = () => {
+export default function Navbar(props) {
+    const pages = [{"name": "Market", "to": "market"}, {"name": "Docs", "to": "documentation"}];
+
     // Search props
     const [ searchValue, setSearchValue ] = useState("")
     const handleSearchVal = (event) => {
@@ -215,8 +217,10 @@ const Navbar = () => {
                 >
                     
                     {pages.map((page) => (
-                        <MenuItem key={page} onClick={handleCloseNavMenu}>
-                            <Typography textAlign="center">{page}</Typography>
+                        <MenuItem key={page.to} onClick={handleCloseNavMenu}>
+                            <Link to={`/${page.to}`} style={{ textDecoration: "none", color: "rgb(254,254,254)" }}>
+                                <Typography textAlign="center">{page.name}</Typography>
+                            </Link>
                         </MenuItem>
                     ))}
                 </Menu>
@@ -242,18 +246,19 @@ const Navbar = () => {
 
                         <Grid item md={7} sx={{ display: "flex", justifyContent: "right", pr: 5 }}>
                             {pages.map((page) => (
-                                <Link to={`/${page}`} style={{ textDecoration: "none" }}>
+                                <Link to={`/${page.to}`} style={{ textDecoration: "none" }}>
                                     <Button
-                                        key={page}
+                                        key={page.to}
                                         onClick={handleCloseNavMenu}
                                         sx={{ my: 2, color: 'white', display: 'block' }}
                                     >
-                                    {page}
+                                    {page.name}
                                     </Button>
                                 </Link>
                             ))}
                         </Grid>
                 </Grid>
+                
             </Box>
             {/* end fullwidth only */}
 
@@ -285,10 +290,10 @@ const Navbar = () => {
                     </MenuItem>
                     ))}
                 </Menu> */}
+                
             </Box>
         </Toolbar>
         </Container>
     </AppBar>
     );
 };
-export default Navbar;
