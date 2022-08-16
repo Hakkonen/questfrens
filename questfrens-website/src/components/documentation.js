@@ -204,7 +204,7 @@ export default function(props) {
 
                         <br></br>
                     </Typography>
-                    <Typography color="rgb(255,69,58)">&emsp;"image_large": "htpps://yourwebsite.here/asset.jpg"</Typography>
+                    <Typography color="rgb(255,69,58)">&emsp;"image_large": "https://yourwebsite.here/asset.jpg"</Typography>
                 </Paper>
 
                 <Paper sx={{ mt: 3, p: 3, textAlign: "left" }}>
