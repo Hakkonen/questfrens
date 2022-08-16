@@ -19,7 +19,7 @@ export default function SplashCard(props) {
 
     return (
         <Card sx={{ border: "1px solid rgba(150,150,150,0.15)" }}>
-            <CardContent style={{ textAlign: "left" }}>
+            {/* <CardContent style={{ textAlign: "left" }}>
 
                 <Box sx={{ width: "100%" }}>
                 <iframe 
@@ -35,7 +35,7 @@ export default function SplashCard(props) {
                     <Typography variant="button" style={{ fontWeight: 300 }}> by {address}</Typography>
                 </Box>
                 
-            </CardContent>
+            </CardContent> */}
 
             {/* <CardActions>
                 <Button color="secondary" size="small" >Explore</Button>
