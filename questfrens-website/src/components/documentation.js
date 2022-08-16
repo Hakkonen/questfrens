@@ -103,8 +103,6 @@ export default function(props) {
                         <br></br>
 
                         Link to JSON example: <a href="https://github.com/Hakkonen/xip/blob/main/xip100_example.json" target="_blank" style={{textDecoration: 'none', color:"rgb(255,69,58)"}}>here</a>
-
-                        This is how the data keys work:
                     </Typography>
                     </Container>
                 </Paper>
@@ -196,7 +194,18 @@ export default function(props) {
                                 </TableRow>
                             </TableBody>
                         </Table>
-                        </TableContainer>
+                </TableContainer>
+
+                <Paper sx={{ mt: 3, p: 3, textAlign: "left" }}>
+                    <Typography variant="h5" textAlign="left" sx={{}}>Cross-site compatibility</Typography>
+                    <br></br>
+                    <Typography>
+                        To make your NFT Json compatible with XChain, you only need to append an "image_large" key:
+
+                        <br></br>
+                    </Typography>
+                    <Typography color="rgb(255,69,58)">&emsp;"image_large": "htpps://yourwebsite.here/asset.jpg"</Typography>
+                </Paper>
 
                 <Paper sx={{ mt: 3, p: 3, textAlign: "left" }}>
                     <Typography variant="h5" textAlign="left" sx={{}}>Community</Typography>
