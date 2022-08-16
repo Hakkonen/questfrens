@@ -35,7 +35,6 @@ export default function(props) {
                         The xip100 standard is a protocol that allows for image, video, audio, and interactive NFTs to accurately and correctly
                         display metadata.
                     </Typography>
-
                 </Paper>
 
                 <Paper sx={{ mt: 3, p: 3, textAlign: "left" }}>
@@ -51,7 +50,16 @@ export default function(props) {
                     </Typography>
                 </Paper>
 
+
+                <Paper sx={{ mt: 3, p: 3, textAlign: "left" }}>
+                    <Typography variant="body1">
+                    Link to JSON prototype: <a href="https://github.com/Hakkonen/xip/blob/main/xip100.json" target="_blank" style={{textDecoration: 'none', color:"rgb(255,69,58)"}}>here</a>
+                    </Typography>
+                </Paper>
+
                 <Paper sx={{ mt: 3, p: 3, textAlign: "left", overflow: "scroll" }}>
+                    <Typography variant="h5" textAlign="left" sx={{}}>Xip100 Standard Example</Typography>
+                    <br></br>
                     <Typography variant="body1">Here is an example of a an asset that uses the xip100 format:</Typography>
                     <Container sx={{ m: 2 }}>
                     <Typography>
@@ -94,12 +102,17 @@ export default function(props) {
                         <br></br>
                         <br></br>
 
+                        Link to JSON example: <a href="https://github.com/Hakkonen/xip/blob/main/xip100_example.json" target="_blank" style={{textDecoration: 'none', color:"rgb(255,69,58)"}}>here</a>
+
                         This is how the data keys work:
                     </Typography>
                     </Container>
                 </Paper>
 
                 <TableContainer component={Paper} sx={{ mt: 2, p: 2 }}>
+                    <Typography variant="h5" textAlign="left" sx={{ pl: 2, pt: 2, pb: 2}}>Data Key Guide</Typography>
+                    <Typography variant="body1" textAlign="left" sx={{ pl: 2, pt: 2, pb: 2}}>This is how the data keys work:</Typography>
+
                         <Table sx={{  }} aria-label="simple table">
                             <TableHead>
                                 <TableRow>
@@ -186,12 +199,9 @@ export default function(props) {
                         </TableContainer>
 
                 <Paper sx={{ mt: 3, p: 3, textAlign: "left" }}>
-                    <Typography variant="body1">Link to JSON prototype: &nbsp;
-                        <a href="https://frenzone.net/questfrens/xip100/xip100.json" target="_blank" style={{textDecoration: 'none', color:"rgb(255,69,58)"}}>here</a>
-
-                        <br></br>
-                        <br></br>
-                        
+                    <Typography variant="h5" textAlign="left" sx={{}}>Community</Typography>
+                    <br></br>
+                    <Typography variant="body1">
                         To make suggestions or contributions to the xip100 standard, please contact <a href="https://twitter.com/dasistsatori" target="_blank" style={{ textDecoration: 'none', color:"rgb(255,69,58)" }}>@Fabrique</a> or join the <a href="https://t.me/fren_zone" target="_blank" style={{ textDecoration: 'none', color:"rgb(255,69,58)" }}>chat</a>.
                     </Typography>
                 </Paper>
