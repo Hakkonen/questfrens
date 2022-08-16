@@ -218,38 +218,39 @@ export default function Market(props) {
         let filterKeys = {}
         let attributeObject = {}
 
-        // Get attibtue values
+        // Get attribute values
         for (const asset of marketList) {
             if (Object.keys(asset).includes("attributes")) {
 
-                for (const [key, value] of Object.entries(asset.attributes)) {
-                    // console.log(`${key}: ${value}`)
+                for (const attr of asset.attributes) {
+                    // console.log(`${attr.trait_type}: ${attr.value}`)
 
                     // Add atttribute key and value if key not found
-                    if (!Object.keys(attributeObject).includes(key)) {
+                    if (!Object.keys(attributeObject).includes(attr.trait_type)) {
 
                         // Add keys to attribute list
-                        const keyName = [key]
+                        const keyName = attr.trait_type
                         attributeObject[keyName] = []
 
                         // Add values to attribute list
-                        const valueName = value
-                        attributeObject[key].push(valueName)
+                        const valueName = attr.value
+                        attributeObject[attr.trait_type].push(valueName)
 
                         // Add keys to filter scheme
                         filterKeys[keyName] = []
 
                     } else {
                         // Else add attribute value if doesn't already exist in key
-                        if (!Object.values(attributeObject[key]).includes(value)) {
-                            const valueName = value
-                            attributeObject[key].push(valueName)
+                        if (!Object.values(attributeObject[attr.trait_type]).includes(attr.value)) {
+                            const valueName = attr.value
+                            attributeObject[attr.trait_type].push(valueName)
                         }
                     }
                 }
 
             }
         }
+        console.log(attributeObject)
 
         // Sort lists
         for (const [key, value] of Object.entries(attributeObject)) {
@@ -722,14 +723,15 @@ function CardFilter(props) {
     if (Object.keys(props.asset).includes("attributes") && attrFilterCheck) {
 
         // For each attr key of asset
-        for (const [key, value] of Object.entries(props.asset.attributes)) {
+        for (const attr of props.asset.attributes) {
+            
 
             // console.log(key)
             // console.log(Object.values(props.attrFilters[key]))
             
             // Check that a value matches relevant filter value
-            if (Object.values(props.attrFilters[key]).includes(value)) {
-                console.log("INCLUDED")
+            if (Object.values(props.attrFilters[attr.trait_type]).includes(attr.value)) {
+                // console.log("INCLUDED")
                 attributeCheck = true
             }
         }
