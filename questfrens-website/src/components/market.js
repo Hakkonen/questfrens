@@ -186,13 +186,13 @@ export default function Market(props) {
     const [ activityList, setActivityList ] = useState([])
     const [ activityToggle, setActivityToggle ] = useState(false)
     const getActivities = () => fetch("https://questfrens.herokuapp.com/get_activity").then(response => response.json())
-    const handleActivityToggle = async () => {
-        (async () => {
+    const handleActivityToggle = async (type) => {
+        (async (type) => {
             // Toggles activity page
-            setActivityToggle(!activityToggle)
+            // setActivityToggle(!activityToggle)
 
             // Load activity
-            setActivityList(await getActivities())
+            // setActivityList(await getActivities())
         })();
     }
     useEffect(() => {
@@ -438,12 +438,12 @@ export default function Market(props) {
                                     sx={{ height: "100%" }}
                                     color={ activityToggle ? "warning" : "secondary" }
                                 >Items</Button>
-                                <Button 
+                                {/* <Button 
                                     onClick={handleActivityToggle}
                                     // onClick={() => {setActivityToggle(!activityToggle)}}
                                     sx={{ height: "100%" }}
                                     color={ activityToggle ? "secondary" : "warning" }
-                                >Activity</Button>
+                                >Activity</Button> */}
                         </Grid>
                     </Grid>
             </Grid>

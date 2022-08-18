@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 import Home from "./components/home"
 import Navbar from "./components/navbar"
 import Login from "./components/login"
-import Account from "./components/account"
+import Address from "./components/address"
 import Market from "./components/market"
 import Asset from "./components/asset"
 import Feed from "./components/feed"
@@ -125,7 +125,7 @@ function App() {
       
       <Routes>
         <Route path="/" element={<Home theme={theme} windowSize={size} />} />
-        <Route path="/account" element={<Account address={address} />} />
+        <Route path="/address" element={<Address theme={theme} windowSize={size} />} />
         <Route path="/feed" element={<Feed theme={theme} />} />
         <Route path="/market" element={<Market theme={theme} />} />
         <Route path="/asset" element={<Asset theme={theme} windowSize={size} />} />
