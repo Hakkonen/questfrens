@@ -21,6 +21,7 @@ import Properties from "./asset/properties"
 import AssetTitle from './asset/assetTitle'
 import AssetMedia from "./asset/assetMedia"
 import DispenserList from './asset/dispenserList';
+import HolderList from './asset/holderList';
 import FooterEl from './footerEl';
 
 // TODO:
@@ -29,6 +30,9 @@ import FooterEl from './footerEl';
 
 // TODO: 
 // ADD SKELETON ON LOAD
+
+// TODO:
+// Use divisble to parse correct quants
 
 export default function Asset(props) {
 
@@ -62,6 +66,8 @@ export default function Asset(props) {
     const [ assetMedia, setAssetMedia ] = useState({
         "image_large": "",
     })
+    // Get asset holders
+    const [ assetHolders, setAssetHolders ] = useState({})
 
     // Set important asset display variables
     const [ floorDispenser, setFloorDispenser ] = useState("")
@@ -82,6 +88,8 @@ export default function Asset(props) {
 
     // Make call to XCP node
     const getAsset = () => fetch(`https://questfrens.herokuapp.com/get_asset?name=${assetName}`).then(response => response.json())
+    // Get holder call
+    const getHolders = () => fetch(`https://questfrens.herokuapp.com/get_holders?name=${assetName}`).then(response => response.json())
     useEffect(() => {
         (async () => {
             // Get asset info
@@ -90,6 +98,10 @@ export default function Asset(props) {
             // Set important  info vars
             setDescription(res.description)
             setOwner(res.owner)
+
+            // Get asset holders from flask
+            const holdersRes = await getHolders()
+            setAssetHolders(holdersRes)
         })();
     }, [assetName]);
     // Calculate BTCs
@@ -142,7 +154,6 @@ export default function Asset(props) {
         } else {
             setCardMediaType("img")
         }
-
     }, [assetInfo])
 
 
@@ -155,7 +166,7 @@ export default function Asset(props) {
             >
 
                 <Grid // Left Panel
-                    item xs={12} md={4} lg={5} sx={{ height: "100%", width: "100%", pr: 1, pl: 1 }}
+                    item xs={12} sm={4} md={4} lg={5} sx={{ height: "100%", width: "100%", pr: 1, pl: 1 }}
                 >
                 { (parseInt(width) < 400) == true
                      ?  <AssetTitle // Asset title when portrait
@@ -167,19 +178,19 @@ export default function Asset(props) {
                 }
 
                     <Grid container xs={12} sx={{ height: "100%", width: "100%", pb: 1 }}>
-                    <Grid item xs={12} sx={{ display: "flex", justifyContent: "center", alignContent: "center" }}>
-                        <Card // Asset media
-                            // Prioritises iFrame, then ternary operate between mp4 and IMG
-                            sx={{ width: "100%", height: "100%", maxWidth: iframeDimensions.width }}
-                        > 
-                            <AssetMedia 
-                                cardMediaType={cardMediaType} 
-                                iframeDimensions={iframeDimensions}
-                                assetInfo={assetInfo}
-                                width={width}
-                            />
-                        </Card>
-                    </Grid>
+                        <Grid item xs={12} sx={{ display: "flex", justifyContent: "center", alignContent: "center" }}>
+                            <Card // Asset media
+                                // Prioritises iFrame, then ternary operate between mp4 and IMG
+                                sx={{ width: "100%", height: "100%" }}
+                            > 
+                                <AssetMedia 
+                                    cardMediaType={cardMediaType} 
+                                    iframeDimensions={iframeDimensions}
+                                    assetInfo={assetInfo}
+                                    width={width}
+                                />
+                            </Card>
+                        </Grid>
                     </Grid>
 
                     <Grid // Properties card
@@ -313,7 +324,7 @@ export default function Asset(props) {
             </Grid>
 
                 <Grid // Right panel
-                    item xs={12} md={8} lg={7} sx={{ pr: 1, pl: 1 }}
+                    item xs={12} sm={8} md={8} lg={7} sx={{ pr: 1, pl: 1 }}
                 >
 
                 { (parseInt(width) < 400) == false
@@ -357,7 +368,6 @@ export default function Asset(props) {
                                     ?   <Link href={`https://xchain.io/tx/${floorDispenser}`} target="_blank" sx={{ textDecoration: "none" }}>
                                             <Button color="secondary" variant="outlined">Buy Now</Button>
                                         </Link>
-                                        
                                     : <Box><Button color="secondary" variant="outlined" disabled={true}>Make Offer</Button></Box>
                                 }
                                 
@@ -373,7 +383,13 @@ export default function Asset(props) {
                     <DispenserList assetInfo={assetInfo} />
                 </Grid>
 
+                <Grid // Dispenser list container
+                    container xs={12} sx={{ pt: 2, pl: 0 }}
+                >
+                    <HolderList assetHolders={assetHolders} width={width} supply={assetInfo.supply} />
                 </Grid>
+
+            </Grid>
 
             </Grid>
             <FooterEl />

@@ -36,7 +36,7 @@ export default function Properties(props) {
     };
 
     return (
-        <Card sx={{ width: "100%" }}>
+        <Card sx={{ width: "100%", border: "1px solid rgba(155,155,155, 0.1)" }}>
 
             <CardActions disableSpacing>
 
