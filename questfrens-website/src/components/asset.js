@@ -20,6 +20,7 @@ import List from '@mui/material/List';
 import Properties from "./asset/properties"
 import AssetTitle from './asset/assetTitle'
 import AssetMedia from "./asset/assetMedia"
+import PriceInfo from './asset/priceInfo';
 import DispenserList from './asset/dispenserList';
 import HolderList from './asset/holderList';
 import FooterEl from './footerEl';
@@ -341,46 +342,20 @@ export default function Asset(props) {
                 <Grid // Dispenser floor container
                     container xs={12} sx={{ pt: 2, pl: 0 }}
                 >
-                    <Card
-                        sx={{ width: "100%", border: "1px solid rgba(155,155,155, 0.1)", p: 0, m: 0 }}
-                    >
-                        <Grid container xs={12} sx={{ p: 2 }}>
-                            
-                            <Grid // unlisted / price
-                                item xs={6} sx={{ display: "flex", justifyContent: "left", alignItems: "center" }}
-                            >
-                                { 
-                                    assetInfo.dispensers.length > 0 
-                                    ?   <Box sx={{ textAlign: "left" }}>
-                                            <Typography variant="caption" sx={{ color: "rgb(155,155,155)" }}>Dispenser Floor Price</Typography>
-                                            <Typography variant="h5" sx={{ fontWeight: 500 }}>₿ {floor}</Typography>
-                                            <Typography variant="caption" sx={{ color: "rgb(155,155,155)" }}>Last Listed Price</Typography>
-                                            <Typography>₿ {lastSold}</Typography>
-                                        </Box>
-                                    : "Unlisted"
-                                }
-                            </Grid>
-                            <Grid // dispenser button
-                                item xs={6} sx={{ display: "flex", justifyContent: "right", alignItems: "top" }}
-                            >
-                                {
-                                    floor > 0.0
-                                    ?   <Link href={`https://xchain.io/tx/${floorDispenser}`} target="_blank" sx={{ textDecoration: "none" }}>
-                                            <Button color="secondary" variant="outlined">Buy Now</Button>
-                                        </Link>
-                                    : <Box><Button color="secondary" variant="outlined" disabled={true}>Make Offer</Button></Box>
-                                }
-                                
-                            </Grid>
-                            
-                        </Grid>
-                    </Card>
+                    <Grid item xs={12}>
+                        <PriceInfo 
+                            assetInfo={assetInfo} 
+                            lastSold={lastSold}
+                            floor={floor}
+                            floorDispenser={floorDispenser}
+                        />
+                    </Grid>
                 </Grid>
 
                 <Grid // Dispenser list container
                     container xs={12} sx={{ pt: 2, pl: 0 }}
                 >
-                    <DispenserList assetInfo={assetInfo} />
+                    <DispenserList assetInfo={assetInfo} width={width} />
                 </Grid>
 
                 <Grid // Dispenser list container
