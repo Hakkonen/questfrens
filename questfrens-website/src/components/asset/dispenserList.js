@@ -55,7 +55,7 @@ export default function DispenserList(props) {
         >
             <Properties title="Dispensers" bgColor="rgb(19,22,25)" // Properties box
                 content={
-                    <Box sx={{ p: 2 }}>
+                    <Box sx={{ p: 1 }}>
                         <Grid container xs={12}>
                             <Grid container xs={12}>
                                 <TableContainer component={Paper}>
@@ -69,7 +69,7 @@ export default function DispenserList(props) {
                                                 
                                                 <TableCell>Source</TableCell>
                                                 <TableCell>Stock</TableCell>
-                                                <TableCell>Price</TableCell>
+                                                <TableCell sx={{ textAlign: "right" }}>Price</TableCell>
                                             </TableRow>
                                         </TableHead>
                                         <TableBody>
@@ -100,10 +100,10 @@ export default function DispenserList(props) {
                                                 <a href={`https://xchain.io/tx/${dispenser.tx_hash}`} target="_blank" style={{ textDecoration: "none" }}>
                                                     {
                                                         dispenser.give_remaining > 0 ?
-                                                        <Typography sx={{ textAlign: "center", color: "rgb(254,254,255)" }}>
+                                                        <Typography sx={{ color: "rgb(254,254,255)" }}>
                                                             {dispenser.give_quantity} / {dispenser.give_remaining}
                                                         </Typography>
-                                                        : <Typography sx={{ textAlign: "center", color: "rgb(155,155,157)" }}>0 / 0</Typography>
+                                                        : <Typography sx={{ color: "rgb(155,155,157)" }}>0 / 0</Typography>
                                                     }
                                                 </a>
                                                 </TableCell>

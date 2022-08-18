@@ -6,7 +6,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import { Typography } from '@mui/material';
+import { Skeleton, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';

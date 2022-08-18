@@ -2,8 +2,22 @@ import React, { useState, useEffect } from 'react'
 
 import CardMedia from '@mui/material/CardMedia';
 import Container from '@mui/material/Container';
+import Skeleton from '@mui/material/Skeleton';
 
 export default function AssetMedia(props) {
+
+    // Return loading if no data
+    if (props.assetInfo.name == "") {
+        return (
+            <CardMedia>
+                <Skeleton 
+                    height={560}
+                    width={"100%"}
+                    variant="rectangular"
+                />
+            </CardMedia>
+        )
+    }
 
     // media components for card image
     if (props.cardMediaType == "iframe") {

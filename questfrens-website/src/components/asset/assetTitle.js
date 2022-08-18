@@ -8,8 +8,10 @@ import Link from '@mui/material/Link';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Skeleton from '@mui/material/Skeleton';
 
 import ShareIcon from '@mui/icons-material/Share';
+
 
 
 export default function AssetTitle(props) {
@@ -105,7 +107,7 @@ export default function AssetTitle(props) {
                     textAlign="left"
                     sx={{ width: "100%", maxWidth: props.width, textOverflow: "ellipsis", whiteSpace: "wrap", fontWeight: "500" }}
                 >
-                    {props.assetInfo.name}
+                    {props.assetInfo.name ? props.assetInfo.name : <Skeleton width={"10ch"} />}
                 </Typography>
             </Grid>
 
@@ -138,7 +140,7 @@ export default function AssetTitle(props) {
                         <Typography  color="secondary">
                             { props.owner !== ""
                                 ?`${props.owner[0]}${props.owner[1]}${props.owner[2]}${props.owner[3]}${props.owner[4]}${props.owner[5]}`
-                                : ""
+                                : <Skeleton width={"6ch"} />
                             }
                         </Typography>
                     </Link>
