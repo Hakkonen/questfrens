@@ -114,14 +114,12 @@ export default function(props) {
                 </Grid>
             </Grid>
 
-
-
             <Grid // Maps balances
                 container xs={12} wrap="wrap" spacing={2}
                 sx={{ p: 2 }}
             > 
                     {address.balance.map(asset => (
-                        <Grid item xs={6} sm={4} md={3} lg={3}>
+                        <Grid item xs={6} sm={4} md={3} lg={2}>
                             <LazyLoad height={360}>
                                 <AssetCard key={asset.name} asset={asset} />
                             </LazyLoad>
