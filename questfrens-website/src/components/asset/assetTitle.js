@@ -29,6 +29,7 @@ export default function AssetTitle(props) {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    console.log(props)
     
     return (
         <Grid container xs={12}>
@@ -129,7 +130,7 @@ export default function AssetTitle(props) {
             container xs={12} sx={{ pb: 5 }}
         >
             <Grid item xs={2} sm={1} sx={{  display: "flex", justifyContent: "left", alignItems: "center" }}>
-                <Avatar>{props.owner[1]}</Avatar>
+                <Avatar>{props.assetInfo.issuer[1]}</Avatar>
             </Grid>
             <Grid container xs={3} sx={{ pl: 1 }}>
                 <Grid item xs={12} textAlign="left" >
@@ -138,8 +139,8 @@ export default function AssetTitle(props) {
                 <Grid item xs={12} textAlign="left">
                     <Link href={`https://xchain.io/address/${props.owner}`} sx={{ textDecoration: "none" }}>
                         <Typography  color="secondary">
-                            { props.owner !== ""
-                                ?`${props.owner[0]}${props.owner[1]}${props.owner[2]}${props.owner[3]}${props.owner[4]}${props.owner[5]}`
+                            { props.assetInfo.issuer !== ""
+                                ? props.assetInfo.issuer.substring(0,5)
                                 : <Skeleton width={"6ch"} />
                             }
                         </Typography>

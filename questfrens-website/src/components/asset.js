@@ -49,6 +49,7 @@ export default function Asset(props) {
         "artist": "",
         "description": "",
         "attributes": [],
+        "issuer": "",
         "media": {
             "image": "",
             "video": "",
@@ -87,18 +88,29 @@ export default function Asset(props) {
     // iframe for QF
     const [ iframeDimensions, setiFrameDimensions ] = useState({width: 420, height: 560 })
 
-    // Make call to XCP node
-    const getAsset = () => fetch(`https://questfrens.herokuapp.com/get_asset?name=${assetName}`).then(response => response.json())
+    // Make call to goraredb
+    const getAsset = () => fetch(`https://goraredb.herokuapp.com/get_asset?name=${assetName}`).then(response => response.json())
+    // Get dispensers call
+    const getDispensers = () => fetch(`https://goraredb.herokuapp.com/get_dispenser?name=${assetName}`).then(response => response.json())
     // Get holder call
     const getHolders = () => fetch(`https://questfrens.herokuapp.com/get_holders?name=${assetName}`).then(response => response.json())
     useEffect(() => {
         (async () => {
             // Get asset info
-            const res = await getAsset()
-            setAssetInfo(res)
+            console.log(assetName)
+            const assetRes = await getAsset()
+            console.log(assetRes)
+            // Get dispensers
+            const dispRes = await getDispensers()
+            console.log(dispRes)
+
+            assetRes.dispensers = dispRes
+            console.log(assetRes)
+
+            setAssetInfo(assetRes)
             // Set important  info vars
-            setDescription(res.description)
-            setOwner(res.owner)
+            setDescription(assetRes.description)
+            setOwner(assetRes.owner)
 
             // Get asset holders from flask
             const holdersRes = await getHolders()
@@ -173,7 +185,7 @@ export default function Asset(props) {
                      ?  <AssetTitle // Asset title when portrait
                             assetInfo={assetInfo}
                             description={description}
-                            owner={owner}
+                            // issuer={issuer}
                         />
                     : null
                 }

@@ -37,8 +37,8 @@ export default function Home(props) {
                     <Grid container spacing={0}>
                         <Grid item xs={10} sm={9} sx={{ pl: 1, pt: 1}}>
                             <Typography
-                                variant="h2"
-                                sx={{ color: props.theme.palette.basque, fontWeight: 600, pb: 2, pr: 1, pt: 2 }}
+                                variant="h3"
+                                sx={{ color: "white", fontWeight: 600, pb: 2, pr: 1, pt: 2 }}
                                 align="left"
                             >
                                 Mint, collect, and quest...

@@ -75,7 +75,6 @@ export default function(props) {
     // Get banner from random image
     const [ banner, setBanner ] = useState("")
 
-
     return (
         <Box sx={{ width: "100%", minHeight: "90%", height: "auto", p: 0, m: 0 }}>
 

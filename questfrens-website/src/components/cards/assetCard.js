@@ -50,6 +50,8 @@ export default function AssetCard(props) {
         "artist": "",
         "description": "",
         "attributes": [],
+        "supply": 0,
+        "quantity": 1,
         "media": {
             "image": "",
             "video": "",
@@ -61,91 +63,112 @@ export default function AssetCard(props) {
         },
         "external_url": ""
     })
-    
-    // Single asset direct xcp call
-    const getAssetData = (h) => fetch(`https://questfrens.herokuapp.com/get_asset_data?name=${h}`).then(response => response.json())
-    const [ xcpData, setXcpData ] = useState({})
-    const getDescrData = (url) => fetch(`${url}`).then(response => response.json())
-    useEffect(() => {
-        setAsset(props.asset)
 
-        // check for xip
-        if ("media" in props.asset) {
-            console.log("Media found")
-        } else {
-            (async () => {
-                // Call xcp directly for more data
-                try {
-                    const assetData = await getAssetData(props.asset.asset)
-                    // console.log(assetData)
-                    setXcpData(assetData[0])
-
-                    // Get name
-                    let name = ""
-                    if (assetData[0].asset[0] == "A") {
-                        name = assetData[0].asset_longname
-                    } else if (assetData[0].asset[0] != null) {
-                        name = assetData[0].asset
-                    } else {
-                        setFailed(true)
-                    }
-                    setAsset(prev => ({
-                        ...prev,
-                        "name": name
-                    }))
-                } catch(e) {
-                    console.error(e)
-                    setFailed(true)
-                }
-            })();
-        }
-    }, [props.asset])
-    // Convert direct xcp call to media
+    // GoRareDb call
+    const getAsset = () => fetch(`https://goraredb.herokuapp.com/get_asset?name=${props.asset.asset}`).then(response => response.json())
     useEffect(() => {
         (async () => {
-            
-            if ("description" in xcpData && xcpData.description.includes(".json")) {
+            if (props.asset.asset !== "") {
                 try {
-                    // Check for http prefix
-                    if (!xcpData.description.includes("https://")) {
-                        xcpData.description = "https://" + xcpData.description
-                    }
-
-                    // Get descr json data
-                    const descrRes = await getDescrData(xcpData.description)
-                    if ("image_large" in descrRes) {
-                        setAsset(prev => ({
-                            ...prev,
-                            "supply": xcpData.supply,
-                            media: {
-                                "image": descrRes.image_large,
-                            }
-                        }))
-                        setLoading(false)
-                    } else if ("image" in descrRes) {
-                        setAsset(prev => ({
-                            ...prev,
-                            "supply": xcpData.supply,
-                            media: {
-                                "image": descrRes.image,
-                            }
-                        }))
-                        setLoading(false)
-                    } else {
-                        setFailed(true)
-                    }
+                    const res = await getAsset()
+                    res.quantity = props.asset.quantity
+    
+                    setAsset(res)
+                    setLoading(false)
                 } catch(e) {
-                    console.error(e)
                     setFailed(true)
                 }
-            } else if (Object.keys(xcpData).length) {
+
+            } else {
                 setFailed(true)
             }
         })();
-    }, [xcpData])
-    useEffect(() => {
-        console.log(asset)
-    }, [asset])
+    }, [props])
+    
+    // // Single asset direct xcp call
+    // const getAssetData = (h) => fetch(`https://questfrens.herokuapp.com/get_asset_data?name=${h}`).then(response => response.json())
+    // const [ xcpData, setXcpData ] = useState({})
+    // const getDescrData = (url) => fetch(`${url}`).then(response => response.json())
+    // useEffect(() => {
+    //     setAsset(props.asset)
+
+    //     // check for xip
+    //     if ("media" in props.asset) {
+    //         console.log("Media found")
+    //     } else {
+    //         (async () => {
+    //             // Call xcp directly for more data
+    //             try {
+    //                 const assetData = await getAssetData(props.asset.asset)
+    //                 // console.log(assetData)
+    //                 setXcpData(assetData[0])
+
+    //                 // Get name
+    //                 let name = ""
+    //                 if (assetData[0].asset[0] == "A") {
+    //                     name = assetData[0].asset_longname
+    //                 } else if (assetData[0].asset[0] != null) {
+    //                     name = assetData[0].asset
+    //                 } else {
+    //                     setFailed(true)
+    //                 }
+    //                 setAsset(prev => ({
+    //                     ...prev,
+    //                     "name": name
+    //                 }))
+    //             } catch(e) {
+    //                 console.error(e)
+    //                 setFailed(true)
+    //             }
+    //         })();
+    //     }
+    // }, [props.asset])
+    // // Convert direct xcp call to media
+    // useEffect(() => {
+    //     (async () => {
+            
+    //         if ("description" in xcpData && xcpData.description.includes(".json")) {
+    //             try {
+    //                 // Check for http prefix
+    //                 if (!xcpData.description.includes("https://")) {
+    //                     xcpData.description = "https://" + xcpData.description
+    //                 }
+
+    //                 // Get descr json data
+    //                 const descrRes = await getDescrData(xcpData.description)
+    //                 if ("image_large" in descrRes) {
+    //                     setAsset(prev => ({
+    //                         ...prev,
+    //                         "supply": xcpData.supply,
+    //                         media: {
+    //                             "image": descrRes.image_large,
+    //                         }
+    //                     }))
+    //                     setLoading(false)
+    //                 } else if ("image" in descrRes) {
+    //                     setAsset(prev => ({
+    //                         ...prev,
+    //                         "supply": xcpData.supply,
+    //                         media: {
+    //                             "image": descrRes.image,
+    //                         }
+    //                     }))
+    //                     setLoading(false)
+    //                 } else {
+    //                     setFailed(true)
+    //                 }
+    //             } catch(e) {
+    //                 console.error(e)
+    //                 setFailed(true)
+    //             }
+    //         } else if (Object.keys(xcpData).length) {
+    //             setFailed(true)
+    //         }
+    //     })();
+    // }, [xcpData])
+    // useEffect(() => {
+    //     console.log(asset)
+    // }, [asset])
 
 
     
