@@ -130,7 +130,13 @@ export default function AssetTitle(props) {
             container xs={12} sx={{ pb: 5 }}
         >
             <Grid item xs={2} sm={1} sx={{  display: "flex", justifyContent: "left", alignItems: "center" }}>
-                <Avatar>{props.assetInfo.issuer[1]}</Avatar>
+                <Avatar>
+                    {
+                        props.assetInfo.issue !== ""
+                        ? props.assetInfo.issuer.substring(0,1)
+                        : ""
+                    }
+                </Avatar>
             </Grid>
             <Grid container xs={3} sx={{ pl: 1 }}>
                 <Grid item xs={12} textAlign="left" >
