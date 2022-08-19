@@ -132,7 +132,7 @@ export default function AssetTitle(props) {
             <Grid item xs={2} sm={1} sx={{  display: "flex", justifyContent: "left", alignItems: "center" }}>
                 <Avatar>
                     {
-                        props.assetInfo.issue !== ""
+                        props.assetInfo.issuer !== ""
                         ? props.assetInfo.issuer.substring(0,1)
                         : ""
                     }
@@ -143,7 +143,7 @@ export default function AssetTitle(props) {
                     <Typography sx={{ fontWeight: "100", color: "rgb(155,155,155)" }}>Creator</Typography>
                 </Grid>
                 <Grid item xs={12} textAlign="left">
-                    <Link href={`https://xchain.io/address/${props.owner}`} sx={{ textDecoration: "none" }}>
+                    <Link href={`https://questfrens.io/address?hash=${props.assetInfo.issuer}`} sx={{ textDecoration: "none" }}>
                         <Typography  color="secondary">
                             { props.assetInfo.issuer !== ""
                                 ? props.assetInfo.issuer.substring(0,5)

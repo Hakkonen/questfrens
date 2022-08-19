@@ -68,6 +68,10 @@ export default function AssetCard(props) {
     const getAsset = () => fetch(`https://goraredb.herokuapp.com/get_asset?name=${props.asset.asset}`).then(response => response.json())
     useEffect(() => {
         (async () => {
+            setAsset(prev => ({
+                ...prev,
+                name: props.asset.asset
+            }))
             if (props.asset.asset !== "") {
                 try {
                     const res = await getAsset()
@@ -210,7 +214,7 @@ export default function AssetCard(props) {
 
             <CardActions sx={{ borderTop: "1px solid rgba(155,155,155,0.2)" }} className="hoverColor">
                 {
-                    loading
+                    asset.name == ""
                     ? <Button size="small" disabled>Loading</Button>
                     :   <Link to={"/asset?name=" + asset.name}  target="_blank"  style={{ textDecoration: "none" }}>
                             <Button size="small" color="secondary">Explore</Button>

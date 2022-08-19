@@ -63,7 +63,8 @@ export default function Asset(props) {
         "divisible": "",
         "locked": "",
         "supply": "",
-        "dispensers": []
+        "dispensers": [],
+        "divisible": false
     })
     const [ assetMedia, setAssetMedia ] = useState({
         "image_large": "",
@@ -96,25 +97,36 @@ export default function Asset(props) {
     const getHolders = () => fetch(`https://questfrens.herokuapp.com/get_holders?name=${assetName}`).then(response => response.json())
     useEffect(() => {
         (async () => {
-            // Get asset info
-            console.log(assetName)
-            const assetRes = await getAsset()
-            console.log(assetRes)
-            // Get dispensers
-            const dispRes = await getDispensers()
-            console.log(dispRes)
+            try {
+                let error = false
+                // Get asset info
+                console.log(assetName)
+                const assetRes = await getAsset()
+                if ("error" in assetRes) {
+                    console.log(assetRes)
+                    return
+                }
+                console.log(assetRes)
+                // Get dispensers
+                const dispRes = await getDispensers()
+                console.log(dispRes)
 
-            assetRes.dispensers = dispRes
-            console.log(assetRes)
+                assetRes.dispensers = dispRes
+                console.log(assetRes)
 
-            setAssetInfo(assetRes)
-            // Set important  info vars
-            setDescription(assetRes.description)
-            setOwner(assetRes.owner)
 
-            // Get asset holders from flask
-            const holdersRes = await getHolders()
-            setAssetHolders(holdersRes)
+                setAssetInfo(assetRes)
+                // Set important  info vars
+                setDescription(assetRes.description)
+                setOwner(assetRes.owner)
+
+                // Get asset holders from flask
+                const holdersRes = await getHolders()
+                setAssetHolders(holdersRes)
+            } catch(e) {
+                console.error(e)
+            }
+
         })();
     }, [assetName]);
     // Calculate BTCs
@@ -281,7 +293,11 @@ export default function Asset(props) {
                                                 <Typography textAlign="left" sx={{ color: "rgb(155,155,155)" }}>Divisible</Typography>
                                             </Grid>
                                             <Grid item xs={6}>
-                                                <Typography textAlign="right">{assetInfo.divisible.toString()}</Typography>
+                                                <Typography textAlign="right">
+                                                    {
+                                                        assetInfo.divisible.toString()
+                                                    }
+                                                </Typography>
                                             </Grid>
                                         </Grid>
 
