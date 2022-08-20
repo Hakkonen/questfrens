@@ -128,7 +128,7 @@ export default function PriceInfo(props) {
                                     variant="caption" 
                                     sx={{ color: "rgb(155,155,155)" }}
                                 >
-                                    Last Listed Price
+                                    Last Closed Price
                                 </Typography>
                                 <Typography>
                                     ₿ {props.lastSold}
