@@ -15,6 +15,8 @@ import ShareIcon from '@mui/icons-material/Share';
 
 
 export default function AssetTitle(props) {
+    console.log("ASSETTITLE")
+    console.log(props)
 
     // Asset info for twitter share
     const tweet = `Check out ${props.assetInfo.asset} on the @Questfrens_XCP marketplace:`
@@ -117,8 +119,8 @@ export default function AssetTitle(props) {
             >
                 <Typography sx={{ fontWeight: "100", color: "rgb(155,155,155)" }}>
                     { 
-                        !(props.description.includes("iframe"))
-                        ? props.description
+                        !(props.assetInfo.description.includes("iframe"))
+                        ? props.assetInfo.description
                         : "A Questfren"
                     }
                 </Typography>

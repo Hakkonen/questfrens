@@ -76,8 +76,8 @@ export default function Asset(props) {
     const [ floorDispenser, setFloorDispenser ] = useState("")
     const [ floor, setFloor ] = useState(0.0)
     const [ lastSold, setLastSold ] = useState(0.0)
-    const [ description, setDescription ] = useState("")
-    const [ owner, setOwner ] = useState("")
+    // const [ description, setDescription ] = useState("")
+    // const [ issuer, setIssuer ] = useState("")
     const [ cardMediaType, setCardMediaType ] = useState('img')
 
     // Window size hook
@@ -117,8 +117,8 @@ export default function Asset(props) {
 
                 setAssetInfo(assetRes)
                 // Set important  info vars
-                setDescription(assetRes.description)
-                setOwner(assetRes.owner)
+                // setDescription(assetRes.description)
+                // setOwner(assetRes.issuer)
 
                 // Get asset holders from flask
                 const holdersRes = await getHolders()
@@ -139,37 +139,41 @@ export default function Asset(props) {
         let lastDate = 0
         let lastPrice = 0.0
         // If there is a dispenser history, parse data
-        for (let dispenser of assetInfo.dispensers) {
-            
-            // Check floor
-            if (parseInt(dispenser.status) === 0) {
-                if (tempFloor === -1) {
-                    tempFloor = dispenser.satoshirate
-                    tempFloorDisp = dispenser.tx_hash
+        if ("dispensers" in assetInfo) {
+            for (let dispenser of assetInfo.dispensers) {
+                
+                // Check floor
+                if (parseInt(dispenser.status) === 0) {
+                    if (tempFloor === -1) {
+                        tempFloor = dispenser.satoshirate
+                        tempFloorDisp = dispenser.tx_hash
+                    }
+                    if (parseInt(dispenser.satoshirate) < parseInt(tempFloor)) {
+                        tempFloor = parseInt(dispenser.satoshirate)
+                        tempFloorDisp = dispenser.tx_hash
+                    }
                 }
-                if (parseInt(dispenser.satoshirate) < parseInt(tempFloor)) {
-                    tempFloor = parseInt(dispenser.satoshirate)
-                    tempFloorDisp = dispenser.tx_hash
+
+                // Check last closed disp
+                if (parseInt(dispenser.status) == 10) {
+                    if (dispenser.block_index > lastDate) {
+                        lastDate = dispenser.block_index
+                        lastPrice = (parseInt(dispenser.satoshirate) / 100000000)
+                    }
                 }
             }
 
-            // Check last closed disp
-            if (parseInt(dispenser.status) == 10) {
-                if (dispenser.block_index > lastDate) {
-                    lastDate = dispenser.block_index
-                    lastPrice = (parseInt(dispenser.satoshirate) / 100000000)
-                }
+            if (tempFloor !== -1) {
+                const conversion = tempFloor / 100000000
+                setFloor(conversion)
+                setFloorDispenser(tempFloorDisp)
+            }
+            if (lastDate > 0) {
+                setLastSold(lastPrice)
             }
         }
 
-        if (tempFloor !== -1) {
-            const conversion = tempFloor / 100000000
-            setFloor(conversion)
-            setFloorDispenser(tempFloorDisp)
-        }
-        if (lastDate > 0) {
-            setLastSold(lastPrice)
-        }
+
 
         // set card media type
         if (assetInfo.media.iframe.src !== "") {
@@ -196,7 +200,7 @@ export default function Asset(props) {
                 { (parseInt(width) < 400) == true
                      ?  <AssetTitle // Asset title when portrait
                             assetInfo={assetInfo}
-                            description={description}
+                            // description={description}
                             // issuer={issuer}
                         />
                     : null
@@ -359,8 +363,8 @@ export default function Asset(props) {
                 { (parseInt(width) < 400) == false
                      ?  <AssetTitle // Asset title when portrait
                             assetInfo={assetInfo}
-                            description={description}
-                            owner={owner}
+                            // description={description}
+                            // issue={owner}
                             width={width}
                         />
                     : null
