@@ -15,8 +15,6 @@ import ShareIcon from '@mui/icons-material/Share';
 
 
 export default function AssetTitle(props) {
-    console.log("ASSETTITLE")
-    console.log(props)
 
     // Asset info for twitter share
     const tweet = `Check out ${props.assetInfo.asset} on the @Questfrens_XCP marketplace:`
@@ -31,7 +29,6 @@ export default function AssetTitle(props) {
     const handleClose = () => {
         setAnchorEl(null);
     };
-    console.log(props)
     
     return (
         <Grid container xs={12}>
@@ -134,7 +131,7 @@ export default function AssetTitle(props) {
             <Grid item xs={2} sm={1} sx={{  display: "flex", justifyContent: "left", alignItems: "center" }}>
                 <Avatar>
                     {
-                        props.assetInfo.issuer !== ""
+                        props.assetInfo.issuer
                         ? props.assetInfo.issuer.substring(0,1)
                         : ""
                     }
@@ -147,7 +144,7 @@ export default function AssetTitle(props) {
                 <Grid item xs={12} textAlign="left">
                     <Link href={`https://questfrens.io/address?hash=${props.assetInfo.issuer}`} sx={{ textDecoration: "none" }}>
                         <Typography  color="secondary">
-                            { props.assetInfo.issuer !== ""
+                            { props.assetInfo.issuer
                                 ? props.assetInfo.issuer.substring(0,5)
                                 : <Skeleton width={"6ch"} />
                             }

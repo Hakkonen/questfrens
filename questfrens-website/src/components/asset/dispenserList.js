@@ -29,8 +29,8 @@ export default function DispenserList(props) {
     const [ dispCount, setDispCount ] = useState(24)
     useEffect(() => {
         // Parse Dispenser list, sort by new and cut at 25
-        if (props.assetInfo.dispensers.length > 0) {
-            let sortedDisp = props.assetInfo.dispensers.sort(function(a, b) {
+        if (props.dispensers.length > 0) {
+            let sortedDisp = props.dispensers.sort(function(a, b) {
                 return parseFloat(b.tx_index) - parseFloat(parseInt(a.tx_index));
             });
 

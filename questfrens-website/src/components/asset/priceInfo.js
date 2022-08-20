@@ -29,7 +29,8 @@ export default function PriceInfo(props) {
             if (props.floor > 0.0) {
                 try {
                     const usdRes = await getUSD()
-                    const value = Math.round(usdRes.currency_info[0].price_usd * props.lastSold)
+                    console.log(props.floor)
+                    const value = Math.round(usdRes.currency_info[0].price_usd * props.floor)
                     setUsdValue(value)
                 } catch(e) {
                     console.log(e)
@@ -37,6 +38,7 @@ export default function PriceInfo(props) {
             } else if (props.lastSold > 0.0) {
                 try {
                     const usdRes = await getUSD()
+                    console.log(props.lastSold)
                     const value = Math.round(usdRes.currency_info[0].price_usd * props.lastSold)
                     setUsdValue(value)
                 } catch(e) {
@@ -44,20 +46,19 @@ export default function PriceInfo(props) {
                 }
             }
         })();
-        console.log("FLOOR: " + props.floor)
     }, [props])
     // If no open dispenser, get last sold tx
     const getTxs = () => fetch(`https://questfrens.herokuapp.com/get_txs?name=${props.assetInfo.name}`).then(response => response.json())
     useEffect(() => {
         let closed = true
-        for (const dispenser of props.assetInfo.dispensers) {
+        for (const dispenser of props.dispensers) {
             if (dispenser.status == 0) {
                 closed = false
             }
         }
         if (closed) {
             (async () => {
-                if (props.assetInfo.name != "") {
+                if (props.assetInfo.name && props.dispensers.length > 0) {
                     // Get prior txs
                     const txRes = await getTxs()
                     console.log(txRes)
@@ -97,7 +98,7 @@ export default function PriceInfo(props) {
                     item xs={12} sm={6} sx={{ display: "flex", justifyContent: "left", alignItems: "center" }}
                 >
                     { 
-                        props.assetInfo.dispensers.length > 0 
+                        props.dispensers.length > 0 
                         ?   <Box sx={{ textAlign: "left" }}>
                                 <Typography 
                                     variant="caption" 

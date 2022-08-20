@@ -69,6 +69,8 @@ export default function Asset(props) {
     const [ assetMedia, setAssetMedia ] = useState({
         "image_large": "",
     })
+    // Get dispensers
+    const [ dispensers, setDispensers ] = useState([])
     // Get asset holders
     const [ assetHolders, setAssetHolders ] = useState({})
 
@@ -97,50 +99,51 @@ export default function Asset(props) {
     const getHolders = () => fetch(`https://questfrens.herokuapp.com/get_holders?name=${assetName}`).then(response => response.json())
     useEffect(() => {
         (async () => {
-            try {
-                let error = false
-                // Get asset info
-                console.log(assetName)
-                const assetRes = await getAsset()
-                if ("error" in assetRes) {
-                    console.log(assetRes)
-                    return
-                }
+            let error = false
+            // Get asset info
+            console.log(assetName)
+            const assetRes = await getAsset()
+            if ("error" in assetRes) {
                 console.log(assetRes)
+                return false
+            } else {
+                setAssetInfo(assetRes)
+                console.log(assetRes)
+
                 // Get dispensers
                 const dispRes = await getDispensers()
+                console.log("DISP RESULUTS")
                 console.log(dispRes)
 
-                assetRes.dispensers = dispRes
-                console.log(assetRes)
-
-
-                setAssetInfo(assetRes)
-                // Set important  info vars
-                // setDescription(assetRes.description)
-                // setOwner(assetRes.issuer)
+                setDispensers(dispRes)
 
                 // Get asset holders from flask
                 const holdersRes = await getHolders()
                 setAssetHolders(holdersRes)
-            } catch(e) {
-                console.error(e)
             }
-
         })();
     }, [assetName]);
     // Calculate BTCs
     useEffect(() => {
-        console.log(assetInfo)
-
+        // set card media type
+        if (assetInfo.media.iframe.src !== "") {
+            setCardMediaType("iframe")
+        } else if (assetInfo.media.video !== "") {
+            setCardMediaType("video")
+        } else {
+            setCardMediaType("img")
+        }
+    }, [assetInfo])
+    // Calculate dispenser shiet
+    useEffect(() => {
         // Calculate BTC shiznit
         let tempFloor = -1
         let tempFloorDisp = ""
         let lastDate = 0
         let lastPrice = 0.0
         // If there is a dispenser history, parse data
-        if ("dispensers" in assetInfo) {
-            for (let dispenser of assetInfo.dispensers) {
+        if (dispensers.length > 0) {
+            for (let dispenser of dispensers) {
                 
                 // Check floor
                 if (parseInt(dispenser.status) === 0) {
@@ -172,18 +175,7 @@ export default function Asset(props) {
                 setLastSold(lastPrice)
             }
         }
-
-
-
-        // set card media type
-        if (assetInfo.media.iframe.src !== "") {
-            setCardMediaType("iframe")
-        } else if (assetInfo.media.video !== "") {
-            setCardMediaType("video")
-        } else {
-            setCardMediaType("img")
-        }
-    }, [assetInfo])
+    }, [dispensers])
 
 
     return (
@@ -377,6 +369,7 @@ export default function Asset(props) {
                     <Grid item xs={12}>
                         <PriceInfo 
                             assetInfo={assetInfo} 
+                            dispensers={dispensers}
                             lastSold={lastSold}
                             floor={floor}
                             floorDispenser={floorDispenser}
@@ -387,7 +380,7 @@ export default function Asset(props) {
                 <Grid // Dispenser list container
                     container xs={12} sx={{ pt: 2, pl: 0 }}
                 >
-                    <DispenserList assetInfo={assetInfo} width={width} />
+                    <DispenserList assetInfo={assetInfo} width={width} dispensers={dispensers} />
                 </Grid>
 
                 <Grid // Dispenser list container
