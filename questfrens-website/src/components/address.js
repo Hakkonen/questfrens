@@ -48,7 +48,6 @@ export default function(props) {
     const query = useQuery();
     let hash = query.get('hash')
     hash ? hash = hash : hash = "Null"
-    console.log(hash)
 
     // Address object
     const [ address, setAddress ] = useState({
@@ -68,9 +67,6 @@ export default function(props) {
             }))
         })();
     }, [address.hash]);
-    useEffect(() => {
-        console.log(address.balance)
-    }, [address.balance])
 
     // Get banner from random image
     const [ banner, setBanner ] = useState("")
@@ -80,7 +76,7 @@ export default function(props) {
 
             <Grid container xs={12} // Box for me peeps
                 sx={{ 
-                    width: "100%", p: 4, background: `url()`, backgroundColor: "rgb(42,42,44)", backgroundRepeat: "no-repeat"
+                    width: "100%", p: 4, background: `url()`, backgroundRepeat: "no-repeat", borderBottom: "1px solid rgb(155,155,155)"
             }}>
                 <Grid item xs={4} md={3}
                     // Avatar and address stack

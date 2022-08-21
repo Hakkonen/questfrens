@@ -18,6 +18,7 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Skeleton from '@mui/material/Skeleton';
+import { red } from '@mui/material/colors';
 
 const FailedCard = () => (
     <Card 
@@ -81,7 +82,11 @@ export default function AssetCard(props) {
                     if (props.asset.asset == "PPMONRESIST.MARTIAL") {
                         console.log(res)
                     }
-                    res.quantity = props.asset.quantity
+                    // if (res.quantity != undefined && red.quantity > 0) {
+                    //     res.quantity = props.asset.quantity
+                    // } else {
+                    //     props.asset.quantity = 0
+                    // }
     
                     setAsset(res)
 
@@ -90,9 +95,10 @@ export default function AssetCard(props) {
                     if (retries < 1) {
                         retries += 1
                         const res = await getAsset()
-                        res.quantity = props.asset.quantity
-        
+                        
                         setAsset(res)
+                    } else if (retries >= 1) {
+                        console.error(e)
                     }
                 }
             }

@@ -79,7 +79,7 @@ export default function Navbar(props) {
         console.log(searchValue.length)
         console.log(searchValue[0] == "b" || searchValue[0] == "1")
         console.log((searchValue[0] == "b" || searchValue[0] == "1") && searchValue.length > 25)
-        if ((searchValue[0] === "b" || searchValue == "1") && searchValue.length > 25) {
+        if (searchValue.length > 25 && (searchValue[0] == "b" || searchValue[0] == "1")) {
             navigate(`/address?hash=${searchValue}`, { replace: true });
         } else {
             navigate(`/asset?name=${searchValue}`, { replace: true });

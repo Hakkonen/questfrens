@@ -20,7 +20,6 @@ export default function PriceInfo(props) {
 
     const [ usdValue, setUsdValue ] = useState(0.0)
     const [ lastSoldBTC, setLastSoldBTC ] = useState(0.0)
-    console.log(props)
 
     // Get USD value
     const getUSD = () => fetch(`https://xchain.io/api/network`).then(response => response.json())
@@ -39,12 +38,13 @@ export default function PriceInfo(props) {
             } else if (props.lastSold > 0.0) {
                 try {
                     const usdRes = await getUSD()
-                    console.log(props.lastSold)
                     const value = Math.round(usdRes.currency_info[0].price_usd * props.lastSold)
                     setUsdValue(value)
                 } catch(e) {
                     console.error(e)
                 }
+            } else {
+                setUsdValue(0)
             }
         })();
     }, [props])
@@ -60,9 +60,6 @@ export default function PriceInfo(props) {
         if (closed) {
             (async () => {
                 if (props.dispensers !== undefined && props.dispensers.length > 0) {
-                    console.log("CHECK HESE CLOSED DISPS")
-                    console.log("CLSOED DISP")
-                    console.log(props.dispensers)
                     
                     // Get prior txs
                     const txRes = await getTxs()
@@ -90,7 +87,7 @@ export default function PriceInfo(props) {
                 }
             })();
         }
-    }, [props])
+    }, [props.dispensers])
 
     return(
         <Card

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
@@ -12,12 +12,36 @@ import Dashboard from "./dashboard"
 import { Typography } from '@mui/material';
 import { useTheme, createTheme } from '@mui/material/styles';
 
+import AssetCard from './cards/assetCard';
 import bg1 from "../assets/bg1.gif"
 import FooterEl from './footerEl';
+
+const rotateCards = [ "LEPEPENOIR", "DUCHAMPEPE", "PEPEHARING", "PEPEPOLLOCK", "PEPEMUNDI", "FAKEGENESIS" ]
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
 
 export default function Home(props) {
 
     const theme = useTheme()
+    const i = getRndInteger(0,5)
+    const [ asset, setAsset ] = useState({
+        "name": "",
+        "media": {
+            "image": ""
+        }
+    })
+    const getAsset = (name) => fetch(`https://goraredb.herokuapp.com/get_asset?name=${name}`).then(response => response.json()).catch(e => {console.error(e)})
+    useEffect(() => {
+        (async () => {
+            const res = await getAsset(rotateCards[i])
+            setAsset(res)
+        })();
+    }, [])
+    useEffect(() => {
+
+    }, [asset])
 
     return (
         <Container
@@ -70,12 +94,7 @@ export default function Home(props) {
                 <Grid item xs={12} md={6}
                     style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100%", width: "100%", pt: 2, pb: 1 }}
                 >
-                    <SplashCard windowSize={props.windowSize} />
-                        {/* <iframe 
-                        style={{border: 0}}
-                        width="400" height="560" 
-                        src={`https://frenzone.net/questfrens/card/index.html?fren=1`}
-                        ></iframe>  */}
+                    <SplashCard windowSize={props.windowSize} asset={asset} />
                 </Grid>
             </Grid>
         </Container>
