@@ -20,6 +20,7 @@ export default function PriceInfo(props) {
 
     const [ usdValue, setUsdValue ] = useState(0.0)
     const [ lastSoldBTC, setLastSoldBTC ] = useState(0.0)
+    console.log(props)
 
     // Get USD value
     const getUSD = () => fetch(`https://xchain.io/api/network`).then(response => response.json())
@@ -58,10 +59,13 @@ export default function PriceInfo(props) {
         }
         if (closed) {
             (async () => {
-                if (props.assetInfo.name && props.dispensers.length > 0) {
+                if (props.dispensers !== undefined && props.dispensers.length > 0) {
+                    console.log("CHECK HESE CLOSED DISPS")
+                    console.log("CLSOED DISP")
+                    console.log(props.dispensers)
+                    
                     // Get prior txs
                     const txRes = await getTxs()
-                    console.log(txRes)
 
                     // Get highest tx_index
                     let highestIndex = 0
@@ -73,16 +77,16 @@ export default function PriceInfo(props) {
                     }
 
                     // Correlate to dispenser src and price
-                    for (const dispenser of props.assetInfo.dispensers) {
+                    for (const dispenser of props.dispensers) {
                         if (dispenser.tx_hash === lastSoldTx.dispenser_tx_hash) {
-                            console.log(dispenser)
-                            console.log(lastSoldTx)
                             const lastSoldBTCCalc = ((dispenser.satoshirate / 100000000) / dispenser.give_quantity) * lastSoldTx.dispense_quantity
-                            console.log("Last Sold BTC: " + lastSoldBTCCalc)
                             setLastSoldBTC(lastSoldBTCCalc)
                         }
                     }
                     
+                } else {
+                    // reset var
+                    setLastSoldBTC(0.0)
                 }
             })();
         }
@@ -97,45 +101,41 @@ export default function PriceInfo(props) {
                 <Grid // unlisted / price
                     item xs={12} sm={6} sx={{ display: "flex", justifyContent: "left", alignItems: "center" }}
                 >
-                    { 
-                        props.dispensers.length > 0 
-                        ?   <Box sx={{ textAlign: "left" }}>
-                                <Typography 
-                                    variant="caption" 
-                                    sx={{ color: "rgb(155,155,155)" }}
-                                >
-                                    Floor Price
-                                </Typography>
-                                {
-                                    props.floor > 0
-                                    ?  <Typography variant="h5" sx={{ fontWeight: 500 }}>
-                                            ₿ {props.floor}
-                                            <Typography 
-                                                variant="caption"
-                                                sx={{ pl: 1, color: "rgb(155,155,155)" }}
-                                            >(${usdValue})</Typography>
-                                        </Typography>
-                                    :   <Typography variant="h5" sx={{ fontWeight: 500 }}>
-                                            ₿ {lastSoldBTC}
-                                            <Typography 
-                                                variant="caption"
-                                                sx={{ pl: 1, color: "rgb(155,155,155)" }}
-                                            >(${usdValue})</Typography>
-                                        </Typography>
-                                    }
+                        <Box sx={{ textAlign: "left" }}>
+                            <Typography 
+                                variant="caption" 
+                                sx={{ color: "rgb(155,155,155)" }}
+                            >
+                                Floor Price
+                            </Typography>
+                            {
+                                props.floor > 0
+                                ?  <Typography variant="h5" sx={{ fontWeight: 500 }}>
+                                        ₿ {props.floor}
+                                        <Typography 
+                                            variant="caption"
+                                            sx={{ pl: 1, color: "rgb(155,155,155)" }}
+                                        >(${usdValue})</Typography>
+                                    </Typography>
+                                :   <Typography variant="h5" sx={{ fontWeight: 500 }}>
+                                        ₿ {lastSoldBTC}
+                                        <Typography 
+                                            variant="caption"
+                                            sx={{ pl: 1, color: "rgb(155,155,155)" }}
+                                        >(${usdValue})</Typography>
+                                    </Typography>
+                                }
 
-                                <Typography 
-                                    variant="caption" 
-                                    sx={{ color: "rgb(155,155,155)" }}
-                                >
-                                    Last Closed Price
-                                </Typography>
-                                <Typography>
-                                    ₿ {props.lastSold}
-                                </Typography>
-                            </Box>
-                        : "Unlisted"
-                    }
+                            <Typography 
+                                variant="caption" 
+                                sx={{ color: "rgb(155,155,155)" }}
+                            >
+                                Last Closed Price
+                            </Typography>
+                            <Typography>
+                                ₿ {props.lastSold}
+                            </Typography>
+                        </Box>
                 </Grid>
                 <Grid // dispenser button
                     item xs={12} sm={6} sx={{ display: "flex", justifyContent: "right", alignItems: "top" }}

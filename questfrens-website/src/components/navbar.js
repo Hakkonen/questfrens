@@ -29,7 +29,6 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function MobileSearch(props) {
     
-
     return (
         <Box
             sx={{ width: "auto", height: "auto",
@@ -58,6 +57,7 @@ export default function Navbar(props) {
     const pages = [{"name": "Market", "to": "market"}, {"name": "Docs", "to": "documentation"}];
 
     // Search props
+    // Handles search input from search bar
     const [ searchValue, setSearchValue ] = useState("")
     const handleSearchVal = (event) => {
         setSearchValue(event)
@@ -67,11 +67,23 @@ export default function Navbar(props) {
         setToggleMobiSearch(!toggleMobiSearch)
     }
     // Handle navigate on enter
+    // Splits between asset or address based length and first letter
     const navigate = useNavigate();
     function handleSubmit(event) {
         setToggleMobiSearch(false)
         event.preventDefault();
-        navigate(`/asset?name=${searchValue}`, { replace: true });
+
+        // If search query starts with 1, b and is over 25chars search address, else search asset
+        console.log(searchValue)
+        console.log(searchValue[0])
+        console.log(searchValue.length)
+        console.log(searchValue[0] == "b" || searchValue[0] == "1")
+        console.log((searchValue[0] == "b" || searchValue[0] == "1") && searchValue.length > 25)
+        if ((searchValue[0] === "b" || searchValue == "1") && searchValue.length > 25) {
+            navigate(`/address?hash=${searchValue}`, { replace: true });
+        } else {
+            navigate(`/asset?name=${searchValue}`, { replace: true });
+        }
     }
 
     // Mobi search bar bool
@@ -79,8 +91,6 @@ export default function Navbar(props) {
 
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
-
-
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);

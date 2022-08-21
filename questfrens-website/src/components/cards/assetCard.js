@@ -66,7 +66,7 @@ export default function AssetCard(props) {
     })
 
     // GoRareDb call
-    const getAsset = () => fetch(`https://goraredb.herokuapp.com/get_asset?name=${props.asset.asset}`).then(response => response.json())
+    const getAsset = () => fetch(`https://goraredb.herokuapp.com/get_asset?name=${props.asset.asset}`).then(response => response.json()).catch(e => {console.error(e)})
 
     useEffect(() => {
         (async () => {
@@ -124,14 +124,14 @@ export default function AssetCard(props) {
                 ?   <Skeleton sx={{ bgcolor: 'grey.900', p: 1, borderRadius: 3, height: "360px", width: "360px"}} variant="rectangular" />
                 :   <CardMedia
                         component="img"
-                        height="360px"
-                        width="100%"
                         image={ asset.media.image }
                         alt={ asset.name }
-                        sx={{ p: 1, borderRadius: 3 }}
+                        sx={{
+                            width: "100%", p: 1, borderRadius: 3, objectFit: "contain",
+                            height: { xs: 200, sm: 240, md: 300, lg: 300 }
+                        } }
                     />
             }
-
 
             <CardContent sx={{ textAlign: "left", p: 1 }}>
                 <Typography gutterBottom variant="body1" component="div" sx={{ pl: 2, pr: 2, pt: 2 }}>

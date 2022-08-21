@@ -118,7 +118,7 @@ export default function(props) {
                 sx={{ p: 2 }}
             > 
                     {address.balance.map(asset => (
-                        <Grid item xs={6} sm={4} md={3} lg={2} key={asset.name}>
+                        <Grid item xs={6} sm={4} md={3} lg={3} key={asset.name}>
                             <LazyLoad height={360}>
                                 <AssetCard asset={asset} />
                             </LazyLoad>

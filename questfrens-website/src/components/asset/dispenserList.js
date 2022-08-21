@@ -29,18 +29,22 @@ export default function DispenserList(props) {
     const [ dispCount, setDispCount ] = useState(24)
     useEffect(() => {
         // Parse Dispenser list, sort by new and cut at 25
-        if (props.dispensers.length > 0) {
-            let sortedDisp = props.dispensers.sort(function(a, b) {
-                return parseFloat(b.tx_index) - parseFloat(parseInt(a.tx_index));
-            });
-
-            // append number to assets
-            let count = 1
-            for (let dispenser of dispensers) {
-                dispenser.id = count
-                count += 1
+        if (props.dispensers !== undefined) {
+            if (props.dispensers.length > 0) {
+                let sortedDisp = props.dispensers.sort(function(a, b) {
+                    return parseFloat(b.tx_index) - parseFloat(parseInt(a.tx_index));
+                });
+    
+                // append number to assets
+                let count = 1
+                for (let dispenser of dispensers) {
+                    dispenser.id = count
+                    count += 1
+                }
+                setDispensers(sortedDisp)
+            } else {
+                setDispensers([])
             }
-            setDispensers(sortedDisp)
         }
     }, [props])
     const handleMore = () => {

@@ -92,7 +92,7 @@ export default function Asset(props) {
     const [ iframeDimensions, setiFrameDimensions ] = useState({width: 420, height: 560 })
 
     // Make call to goraredb
-    const getAsset = () => fetch(`https://goraredb.herokuapp.com/get_asset?name=${assetName}`).then(response => response.json())
+    const getAsset = () => fetch(`https://goraredb.herokuapp.com/get_asset?name=${assetName}`).then(response => response.json()).catch(e => {console.error(e)})
     // Get dispensers call
     const getDispensers = () => fetch(`https://goraredb.herokuapp.com/get_dispenser?name=${assetName}`).then(response => response.json())
     // Get holder call
@@ -103,24 +103,21 @@ export default function Asset(props) {
             // Get asset info
             console.log(assetName)
             const assetRes = await getAsset()
-            if ("error" in assetRes) {
-                console.log(assetRes)
-                return false
-            } else {
-                setAssetInfo(assetRes)
-                console.log(assetRes)
 
-                // Get dispensers
-                const dispRes = await getDispensers()
-                console.log("DISP RESULUTS")
-                console.log(dispRes)
+            setAssetInfo(assetRes)
+            console.log(assetRes)
 
-                setDispensers(dispRes)
+            // Get dispensers
+            const dispRes = await getDispensers()
+            console.log("DISP RESULUTS")
+            console.log(dispRes)
 
-                // Get asset holders from flask
-                const holdersRes = await getHolders()
-                setAssetHolders(holdersRes)
-            }
+            setDispensers(dispRes)
+
+            // Get asset holders from flask
+            const holdersRes = await getHolders()
+            setAssetHolders(holdersRes)
+
         })();
     }, [assetName]);
     // Calculate BTCs
@@ -164,16 +161,23 @@ export default function Asset(props) {
                         lastPrice = (parseInt(dispenser.satoshirate) / 100000000)
                     }
                 }
-            }
+            } 
 
             if (tempFloor !== -1) {
                 const conversion = tempFloor / 100000000
                 setFloor(conversion)
                 setFloorDispenser(tempFloorDisp)
+            } else {
+                setFloor(0.0)
+                setFloorDispenser(0.0)
             }
             if (lastDate > 0) {
                 setLastSold(lastPrice)
             }
+        } else {
+            // reset prices
+            setFloor(0.0)
+            setLastSold(0.0)
         }
     }, [dispensers])
 
