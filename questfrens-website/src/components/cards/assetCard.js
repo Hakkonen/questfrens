@@ -78,10 +78,13 @@ export default function AssetCard(props) {
             if (props.asset.asset !== "") {
                 try {
                     const res = await getAsset()
+                    if (props.asset.asset == "PPMONRESIST.MARTIAL") {
+                        console.log(res)
+                    }
                     res.quantity = props.asset.quantity
     
                     setAsset(res)
-                    setLoading(false)
+
                 } catch(e) {
                     console.error(e)
                     if (retries < 1) {
@@ -90,14 +93,17 @@ export default function AssetCard(props) {
                         res.quantity = props.asset.quantity
         
                         setAsset(res)
-                        setLoading(false)
                     }
-                    
                 }
             }
         })();
     }, [props])
-    
+    useEffect(() => {
+        if (asset.media.image) {
+            setLoading(false)
+        }
+    }, [asset.media.image])
+
     // Ingests xip100,
     if ("media" in props.asset) {
         console.log("xip100 found")
@@ -129,7 +135,7 @@ export default function AssetCard(props) {
 
             <CardContent sx={{ textAlign: "left", p: 1 }}>
                 <Typography gutterBottom variant="body1" component="div" sx={{ pl: 2, pr: 2, pt: 2 }}>
-                    { loading ? <Skeleton sx={{ }} /> : asset.name}
+                    { !asset.name ? <Skeleton sx={{ }} /> : asset.name}
                 </Typography>
             </CardContent>
 
