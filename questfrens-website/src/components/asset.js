@@ -49,6 +49,7 @@ export default function Asset(props) {
     const [ assetMedia, setAssetMedia ] = useState({
         "image_large": "",
     })
+    const [ holders, setHolders ] = useState([])
 
     // Set important asset display variables
     const [ cardMediaType, setCardMediaType ] = useState('img')
@@ -64,6 +65,8 @@ export default function Asset(props) {
 
     // Make call to goraredb
     const getAsset = () => fetch(`https://goraredb.herokuapp.com/get_asset?name=${assetName}&rich=true`).then(response => response.json()).catch(e => {console.error(e)})
+
+    const getHolders = () => fetch(`https://goraredb.herokuapp.com/get_holders?name=${assetName}&rich=true`).then(response => response.json()).then(data => {setHolders(data)}).catch(e => {console.error(e)})
 
     useEffect(() => {
         (async () => {
@@ -91,6 +94,9 @@ export default function Asset(props) {
         } else {
             setCardMediaType("img")
         }
+
+        // Get holders
+        getHolders()
     }, [assetInfo])
 
     return (
@@ -320,7 +326,7 @@ export default function Asset(props) {
                 <Grid // Dispenser list container
                     container xs={12} sx={{ pt: 2, pl: 0 }}
                 >
-                    {/* <HolderList assetHolders={assetHolders} width={width} supply={assetInfo.supply} /> */}
+                    <HolderList assetHolders={holders} width={width} supply={assetInfo.supply} />
                 </Grid>
 
             </Grid>
