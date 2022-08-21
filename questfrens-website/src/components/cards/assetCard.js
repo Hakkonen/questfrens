@@ -40,7 +40,6 @@ const FailedCard = () => (
 )
 
 export default function AssetCard(props) {
-    console.log(props)
 
     // Asset card object
     const [ loading, setLoading ] = useState(true)
@@ -86,17 +85,19 @@ export default function AssetCard(props) {
             if (props.asset.name !== "") {
                 try {
                     const res = await getAsset()
-                    
                     // Error cases
                     if ("error" in res) {
                         console.log(res.error)
                         return false
                     }
 
-                    if (res.quantity !== undefined && red.quantity > 0) {
-                        res.quantity = props.asset.quantity
+                    // if divisible then divide
+                    if(res.divisible == true) {
+                        console.log(res.divisible)
+                        console.log(props.asset.quantity / 100000000)
+                        res.quantity = (props.asset.quantity / 100000000)
                     } else {
-                        props.asset.quantity = 0
+                        res.quantity = props.asset.quantity
                     }
     
                     if (res !== undefined) {
@@ -109,26 +110,26 @@ export default function AssetCard(props) {
 
                 } 
                 catch(e) {
-                    console.error(e)
-                    if (retries < 1) {
-                        retries += 1
-                        console.log("rety " + retries)
-                        const res = await getAsset()
-                        res.quantity = props.asset.quantity
-                        setAsset(res)
-                    } else if (retries >= 1) {
-                        console.error(e)
-                    }
+                //     console.error(e)
+                //     if (retries < 1) {
+                //         retries += 1
+                //         console.log("rety " + retries)
+                //         const res = await getAsset()
+                //         res.quantity = props.asset.quantity
+                //         setAsset(res)
+                //     } else if (retries >= 1) {
+                //         console.error(e)
+                //     }
                 }
             }
         })();
     }, [props.asset])
-    // useEffect(() => {
+    useEffect(() => {
     //     setAsset(prev => ({
     //         ...prev,
     //         quantity: props.asset.quantity
     //     }))
-    // }, [asset])
+    }, [asset])
 
     // Ingests xip100,
     if ("media" in props.asset) {
@@ -161,14 +162,14 @@ export default function AssetCard(props) {
             }
 
             <CardContent sx={{ textAlign: "left", p: 1 }}>
-                <Typography gutterBottom variant="body1" component="div" sx={{ pl: 2, pr: 2, pt: 2 }}>
+                <Typography gutterBottom variant="caption" component="div" sx={{ pl: 2, pr: 2, pt: 2 }}>
                     { 
                         loading ? <Skeleton sx={{ }} /> : asset.name 
                     }
                 </Typography>
-                {/* <Typography gutterBottom variant="body1" component="div" sx={{ pl: 2, pr: 2 }}>
-                    QTY { props.asset.quantity }
-                </Typography> */}
+                <Typography gutterBottom variant="caption" component="div" sx={{ pl: 2, pr: 2 }}>
+                    <span style={{ color: "rgb(155,155,155)" }}>QTY</span> { asset.quantity }
+                </Typography>
             </CardContent>
 
             <CardActions sx={{ borderTop: "1px solid rgba(155,155,155,0.2)" }} className="hoverColor">

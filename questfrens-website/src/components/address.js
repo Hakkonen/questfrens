@@ -43,32 +43,51 @@ import testAddy from "./address/testAddy.json"
 export default function(props) {
     // Takes in list of assets, and title, and displays
 
+    // Address object
+    const [ balance, setBalance ] = useState([])
+    const [ address, setAddress ] = useState({
+        address: "",
+        balance: []
+    })
+
     // Get address from url
     const useQuery = () => new URLSearchParams(useLocation().search)
     const query = useQuery();
     let hash = query.get('hash')
     hash ? hash = hash : hash = "Null"
 
-    // Address object
-    const [ balance, setBalance ] = useState([])
-
     // Get assets
-    const getBalance = () => fetch(`https://goraredb.herokuapp.com/get_balance?hash=${hash}`).then(response => response.json())
+    // const getBalance = () => fetch(`https://goraredb.herokuapp.com/get_balance?hash=${hash}`, {method: "GET"}).then(res => res.json()).then((data) => {
+    //     setBalance(data)
+    // }).catch(e => { setBalance([]) })
+
+    useEffect(() => { 
+        fetch(`https://goraredb.herokuapp.com/get_balance?hash=${hash}`, {method: "GET"}).then(res => res.json()).then((data) => {
+            console.log(data)
+            setAddress(prev => ({
+                ...prev,
+                balance: data
+            }))
+        })
+        // .catch(e => { setBalance([]) })
+        // getBalance()
+    }, [hash])
+    // useEffect(() => {
+    //     (async () => {
+    //         getBalance()
+    //         // Get balance
+    //         // const res = await getBalance()
+    //         // console.log(res)
+    //         // // filter balance
+    //         // // if(balance.length == 0) {
+    //         // //     setBalance(res)
+    //         // // }
+    //         // setBalance(res)
+    //     })();
+    // }, [hash]);
     useEffect(() => {
-        (async () => {
-            // Get balance
-            const res = await getBalance()
-            console.log(res)
-            // filter balance
-            if(balance.length == 0) {
-                setBalance(res)
-            }
-            
-        })();
-    }, [hash]);
-    useEffect(() => {
-        console.log(balance)
-    }, [balance])
+        console.log(address)
+    }, [address])
 
     // Get banner from random image
     const [ banner, setBanner ] = useState("")
@@ -115,15 +134,15 @@ export default function(props) {
                 container xs={12} wrap="wrap" spacing={2}
                 sx={{ p: 2 }}
             > 
-                { balance.length > 0 ?
-                    balance.map((assetCard) => (
+                {
+                    address.balance.map((assetCard) => (
                         <Grid item xs={6} sm={4} md={3} lg={3} key={assetCard.name}>
                             <LazyLoad height={200}>
                                 <AssetCard asset={assetCard} />
                             </LazyLoad>
                         </Grid>
                     ))
-                : null }
+                }
             </Grid> 
         </Box>
     )
