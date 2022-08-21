@@ -142,7 +142,7 @@ export default function AssetTitle(props) {
                     <Typography sx={{ fontWeight: "100", color: "rgb(155,155,155)" }}>Creator</Typography>
                 </Grid>
                 <Grid item xs={12} textAlign="left">
-                    <Link href={`https://questfrens.io/address?hash=${props.assetInfo.issuer}`} sx={{ textDecoration: "none" }}>
+                    <Link href={`/address?hash=${props.assetInfo.issuer}`} sx={{ textDecoration: "none" }}>
                         <Typography  color="secondary">
                             { props.assetInfo.issuer
                                 ? props.assetInfo.issuer.substring(0,5)
