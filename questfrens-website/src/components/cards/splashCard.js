@@ -25,7 +25,7 @@ export default function SplashCard(props) {
             <CardContent style={{ textAlign: "left" }}>
 
                 {
-                    props.asset.media.image
+                    props.asset.media.image !== undefined
                     ?  <CardMedia 
                         component="img"
                         image={ props.asset.media.image }

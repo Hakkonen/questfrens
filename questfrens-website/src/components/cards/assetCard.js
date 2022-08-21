@@ -105,10 +105,10 @@ export default function AssetCard(props) {
         })();
     }, [props])
     useEffect(() => {
-        if (asset.media.image) {
+        if (asset.media.image !== undefined && asset.media.image !== "") {
             setLoading(false)
         }
-    }, [asset.media.image])
+    }, [asset])
 
     // Ingests xip100,
     if ("media" in props.asset) {
@@ -141,7 +141,9 @@ export default function AssetCard(props) {
 
             <CardContent sx={{ textAlign: "left", p: 1 }}>
                 <Typography gutterBottom variant="body1" component="div" sx={{ pl: 2, pr: 2, pt: 2 }}>
-                    { !asset.name ? <Skeleton sx={{ }} /> : asset.name}
+                    { 
+                        (asset !== undefined && asset.name == "") ? asset.name : <Skeleton sx={{ }} />
+                    }
                 </Typography>
             </CardContent>
 
