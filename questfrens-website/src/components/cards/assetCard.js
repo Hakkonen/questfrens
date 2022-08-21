@@ -20,17 +20,20 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Skeleton from '@mui/material/Skeleton';
 import { red } from '@mui/material/colors';
 
-const FailedCard = () => (
+const FailedCard = (props) => (
     <Card 
         sx={{ 
             width: "auto", height: "100%", border: "1px solid rgba(155,155,155,0.2)" 
         }} className="hoverColor"
     >
-        <Skeleton sx={{ bgcolor: 'grey.900', p: 1, borderRadius: 3, height: "360px", width: "360px"}} variant="rectangular" />
+        <Skeleton sx={{ bgcolor: 'grey.900', p: 1, borderRadius: 3, height: { xs: 200, sm: 240, md: 300, lg: 300 }, width: "360px"}} variant="rectangular" />
 
         <CardContent sx={{ textAlign: "left", p: 1 }}>
-            <Typography gutterBottom variant="body1" component="div" sx={{ pl: 2, pr: 2, pt: 2 }}>
-                { <Skeleton sx={{ }} /> }
+            <Typography gutterBottom variant="caption" component="div" sx={{ pl: 2, pr: 2, pt: 2 }}>
+                { props.asset.asset }
+            </Typography>
+            <Typography gutterBottom variant="caption" component="div" sx={{ pl: 2, pr: 2 }}>
+                <span style={{ color: "rgb(155,155,155)" }}>QTY</span> { props.asset.quantity }
             </Typography>
         </CardContent>
         <CardActions sx={{ borderTop: "1px solid rgba(155,155,155,0.2)" }} className="hoverColor">
@@ -189,6 +192,6 @@ export default function AssetCard(props) {
     }
     else { 
         return (
-        <FailedCard />
+        <FailedCard asset={props.asset} />
     )}
 }
