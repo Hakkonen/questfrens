@@ -65,6 +65,9 @@ export default function AssetCard(props) {
         },
         "external_url": ""
     })
+    useEffect(() => {
+        console.log(asset)
+    }, [asset])
 
     // GoRareDb call
     const getAsset = () => fetch(`https://goraredb.herokuapp.com/get_asset?name=${props.asset.asset}`).then(response => response.json()).catch(e => {console.error(e)})
@@ -79,9 +82,7 @@ export default function AssetCard(props) {
             if (props.asset.asset !== "") {
                 try {
                     const res = await getAsset()
-                    if (props.asset.asset == "PPMONRESIST.MARTIAL") {
-                        console.log(res)
-                    }
+
                     // if (res.quantity != undefined && red.quantity > 0) {
                     //     res.quantity = props.asset.quantity
                     // } else {
@@ -94,6 +95,7 @@ export default function AssetCard(props) {
                     console.error(e)
                     if (retries < 1) {
                         retries += 1
+                        console.log("rety " + retries)
                         const res = await getAsset()
                         
                         setAsset(res)
@@ -117,7 +119,7 @@ export default function AssetCard(props) {
 
     // Ingests sell or buy field
 
-    if (true) {
+    if (asset.name !== "") {
     return(
         <Card 
             sx={{ 
@@ -149,7 +151,7 @@ export default function AssetCard(props) {
 
             <CardActions sx={{ borderTop: "1px solid rgba(155,155,155,0.2)" }} className="hoverColor">
                 {
-                    asset.name == ""
+                    asset.name !== undefined && asset.name == ""
                     ? <Button size="small" disabled>Loading</Button>
                     :   <Link to={"/asset?name=" + asset.name}  target="_blank"  style={{ textDecoration: "none" }}>
                             <Button size="small" color="secondary">Explore</Button>

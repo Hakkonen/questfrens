@@ -29,19 +29,17 @@ export default function DispenserList(props) {
     const [ dispCount, setDispCount ] = useState(24)
     useEffect(() => {
         // Parse Dispenser list, sort by new and cut at 25
-        if (props.dispensers !== undefined) {
-            if (props.dispensers.length > 0) {
-                let sortedDisp = props.dispensers.sort(function(a, b) {
-                    return parseFloat(b.tx_index) - parseFloat(parseInt(a.tx_index));
-                });
-    
+        if (props.assetInfo.sales_data !== undefined) {
+            console.log(props.assetInfo.sales_data.dispenser_list.length)
+            if (props.assetInfo.sales_data.dispenser_list.length > 0) {
+
                 // append number to assets
                 let count = 1
-                for (let dispenser of dispensers) {
+                for (let dispenser of props.assetInfo.sales_data.dispenser_list) {
                     dispenser.id = count
                     count += 1
                 }
-                setDispensers(sortedDisp)
+                setDispensers(props.assetInfo.sales_data.dispenser_list)
             } else {
                 setDispensers([])
             }

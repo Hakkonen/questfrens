@@ -25,13 +25,13 @@ export default function SplashCard(props) {
             <CardContent style={{ textAlign: "left" }}>
 
                 {
-                    props.asset.media.image !== undefined
+                    props.asset.media.image !== ""
                     ?  <CardMedia 
                         component="img"
                         image={ props.asset.media.image }
                         alt={ props.asset.name }
                     />
-                    : <Skeleton height="560px" width="400px" />
+                    : <Skeleton height="100%" width="400px" />
                 }
 
 

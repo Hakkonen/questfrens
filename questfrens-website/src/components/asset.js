@@ -25,6 +25,8 @@ import DispenserList from './asset/dispenserList';
 import HolderList from './asset/holderList';
 import FooterEl from './footerEl';
 
+import get_asset_template from "./asset/get_asset_template.json"
+
 // TODO:
 // Fix a name delivery
 // parse rare pepes through back end and attach images
@@ -43,43 +45,35 @@ export default function Asset(props) {
     const assetName = query.get('name')
 
     // Asset Info
-    const [ assetInfo, setAssetInfo ] = useState({
-        "version": "",
-        "name": "",
-        "artist": "",
-        "description": "",
-        "attributes": [],
-        "issuer": "",
-        "media": {
-            "image": "",
-            "video": "",
-            "iframe": {
-                "height": 0,
-                "width": 0,
-                "src": ""
-            }
-        },
-        "external_url": "",
-        "divisible": "",
-        "locked": "",
-        "supply": "",
-        "dispensers": [],
-        "divisible": false
-    })
+    const [ assetInfo, setAssetInfo ] = useState(get_asset_template)
+    // const [ assetInfo, setAssetInfo ] = useState({
+    //     "version": "",
+    //     "name": "",
+    //     "artist": "",
+    //     "description": "",
+    //     "attributes": [],
+    //     "issuer": "",
+    //     "media": {
+    //         "image": "",
+    //         "video": "",
+    //         "iframe": {
+    //             "height": 0,
+    //             "width": 0,
+    //             "src": ""
+    //         }
+    //     },
+    //     "external_url": "",
+    //     "divisible": "",
+    //     "locked": "",
+    //     "supply": "",
+    //     "dispensers": [],
+    //     "divisible": false
+    // })
     const [ assetMedia, setAssetMedia ] = useState({
         "image_large": "",
     })
-    // Get dispensers
-    const [ dispensers, setDispensers ] = useState([])
-    // Get asset holders
-    const [ assetHolders, setAssetHolders ] = useState({})
 
     // Set important asset display variables
-    const [ floorDispenser, setFloorDispenser ] = useState("")
-    const [ floor, setFloor ] = useState(0.0)
-    const [ lastSold, setLastSold ] = useState(0.0)
-    // const [ description, setDescription ] = useState("")
-    // const [ issuer, setIssuer ] = useState("")
     const [ cardMediaType, setCardMediaType ] = useState('img')
 
     // Window size hook
@@ -92,32 +86,14 @@ export default function Asset(props) {
     const [ iframeDimensions, setiFrameDimensions ] = useState({width: 420, height: 560 })
 
     // Make call to goraredb
-    const getAsset = () => fetch(`https://goraredb.herokuapp.com/get_asset?name=${assetName}`).then(response => response.json()).catch(e => {console.error(e)})
-    // Get dispensers call
-    const getDispensers = () => fetch(`https://goraredb.herokuapp.com/get_dispenser?name=${assetName}`).then(response => response.json())
-    // Get holder call
-    const getHolders = () => fetch(`https://questfrens.herokuapp.com/get_holders?name=${assetName}`).then(response => response.json())
+    const getAsset = () => fetch(`https://goraredb.herokuapp.com/get_asset?name=${assetName}&rich=true`).then(response => response.json()).catch(e => {console.error(e)})
+
     useEffect(() => {
         (async () => {
-            let error = false
             // Get asset info
             console.log(assetName)
             const assetRes = await getAsset()
-
             setAssetInfo(assetRes)
-            console.log(assetRes)
-
-            // Get dispensers
-            const dispRes = await getDispensers()
-            console.log("DISP RESULUTS")
-            console.log(dispRes)
-
-            setDispensers(dispRes)
-
-            // Get asset holders from flask
-            const holdersRes = await getHolders()
-            setAssetHolders(holdersRes)
-
         })();
     }, [assetName]);
     // Calculate BTCs
@@ -131,56 +107,6 @@ export default function Asset(props) {
             setCardMediaType("img")
         }
     }, [assetInfo])
-    // Calculate dispenser shiet
-    useEffect(() => {
-        // Calculate BTC shiznit
-        let tempFloor = -1
-        let tempFloorDisp = ""
-        let lastDate = 0
-        let lastPrice = 0.0
-        // If there is a dispenser history, parse data
-        if (dispensers.length > 0) {
-            for (let dispenser of dispensers) {
-                
-                // Check floor
-                if (parseInt(dispenser.status) === 0) {
-                    if (tempFloor === -1) {
-                        tempFloor = dispenser.satoshirate
-                        tempFloorDisp = dispenser.tx_hash
-                    }
-                    if (parseInt(dispenser.satoshirate) < parseInt(tempFloor)) {
-                        tempFloor = parseInt(dispenser.satoshirate)
-                        tempFloorDisp = dispenser.tx_hash
-                    }
-                }
-
-                // Check last closed disp
-                if (parseInt(dispenser.status) == 10) {
-                    if (dispenser.block_index > lastDate) {
-                        lastDate = dispenser.block_index
-                        lastPrice = (parseInt(dispenser.satoshirate) / 100000000)
-                    }
-                }
-            } 
-
-            if (tempFloor !== -1) {
-                const conversion = tempFloor / 100000000
-                setFloor(conversion)
-                setFloorDispenser(tempFloorDisp)
-            } else {
-                setFloor(0.0)
-                setFloorDispenser(0.0)
-            }
-            if (lastDate > 0) {
-                setLastSold(lastPrice)
-            }
-        } else {
-            // reset prices
-            setFloor(0.0)
-            setLastSold(0.0)
-        }
-    }, [dispensers])
-
 
     return (
         <Container sx={{ height: "100%", width: "100%"}} >
@@ -193,11 +119,9 @@ export default function Asset(props) {
                 <Grid // Left Panel
                     item xs={12} sm={4} md={4} lg={5} sx={{ height: "100%", width: "100%", pr: 1, pl: 1 }}
                 >
-                { (parseInt(width) < 400) == true
+                { assetInfo && (parseInt(width) < 400)
                      ?  <AssetTitle // Asset title when portrait
                             assetInfo={assetInfo}
-                            // description={description}
-                            // issuer={issuer}
                         />
                     : null
                 }
@@ -218,6 +142,20 @@ export default function Asset(props) {
                         </Grid>
                     </Grid>
 
+                    { assetInfo && (parseInt(width) < 400)
+                    ?  
+                    <Grid // Dispenser floor container
+                        container xs={12} sx={{ pt: 1, pb: 1}}
+                    >
+                        <Grid item xs={12}>                    
+                            <PriceInfo 
+                                assetInfo={assetInfo} 
+                            />
+                        </Grid>
+                    </Grid>
+                    : null
+                }
+
                     <Grid // Properties card
                         container xs={12}
                         sx={{ width: "100%", display: "flex", justifyContent: "center", pt: 1, pb: 1 }}
@@ -231,7 +169,7 @@ export default function Asset(props) {
                                             
                                                 {/* <Typography textAlign="right">N/A</Typography> */}
                                                 { 
-                                                assetInfo.attributes ?
+                                                assetInfo.attributes !== undefined && assetInfo.attributes.length > 0 ?
                                                         assetInfo.attributes.map((attr) => (
                                                         <Grid container xs={12}>
                                                             <Grid item xs={6}>
@@ -295,7 +233,9 @@ export default function Asset(props) {
                                             <Grid item xs={6}>
                                                 <Typography textAlign="right">
                                                     {
+                                                        assetInfo.divisible !== "" ?
                                                         assetInfo.divisible.toString()
+                                                        : ""
                                                     }
                                                 </Typography>
                                             </Grid>
@@ -367,30 +307,28 @@ export default function Asset(props) {
                 }
 
 
-                <Grid // Dispenser floor container
-                    container xs={12} sx={{ pt: 2, pl: 0 }}
-                >
-                    <Grid item xs={12}>
-                        <PriceInfo 
-                            assetInfo={assetInfo} 
-                            dispensers={dispensers}
-                            lastSold={lastSold}
-                            floor={floor}
-                            floorDispenser={floorDispenser}
-                        />
+                { assetInfo && (parseInt(width) >= 400) ?
+                    <Grid // Dispenser floor container
+                        container xs={12} sx={{ pt: 2, pl: 0 }}
+                    >
+                        <Grid item xs={12}>
+                            <PriceInfo 
+                                assetInfo={assetInfo} 
+                            />
+                        </Grid>
                     </Grid>
+                : null }
+
+                <Grid // Dispenser list container
+                    container xs={12} sx={{ pt: 2, pl: 0 }}
+                >
+                    <DispenserList assetInfo={assetInfo} width={width} />
                 </Grid>
 
                 <Grid // Dispenser list container
                     container xs={12} sx={{ pt: 2, pl: 0 }}
                 >
-                    <DispenserList assetInfo={assetInfo} width={width} dispensers={dispensers} />
-                </Grid>
-
-                <Grid // Dispenser list container
-                    container xs={12} sx={{ pt: 2, pl: 0 }}
-                >
-                    <HolderList assetHolders={assetHolders} width={width} supply={assetInfo.supply} />
+                    {/* <HolderList assetHolders={assetHolders} width={width} supply={assetInfo.supply} /> */}
                 </Grid>
 
             </Grid>
