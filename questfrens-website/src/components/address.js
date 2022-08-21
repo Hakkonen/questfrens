@@ -50,23 +50,25 @@ export default function(props) {
     hash ? hash = hash : hash = "Null"
 
     // Address object
-    const [ address, setAddress ] = useState({
-        hash: hash,
-        balance: []
-    })
+    const [ balance, setBalance ] = useState([])
 
     // Get assets
-    const getBalance = (h) => fetch(`https://questfrens.herokuapp.com/get_balance?hash=${h}`).then(response => response.json())
+    const getBalance = () => fetch(`https://goraredb.herokuapp.com/get_balance?hash=${hash}`).then(response => response.json())
     useEffect(() => {
         (async () => {
             // Get balance
-            const res = await getBalance(address.hash)
-            setAddress(prev => ({
-                ...prev,
-                balance: res
-            }))
+            const res = await getBalance()
+            console.log(res)
+            // filter balance
+            if(balance.length == 0) {
+                setBalance(res)
+            }
+            
         })();
-    }, [address.hash]);
+    }, [hash]);
+    useEffect(() => {
+        console.log(balance)
+    }, [balance])
 
     // Get banner from random image
     const [ banner, setBanner ] = useState("")
@@ -85,13 +87,13 @@ export default function(props) {
                         <Avatar
                             color={deepOrange}
                             sx={{ width: 96, height: 96, bgcolor: props.theme.palette.secondary.main, color: "white" }}
-                        >{address.hash.substring(0,3)}</Avatar>
+                        >{hash.substring(0,3)}</Avatar>
                         <Stack direction="column" sx={{ textAlign: "left" }}>
                             <Typography
                                 sx={{ p: 1 }}
-                            >{address.hash.substring(0,6)}</Typography>
+                            >{hash.substring(0,6)}</Typography>
                             <Button variant="contained" color="grey" endIcon={<ContentCopyIcon />}>
-                                {address.hash.substring(0,3)}...{address.hash.substring(30)}
+                                {hash.substring(0,3)}...{hash.substring(30)}
                             </Button>
                         </Stack>
                         
@@ -113,11 +115,11 @@ export default function(props) {
                 container xs={12} wrap="wrap" spacing={2}
                 sx={{ p: 2 }}
             > 
-                { address.balance.length > 0 ?
-                    address.balance.map(asset => (
-                        <Grid item xs={6} sm={4} md={3} lg={3} key={asset.name}>
-                            <LazyLoad height={360}>
-                                <AssetCard asset={asset} />
+                { balance.length > 0 ?
+                    balance.map((assetCard) => (
+                        <Grid item xs={6} sm={4} md={3} lg={3} key={assetCard.name}>
+                            <LazyLoad height={200}>
+                                <AssetCard asset={assetCard} />
                             </LazyLoad>
                         </Grid>
                     ))

@@ -46,29 +46,6 @@ export default function Asset(props) {
 
     // Asset Info
     const [ assetInfo, setAssetInfo ] = useState(get_asset_template)
-    // const [ assetInfo, setAssetInfo ] = useState({
-    //     "version": "",
-    //     "name": "",
-    //     "artist": "",
-    //     "description": "",
-    //     "attributes": [],
-    //     "issuer": "",
-    //     "media": {
-    //         "image": "",
-    //         "video": "",
-    //         "iframe": {
-    //             "height": 0,
-    //             "width": 0,
-    //             "src": ""
-    //         }
-    //     },
-    //     "external_url": "",
-    //     "divisible": "",
-    //     "locked": "",
-    //     "supply": "",
-    //     "dispensers": [],
-    //     "divisible": false
-    // })
     const [ assetMedia, setAssetMedia ] = useState({
         "image_large": "",
     })
@@ -93,7 +70,15 @@ export default function Asset(props) {
             // Get asset info
             console.log(assetName)
             const assetRes = await getAsset()
-            setAssetInfo(assetRes)
+            if (assetRes !== undefined) {
+                if (assetRes.media.image == "") {
+                    assetRes.media.image = "https://counterparty.io/wp-content/uploads/2015/01/counterparty-mono.png"
+                }
+                setAssetInfo(assetRes)
+            } else {
+                console.log("Asset res undefined")
+            }
+            
         })();
     }, [assetName]);
     // Calculate BTCs
@@ -166,17 +151,24 @@ export default function Asset(props) {
                                     <Grid container xs={12} sx={{  }}>
 
                                         <Grid container xs={12} sx={{  }}>
-                                            
-                                                {/* <Typography textAlign="right">N/A</Typography> */}
-                                                { 
-                                                assetInfo.attributes !== undefined && assetInfo.attributes.length > 0 ?
-                                                        assetInfo.attributes.map((attr) => (
+                                            {
+                                                assetInfo.attributes !== undefined && assetInfo.attributes.length !== 0 ?
+                                                    assetInfo.attributes.map((attr) => (
                                                         <Grid container xs={12}>
                                                             <Grid item xs={6}>
-                                                                <Typography textAlign="left" sx={{ color: "rgb(155,155,155)" }}>{attr.trait_type}</Typography>
+                                                                <Typography textAlign="left" sx={{ color: "rgb(155,155,155)" }}>
+                                                                    { attr.trait_type !== undefined ?
+                                                                        attr.trait_type
+                                                                        : ""
+                                                                    }</Typography>
                                                             </Grid>
                                                             <Grid item xs={6}>
-                                                                <Typography textAlign="right">{attr.value}</Typography>
+                                                                <Typography textAlign="right">
+                                                                    { attr.value !== undefined ?
+                                                                        attr.value
+                                                                        : ""
+                                                                    }
+                                                                </Typography>   
                                                             </Grid>
                                                         </Grid>
                                                         ))

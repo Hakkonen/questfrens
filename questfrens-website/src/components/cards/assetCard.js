@@ -40,9 +40,11 @@ const FailedCard = () => (
 )
 
 export default function AssetCard(props) {
+    console.log(props)
 
     // Asset card object
     const [ loading, setLoading ] = useState(true)
+    const [ quant, setQuant ] = useState(0)
     // const [ failed, setFailed ] = useState(false)
     const [ asset, setAsset ] = useState({
         "version": "xip100",
@@ -65,9 +67,9 @@ export default function AssetCard(props) {
         },
         "external_url": ""
     })
-    useEffect(() => {
-        console.log(asset)
-    }, [asset])
+    // useEffect(() => {
+    //     console.log(asset)
+    // }, [asset])
 
     // GoRareDb call
     const getAsset = () => fetch(`https://goraredb.herokuapp.com/get_asset?name=${props.asset.asset}`).then(response => response.json()).catch(e => {console.error(e)})
@@ -75,29 +77,44 @@ export default function AssetCard(props) {
     useEffect(() => {
         (async () => {
             let retries = 0
-            setAsset(prev => ({
-                ...prev,
-                name: props.asset.asset
-            }))
-            if (props.asset.asset !== "") {
+            // setAsset(prev => ({
+            //     ...prev,
+            //     name: props.asset.asset,
+            //     quantity: props.asset.quantity
+            // }))
+            setQuant(props.asset.quantity)
+            if (props.asset.name !== "") {
                 try {
                     const res = await getAsset()
+                    
+                    // Error cases
+                    if ("error" in res) {
+                        console.log(res.error)
+                        return false
+                    }
 
-                    // if (res.quantity != undefined && red.quantity > 0) {
-                    //     res.quantity = props.asset.quantity
-                    // } else {
-                    //     props.asset.quantity = 0
-                    // }
+                    if (res.quantity !== undefined && red.quantity > 0) {
+                        res.quantity = props.asset.quantity
+                    } else {
+                        props.asset.quantity = 0
+                    }
     
-                    setAsset(res)
+                    if (res !== undefined) {
+                        if (res.media.image == "") {
+                            res.media.image = "https://counterparty.io/wp-content/uploads/2015/01/counterparty-mono.png"
+                        }
+                        setAsset(res)
+                        setLoading(false)
+                    }
 
-                } catch(e) {
+                } 
+                catch(e) {
                     console.error(e)
                     if (retries < 1) {
                         retries += 1
                         console.log("rety " + retries)
                         const res = await getAsset()
-                        
+                        res.quantity = props.asset.quantity
                         setAsset(res)
                     } else if (retries >= 1) {
                         console.error(e)
@@ -105,12 +122,13 @@ export default function AssetCard(props) {
                 }
             }
         })();
-    }, [props])
-    useEffect(() => {
-        if (asset.media.image !== undefined && asset.media.image !== "") {
-            setLoading(false)
-        }
-    }, [asset])
+    }, [props.asset])
+    // useEffect(() => {
+    //     setAsset(prev => ({
+    //         ...prev,
+    //         quantity: props.asset.quantity
+    //     }))
+    // }, [asset])
 
     // Ingests xip100,
     if ("media" in props.asset) {
@@ -128,8 +146,9 @@ export default function AssetCard(props) {
         >
 
             {
-                loading
-                ?   <Skeleton sx={{ bgcolor: 'grey.900', p: 1, borderRadius: 3, height: "360px", width: "360px"}} variant="rectangular" />
+                asset.media.image !== "" && loading
+                ?   <Skeleton sx={{ bgcolor: 'grey.900', p: 1, borderRadius: 3, width: "360px",
+                height: { xs: 200, sm: 240, md: 300, lg: 300 } }} variant="rectangular" />
                 :   <CardMedia
                         component="img"
                         image={ asset.media.image }
@@ -144,14 +163,17 @@ export default function AssetCard(props) {
             <CardContent sx={{ textAlign: "left", p: 1 }}>
                 <Typography gutterBottom variant="body1" component="div" sx={{ pl: 2, pr: 2, pt: 2 }}>
                     { 
-                        (asset !== undefined && asset.name == "") ? asset.name : <Skeleton sx={{ }} />
+                        loading ? <Skeleton sx={{ }} /> : asset.name 
                     }
                 </Typography>
+                {/* <Typography gutterBottom variant="body1" component="div" sx={{ pl: 2, pr: 2 }}>
+                    QTY { props.asset.quantity }
+                </Typography> */}
             </CardContent>
 
             <CardActions sx={{ borderTop: "1px solid rgba(155,155,155,0.2)" }} className="hoverColor">
                 {
-                    asset.name !== undefined && asset.name == ""
+                    loading
                     ? <Button size="small" disabled>Loading</Button>
                     :   <Link to={"/asset?name=" + asset.name}  target="_blank"  style={{ textDecoration: "none" }}>
                             <Button size="small" color="secondary">Explore</Button>
