@@ -74,11 +74,6 @@ export default function Navbar(props) {
         event.preventDefault();
 
         // If search query starts with 1, b and is over 25chars search address, else search asset
-        console.log(searchValue)
-        console.log(searchValue[0])
-        console.log(searchValue.length)
-        console.log(searchValue[0] == "b" || searchValue[0] == "1")
-        console.log((searchValue[0] == "b" || searchValue[0] == "1") && searchValue.length > 25)
         if (searchValue.length > 25 && (searchValue[0] == "b" || searchValue[0] == "1")) {
             navigate(`/address?hash=${searchValue}`, { replace: true });
         } else {
@@ -250,6 +245,7 @@ export default function Navbar(props) {
                             <SearchBar 
                                 sx={{ display: "block" }} searchValue={searchValue} 
                                 setSearchValue={handleSearchVal}
+                                placeHolder={"Search asset or address..."}
                             />
                             </Box>
                         </Grid>

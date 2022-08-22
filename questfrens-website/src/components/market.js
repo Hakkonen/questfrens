@@ -540,6 +540,7 @@ export default function Market(props) {
                         <SearchBar 
                             searchValue={searchValue}
                             setSearchValue={setSearchValue}
+                            placeHolder={"Search assets..."}
                         /> 
 
                         {/* Price direction */}

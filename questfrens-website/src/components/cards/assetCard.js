@@ -20,6 +20,8 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Skeleton from '@mui/material/Skeleton';
 import { red } from '@mui/material/colors';
 
+import LazyLoad from 'react-lazyload' //https://github.com/twobin/react-lazyload
+
 const FailedCard = (props) => (
     <Card 
         sx={{ 
@@ -93,11 +95,15 @@ export default function AssetCard(props) {
                         console.log(res.error)
                         return false
                     }
+                    
+                    // IMPORTANT
+                    // if a_name present then replace name with longname
+                    if(props.asset.asset[0] === "A") {
+                        props.asset.asset = res.name
+                    }
 
                     // if divisible then divide
                     if(res.divisible == true) {
-                        console.log(res.divisible)
-                        console.log(props.asset.quantity / 100000000)
                         res.quantity = (props.asset.quantity / 100000000)
                     } else {
                         res.quantity = props.asset.quantity
@@ -153,15 +159,17 @@ export default function AssetCard(props) {
                 asset.media.image !== "" && loading
                 ?   <Skeleton sx={{ bgcolor: 'grey.900', p: 1, borderRadius: 3, width: "360px",
                 height: { xs: 200, sm: 240, md: 300, lg: 300 } }} variant="rectangular" />
-                :   <CardMedia
-                        component="img"
-                        image={ asset.media.image }
-                        alt={ asset.name }
-                        sx={{
-                            width: "100%", p: 1, borderRadius: 3, objectFit: "contain",
-                            height: { xs: 200, sm: 240, md: 300, lg: 300 }
-                        } }
-                    />
+                :   <LazyLoad height={200}>
+                        <CardMedia
+                            component="img"
+                            image={ asset.media.image }
+                            alt={ asset.name }
+                            sx={{
+                                width: "100%", p: 1, borderRadius: 3, objectFit: "contain",
+                                height: { xs: 200, sm: 240, md: 300, lg: 300 }
+                            } }
+                        />
+                    </LazyLoad>
             }
 
             <CardContent sx={{ textAlign: "left", p: 1 }}>
