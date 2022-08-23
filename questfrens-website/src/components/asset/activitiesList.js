@@ -51,9 +51,6 @@ export default function ActivitiesList(props) {
             }
         })();
     }, [])
-    useEffect(() => {
-        console.log(activities)
-    }, [activities])
 
     // useEffect(() => {
     //     // Parse holder list, sort by new and cut at 25

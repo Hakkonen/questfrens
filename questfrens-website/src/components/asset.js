@@ -98,6 +98,7 @@ export default function Asset(props) {
 
         // Get holders
         getHolders()
+        console.log(assetInfo)
     }, [assetInfo])
 
     return (
