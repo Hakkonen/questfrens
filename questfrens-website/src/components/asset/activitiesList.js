@@ -25,7 +25,7 @@ import Properties from './properties';
 
 export default function ActivitiesList(props) {
     const [ activities, setActivities ] = useState([])
-    const [ activitiesCount, setActivitiesCount ] = useState(24)
+    const [ activitiesCount, setActivitiesCount ] = useState(10)
     
     // Get activities
     const getActivities = () => fetch(`https://goraredb.herokuapp.com/get_txs?name=${props.name}&rich=true`).then(response => response.json()).catch(e => {console.error(e)})
@@ -33,7 +33,7 @@ export default function ActivitiesList(props) {
     useEffect(() => {
         (async () => {
             const res = await getActivities()
-            console.log(res)
+            // console.log(res)
 
             // Parse holder list, sort by new and cut at 25
             if (res.length > 0) {
@@ -50,7 +50,7 @@ export default function ActivitiesList(props) {
                 setActivities(sortedHolders)
             }
         })();
-    }, [])
+    }, [props])
 
     // useEffect(() => {
     //     // Parse holder list, sort by new and cut at 25
@@ -95,7 +95,6 @@ export default function ActivitiesList(props) {
                                     <TableBody>
                                     {( 
                                         activities.slice(0, activitiesCount)).map((activity) => {
-                                            console.log(activity)
                                         return (
                                         <TableRow
                                             key={activity.id}
