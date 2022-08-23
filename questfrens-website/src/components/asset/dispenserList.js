@@ -30,7 +30,7 @@ export default function DispenserList(props) {
     useEffect(() => {
         // Parse Dispenser list, sort by new and cut at 25
         if (props.assetInfo.sales_data !== undefined) {
-            console.log(props.assetInfo.sales_data.dispenser_list.length)
+            // console.log(props.assetInfo.sales_data.dispenser_list.length)
             if (props.assetInfo.sales_data.dispenser_list.length > 0) {
 
                 // append number to assets

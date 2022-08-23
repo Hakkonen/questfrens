@@ -35,6 +35,14 @@ export default function Properties(props) {
         setExpanded(!expanded);
     };
 
+    // Check props for default open
+    React.useEffect(() => {
+        if (props.open) {
+            setExpanded(true)
+        }
+    }, [])
+
+
     return (
         <Card sx={{ width: "100%", border: "1px solid rgba(155,155,155, 0.1)" }}>
 

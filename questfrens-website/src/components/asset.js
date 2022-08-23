@@ -202,6 +202,7 @@ export default function Asset(props) {
                     >
                         <Properties 
                             title="Token Details" bgColor="rgb(19,22,25)"
+                            open={true}
                             content={
                                 <Box sx={{ p:2 }}>
                                     <Grid container xs={12} sx={{  }}>
@@ -211,7 +212,7 @@ export default function Asset(props) {
                                                 <Typography textAlign="left" sx={{ color: "rgb(155,155,155)" }}>Token ID</Typography>
                                             </Grid>
                                             <Grid item xs={6}>
-                                                <Typography textAlign="right">{assetInfo.id}</Typography>
+                                                <Typography textAlign="right">{assetInfo.collection_id}</Typography>
                                             </Grid>
                                         </Grid>
 
@@ -266,7 +267,7 @@ export default function Asset(props) {
 
                     <Grid // Collection details card
                         container xs={12}
-                        sx={{ width: "100%", display: "flex", justifyContent: "center", pt: 1, pb: 1 }}
+                        sx={{ width: "100%", display: "flex", justifyContent: "center", pt: 1, pb: 0 }}
                     >
                         <Properties title="Collection Details" bgColor="rgb(19,22,25)"
                             content={

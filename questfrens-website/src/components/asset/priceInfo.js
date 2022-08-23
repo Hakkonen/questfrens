@@ -17,7 +17,6 @@ import List from '@mui/material/List';
 import Properties from "../asset/properties"
 
 export default function PriceInfo(props) {
-    console.log(props)
 
     const [ usdValue, setUsdValue ] = useState(0.0)
     const [ lastSoldBTC, setLastSoldBTC ] = useState(0.0)

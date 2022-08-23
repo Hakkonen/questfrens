@@ -45,8 +45,14 @@ export default function SplashCard(props) {
                 </Box> */}
 
                 <Box sx={{ pl: 2, pb: 1, pt: 1, display: "flex", flexDirection: "column" }} spacing={0}>
-                    <Typography color="secondary" variant="button" style={{ fontWeight: 500 }}>{props.asset.name}</Typography>
-                    <Link href={`/address?hash=${props.asset.issuer}`} style={{textDecoration: "none"}}><Typography variant="button" style={{ fontWeight: 300, color: "white" }}> by {props.asset.issuer}</Typography></Link>
+                    <Link href={`/asset?name=${props.asset.name}`} style={{textDecoration: "none"}}>
+                        <Typography color="secondary" variant="button" style={{ fontWeight: 500 }}>{props.asset.name}
+                        </Typography>
+                    </Link>
+                    <Link href={`/address?hash=${props.asset.issuer}`} style={{textDecoration: "none"}}>
+                        <Typography variant="button" style={{ fontWeight: 300, color: "white" }}> by {props.asset.issuer}
+                        </Typography>
+                    </Link>
                 </Box>
                 
             </CardContent>
