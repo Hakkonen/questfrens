@@ -23,6 +23,7 @@ import AssetMedia from "./asset/assetMedia"
 import PriceInfo from './asset/priceInfo';
 import DispenserList from './asset/dispenserList';
 import HolderList from './asset/holderList';
+import ActivitiesList from './asset/activitiesList';
 import FooterEl from './footerEl';
 
 import get_asset_template from "./asset/get_asset_template.json"
@@ -328,6 +329,12 @@ export default function Asset(props) {
                     container xs={12} sx={{ pt: 2, pl: 0 }}
                 >
                     <HolderList assetHolders={holders} width={width} supply={assetInfo.supply} />
+                </Grid>
+
+                <Grid // Dispenser list container
+                    container xs={12} sx={{ pt: 2, pl: 0 }}
+                >
+                    <ActivitiesList width={width} name={assetInfo.name} />
                 </Grid>
 
             </Grid>
