@@ -121,7 +121,7 @@ function App() {
     <div className="App"
       style={{ height: "100vh", width: "100vw" }}
     >
-      <Navbar theme={theme} />
+      {/* <Navbar theme={theme} /> */}
       
       <Routes>
         <Route path="/" element={<Home theme={theme} windowSize={size} />} />

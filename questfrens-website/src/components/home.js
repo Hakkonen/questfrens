@@ -59,7 +59,7 @@ export default function Home(props) {
                 >
                     {/* <Container sx={{  }}> */}
                     <Grid container spacing={0}>
-                        <Grid item xs={10} sm={9} sx={{ pl: 1, pt: 1}}>
+                        {/* <Grid item xs={10} sm={9} sx={{ pl: 1, pt: 1}}>
                             <Typography
                                 variant="h3"
                                 sx={{ color: "white", fontWeight: 600, pb: 2, pr: 1, pt: 2 }}
@@ -67,25 +67,26 @@ export default function Home(props) {
                             >
                                 Mint, collect, and quest...
                             </Typography>
-                        </Grid>
+                        </Grid> */}
 
-                        <Grid item xs={10} sm={9} sx={{ pl: 1, pt: 0 }}>
+                        <Grid item xs={12} sm={12} sx={{ pl: 1, pt: 0 }}>
                             <Typography
-                                variant="h5"
+                                variant="h2"
                                 align="left"
                                 sx={{ pb: 2, pr: 1, pt: 2 }}
                                 color={theme.palette.grey[300]}
                             >
-                                With Questfrens, generative, interactive NFTs on the Counterparty network
+                                Questfrens Asset Explorer has become: <br></br>
+                                <a href="https://raremoon.io/" style={{ textDecoration: "", color: "skyblue" }}>RareMoon.io</a>
                             </Typography>
 
 
-                            <Stack spacing={2} direction="row" sx={{ pb: 2, pr: 1 }}>
+                            {/* <Stack spacing={2} direction="row" sx={{ pb: 2, pr: 1 }}>
                                 <Link to="/market" style={{ textDecoration: "none" }}>
                                     <Button color="secondary" variant="contained">Market</Button>
                                 </Link>
-                                {/* <Button color="secondary" variant="outlined">Explore</Button> */}
-                            </Stack>
+                                <Button color="secondary" variant="outlined">Explore</Button>
+                            </Stack> */}
                         </Grid>
                     </Grid>
                     {/* </Container> */}
@@ -94,7 +95,7 @@ export default function Home(props) {
                 <Grid item xs={12} md={6}
                     style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100%", width: "100%", pt: 2, pb: 1 }}
                 >
-                    <SplashCard windowSize={props.windowSize} asset={asset} />
+                    {/* <SplashCard windowSize={props.windowSize} asset={asset} /> */}
                 </Grid>
             </Grid>
         </Container>
