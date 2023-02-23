@@ -30,17 +30,17 @@ export default function Instructions(props) {
                     variant={toggleHelp ? "contained" : "outlined"}
                     onClick={() => setToggleHelp(true)}
                 >Minting</Button>
-                <Button 
+                {/* <Button 
                     variant={toggleHelp ? "outlined" : "contained"}
                     onClick={() => setToggleHelp(false)}
-                >Combat</Button>
+                >Combat</Button> */}
             </Stack>
             </Container>
 
             { toggleHelp && 
             <Container style={{ padding: ".5em" }}>
             <Stack spacing={3} direction="column" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)" }}>
+            <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)", p: 1 }}>
                 <CardMedia
                     component="img"
                     // height="50"
@@ -61,7 +61,7 @@ export default function Instructions(props) {
                 </CardActions> */}
             </Card>
 
-            <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)" }}>
+            <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)", p: 1 }}>
                 <CardMedia
                     component="img"
                     // height="50"
@@ -94,7 +94,7 @@ export default function Instructions(props) {
                 </CardContent>
             </Card>
 
-            <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)" }}>
+            <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)", p: 1 }}>
                 <CardMedia
                     component="img"
                     // height="50"
@@ -106,13 +106,13 @@ export default function Instructions(props) {
                     Step 3
                     </Typography>
                     <Typography variant="body2" color="white">
-                    Wait for the broadcast to be confirmed on the chain...<br></br>
+                    Wait for the broadcast to be confirmed on the chain, and the Frens node will mint your Questfren based off of your unique seed.<br></br>
                     <br></br>
                     NOTE: Depending on how quickly the network is processing transactions, your mint broadcast may take as long as 10 to 30 minutes.
                     <br></br>
-                    <br></br>
+                    {/* <br></br>
                     If you are getting a "Signature not found error": <br></br>
-                    go to <a href="https://xchain.io/" target="_blank">xchain.io</a> and confirm that your Mint Signature has been broadcasted under the "Broadcast" tab
+                    go to <a href="https://xchain.io/" target="_blank">xchain.io</a> and confirm that your Mint Signature has been broadcasted under the "Broadcast" tab */}
                     </Typography>
                 </CardContent>
             </Card>
@@ -135,7 +135,7 @@ export default function Instructions(props) {
                 </CardContent>
             </Card> */}
 
-            <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)" }}>
+            {/* <Card sx={{ maxWidth: 400, backgroundColor: "rgb(30,30,30)" }}>
                 <CardMedia
                     component="img"
                     image="https://imgur.com/e0u19M6.png"
@@ -152,7 +152,7 @@ export default function Instructions(props) {
                     
                     </Typography>
                 </CardContent>
-            </Card>
+            </Card> */}
             </Stack>
             </Container> }
             
