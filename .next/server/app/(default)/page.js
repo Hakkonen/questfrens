@@ -532,18 +532,19 @@ var react_ = __webpack_require__(8038);
 var next_image = __webpack_require__(8421);
 var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
 ;// CONCATENATED MODULE: ./public/images/qfbanner.png
-/* harmony default export */ const qfbanner = ({"src":"/_next/static/media/qfbanner.e3cc033d.png","height":720,"width":1280,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAAh0lEQVR42mNgFBNiFBVmYGCIzosurEqTYGBj5OSQkpBgsJJWd9TRnNpWPnnFxlmbdvUWp8qpKgnKKjLEh7uVdNe0VNW11FROmjqjsGH2+mndMYnBDPUZMQ0TZ+kqWMprqkcwMeSmVd0oLavO6WIodLPwicpWt/AS42Bg4BNyc3KZEl9u654GAMSLJk2AH3sDAAAAAElFTkSuQmCC","blurWidth":8,"blurHeight":5});
+/* harmony default export */ const qfbanner = ({"src":"/_next/static/media/qfbanner.e3cc033d.png","height":720,"width":1280,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAMAAABPT11nAAAAP1BMVEUXFhVdTUWQi35SOCQRExUkLi86PD8dHh9xY1s3Lyo9X0VgdGFtamooIiBvf4Z7hoR9gIBeaXZklKAxSlLFbU6eZfyvAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAL0lEQVR4nAXBiQHAIAgAsQNBoJ+tuv+sTcDiKANC3qkt4Mwrn0+d0bkr96I7WIn/GE4BHt+8mBgAAAAASUVORK5CYII=","blurWidth":8,"blurHeight":5});
 ;// CONCATENATED MODULE: ./public/images/step1.png
-/* harmony default export */ const step1 = ({"src":"/_next/static/media/step1.33406bd6.png","height":1060,"width":1180,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAHCAIAAAC6O5sJAAAAfklEQVR42i2LPQoCUQwG8+WnWkTvfwuv4DksBBthG6uF9/KSGGQHphoG98czomaUqYBOsgruQ1jGXFTBjCoCoM2cwUJV4b4AFJGp+pgKEPrNUBVVqz8m0gEi4otzRWZlppkxs7ZoAeJuq8uxfOMNmUlEvXc99v37fn0uuG63HxHMS/MEcW5kAAAAAElFTkSuQmCC","blurWidth":8,"blurHeight":7});
+/* harmony default export */ const step1 = ({"src":"/_next/static/media/step1.33406bd6.png","height":1060,"width":1180,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAHCAMAAAACh/xsAAAAIVBMVEXz9PTu7u349/b9/f2RvOGWvt+TvN7qv7zQ5dD34eG11rWanveoAAAACXBIWXMAABYlAAAWJQFJUiTwAAAALUlEQVR4nB3JuREAIQDDQNnmjqf/ghmsYBPx/aPhgP3EkgAhGdxFDepLkj3Pug6CAH3vhHSuAAAAAElFTkSuQmCC","blurWidth":8,"blurHeight":7});
 ;// CONCATENATED MODULE: ./public/images/step2.png
-/* harmony default export */ const step2 = ({"src":"/_next/static/media/step2.0fe65244.png","height":818,"width":1186,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAGCAIAAABxZ0isAAAAcklEQVR42iWJuxUCQQwDLXu9j4j+K6AI2riIGkgIeLcH/mFAiaQZXK43YV6v93M5iIqKOyAcx1Kda9/dTeekKhmjOUekR4JZxgSEWMw8qwb/oqoAzCwjeovIVwDwiKoioqGamS3Q1f9PI+KxbXcc63z6AA7DPqp+HG+gAAAAAElFTkSuQmCC","blurWidth":8,"blurHeight":6});
+/* harmony default export */ const step2 = ({"src":"/_next/static/media/step2.0fe65244.png","height":818,"width":1186,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAGCAMAAADJ2y/JAAAAG1BMVEX39/jy8vL8/f1xptSAsdvC2b715uXut7fm5eTFb99VAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAKElEQVR4nB2Ixw0AMAyEOOKU/SeObD4gqFoD5CWhCUw5Flt9VM/d+wMI2wBVV4Ec0wAAAABJRU5ErkJggg==","blurWidth":8,"blurHeight":6});
 ;// CONCATENATED MODULE: ./public/images/questfren2.png
-/* harmony default export */ const questfren2 = ({"src":"/_next/static/media/questfren2.5c804ed5.png","height":500,"width":500,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAA+0lEQVR42mOAgRVb9rGVd23gl+68wnNx615mSwYGVgZVQxaG6YuXMzEwMDD0ZvkrLp0/4/72Tetv7Ni2TYwhx18ptDFRnAEEFn/5z8tw6L/+1T3T3j44uvhDXFdXZvn8wBSGxV2CDAyX/rMkHvgc3zFlz7lHZdF/3/V3/8huW/62cPLkYgYYyFp1Z+q6wtD/z5wZ/vx2U/27J6/xf8DC220MMNA9YXvsrMLC/wejQv9eKc75rdZw7H/MjCOZC///Z2Zg+P+fZe6eC0bzJy3acjg27/+JxIJ/hp1HV2TYMagxoICJv0RTo5u74oqWzYwMSXPLYWCQYmBgYAAAvjtsUuvklGcAAAAASUVORK5CYII=","blurWidth":8,"blurHeight":8});
+/* harmony default export */ const questfren2 = ({"src":"/_next/static/media/questfren2.5c804ed5.png","height":500,"width":500,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAAY1BMVEVMaXHsTiBWgGvHuZe6l5E1VW6oZD1mts9bTzQ6Xz8AZ8OQt7NIQjRuh0ZWhZZ6inlLv+s9wv+goJihUzhBoshOeH7Wa0XTgWpfjZpFiZ4jfaGts6kslsaiW0qIZkceeKiOZl8JEYPkAAAAHXRSTlMA/XPpHYn8DBQnGTdDYWCwZjvh/Zno/PfHa6fUhMiQsIAAAAAJcEhZcwAACxMAAAsTAQCanBgAAABBSURBVHicHctHEoAgEADBIS6YMGfU/7/S0r43gAg/2x82BpDOGF0LtOu8TBoYvVLPCTTX4O8NKFPOe/xW4VwVeAFLUgJpSOz7owAAAABJRU5ErkJggg==","blurWidth":8,"blurHeight":8});
 ;// CONCATENATED MODULE: ./components/hero.tsx
 
 
 
 
+// import HeroImage from "./qfbanner.png"
 
 
 
@@ -1063,6 +1064,17 @@ Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_re
 
 /***/ }),
 
+/***/ 718:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 1390, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 7144, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 7914, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 5110, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 3682, 23))
+
+/***/ }),
+
 /***/ 4506:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -1138,7 +1150,7 @@ function Home() {
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [67,850,9,844], () => (__webpack_exec__(6860)));
+var __webpack_exports__ = __webpack_require__.X(0, [67,850,9,487], () => (__webpack_exec__(6860)));
 module.exports = __webpack_exports__;
 
 })();

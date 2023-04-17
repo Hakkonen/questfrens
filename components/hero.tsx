@@ -4,6 +4,7 @@ import { useState, useRef } from 'react'
 import Image from 'next/image'
 import Modal from '@/components/utils/modal'
 import HeroImage from '@/public/images/qfbanner.png'
+// import HeroImage from "./qfbanner.png"
 
 import FeatImage01 from '@/public/images/step1.png'
 import FeatImage02 from '@/public/images/step2.png'
