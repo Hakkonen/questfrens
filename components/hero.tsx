@@ -3,11 +3,11 @@
 import { useState, useRef } from 'react'
 import Image from 'next/image'
 import Modal from '@/components/utils/modal'
-import HeroImage from '@/public/images/hero-image-01.jpg'
+import HeroImage from '@/public/images/qfbanner.png'
 
 import FeatImage01 from '@/public/images/step1.png'
-import FeatImage02 from '@/public/images/features-03-image-02.png'
-import FeatImage03 from '@/public/images/features-03-image-03.png'
+import FeatImage02 from '@/public/images/step2.png'
+import FeatImage03 from '@/public/images/questfren2.png'
 
 export default function Hero() {
 
@@ -51,12 +51,13 @@ export default function Hero() {
             <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
                 <a 
-                  onClick={scrollToBuy}
-                  className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0" href="#0"
+                  className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0" href="https://xchain.io/tx/ff760a4e0fc27808370c35b26b91f36fde02688f9379b03525b7575c656a4caf" target='_blank'
                 >Buy Mint Token</a>
               </div>
               <div data-aos="fade-up" data-aos-delay="600">
-                <a className="btn text-white bg-gray-700 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="#0">How To Mint</a>
+                <a 
+                onClick={scrollToBuy}
+                className="btn text-white bg-gray-700 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="#0">How To Mint</a>
               </div>
             </div>
           </div>
@@ -173,27 +174,38 @@ export default function Hero() {
               {/* Content */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-left">
                 <div className="md:pl-4 lg:pl-12 xl:pl-16">
-                  <div className="font-architects-daughter text-xl text-purple-600 mb-2">More speed. Less spend</div>
-                  <h3 className="h3 mb-3">Keep projects on schedule</h3>
-                  <p className="text-xl text-gray-400 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <div className="font-architects-daughter text-xl text-purple-600 mb-2">Time to create!</div>
+                  <h3 className="h3 mb-3">2. Destroy your mint token</h3>
+                  <p className="text-xl text-gray-400 mb-4">
+                    To begin the Questfren generation process all you need to do is destroy your token! It's important that you do <b>not</b> send your token to a burn address, tokens <b>must</b> be destroyed to be registered for minting.
+                  </p>
                   <ul className="text-lg text-gray-400 -mb-2">
                     <li className="flex items-center mb-2">
-                      <svg className="w-3 h-3 fill-current text-green-500 mr-2 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      {/* <svg className="w-3 h-3 fill-current text-green-500 mr-2 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Duis aute irure dolor in reprehenderit</span>
+                      </svg> */}
+                      <span>
+                        i. Open Freewallet and select the "Destroy Supply" function
+                      </span>
+                    </li>
+                    <li>
+                      <span>
+                        ii. Select "MINTTOKEN" from the token name
+                      </span>
                     </li>
                     <li className="flex items-center mb-2">
-                      <svg className="w-3 h-3 fill-current text-green-500 mr-2 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      {/* <svg className="w-3 h-3 fill-current text-green-500 mr-2 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Excepteur sint occaecat</span>
+                      </svg> */}
+                      <span>
+                        iii. Enter 1 into the "Amount" field
+                      </span>
                     </li>
                     <li className="flex items-center">
                       <svg className="w-3 h-3 fill-current text-green-500 mr-2 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg>
-                      <span>Amet consectetur adipiscing elit</span>
+                      <span>Hit destroy!</span>
                     </li>
                   </ul>
                 </div>
@@ -209,27 +221,34 @@ export default function Hero() {
               {/* Content */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-right">
                 <div className="md:pr-4 lg:pr-12 xl:pr-16">
-                  <div className="font-architects-daughter text-xl text-purple-600 mb-2">More speed. Less spend</div>
-                  <h3 className="h3 mb-3">Keep projects on schedule</h3>
-                  <p className="text-xl text-gray-400 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <div className="font-architects-daughter text-xl text-purple-600 mb-2">Wait to unwrap your present</div>
+                  <h3 className="h3 mb-3">Your asset is minting</h3>
+                  <p className="text-xl text-gray-400 mb-4">
+                    The hard work is done! Your Questfren will now be generated and stamped permanently onto the Bitcoin chain. When your asset is finished minting it will automatically arrive in the address you destroyed your mint token from.
+                    <br></br>
+                    <br></br>
+                    You can also check to see if your asset has appeared on the <a href="https://stampchain.io/" target="_blank" style={{color: "orange"}}>Stampchain </a>website, or the <a href="https://www.rarestamp.xyz/" target="_blank" style={{color: "orange"}}>Rarestamp</a> website. 
+                    <br></br><br></br>
+                    Your asset may take anywhere between 15 minutes and several hours to mint, depending on the Bitcoin mempool. 
+                  </p>
                   <ul className="text-lg text-gray-400 -mb-2">
                     <li className="flex items-center mb-2">
                       <svg className="w-3 h-3 fill-current text-green-500 mr-2 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg>
-                      <span>Duis aute irure dolor in reprehenderit</span>
+                      <span>Join the community on <a href="https://twitter.com/questfrens" target="_blank" style={{color: "orange"}}>Twitter</a></span>
                     </li>
                     <li className="flex items-center mb-2">
                       <svg className="w-3 h-3 fill-current text-green-500 mr-2 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg>
-                      <span>Excepteur sint occaecat</span>
+                      <span>Join the community on <a href="https://t.me/questfrens" target="_blank" style={{color: "orange"}}>Telegram</a></span>
                     </li>
-                    <li className="flex items-center">
+                    <li className="flex items-center mb-2">
                       <svg className="w-3 h-3 fill-current text-green-500 mr-2 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg>
-                      <span>Amet consectetur adipiscing elit</span>
+                      <span>Think something is wrong? Contact us <a href="mailto: hello.fabrique@protonmail.com" target="_blank" style={{color: "orange"}}>here</a></span>
                     </li>
                   </ul>
                 </div>

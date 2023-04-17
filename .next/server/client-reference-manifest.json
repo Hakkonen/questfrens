@@ -1755,7 +1755,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/add-base-path.js",
         "name": "*",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       },
@@ -1763,7 +1763,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/add-base-path.js",
         "name": "",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       },
@@ -1771,7 +1771,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/add-base-path.js",
         "name": "default",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       }
@@ -2873,7 +2873,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/normalize-trailing-slash.js",
         "name": "*",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       },
@@ -2881,7 +2881,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/normalize-trailing-slash.js",
         "name": "",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       },
@@ -2889,7 +2889,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/normalize-trailing-slash.js",
         "name": "default",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       }
@@ -2951,7 +2951,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/add-locale.js",
         "name": "*",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       },
@@ -2959,7 +2959,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/add-locale.js",
         "name": "",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       },
@@ -2967,7 +2967,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/add-locale.js",
         "name": "default",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       }
@@ -2977,7 +2977,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/get-domain-locale.js",
         "name": "*",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       },
@@ -2985,7 +2985,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/get-domain-locale.js",
         "name": "",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       },
@@ -2993,7 +2993,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/get-domain-locale.js",
         "name": "default",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       }
@@ -3003,7 +3003,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/link.js",
         "name": "*",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       },
@@ -3011,7 +3011,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/link.js",
         "name": "",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       },
@@ -3019,7 +3019,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/link.js",
         "name": "default",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       }
@@ -3029,7 +3029,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/request-idle-callback.js",
         "name": "*",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       },
@@ -3037,7 +3037,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/request-idle-callback.js",
         "name": "",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       },
@@ -3045,7 +3045,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/request-idle-callback.js",
         "name": "default",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       }
@@ -3055,7 +3055,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/use-intersection.js",
         "name": "*",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       },
@@ -3063,7 +3063,7 @@
         "id": "(sc_client)/./node_modules/next/dist/client/use-intersection.js",
         "name": "",
         "chunks": [
-          "app/(default)/layout:app/(default)/layout"
+          "app/(auth)/signin/page:app/(auth)/signin/page"
         ],
         "async": false
       },
@@ -3071,14 +3071,92 @@
         "id": "(sc_client)/./node_modules/next/dist/client/use-intersection.js",
         "name": "default",
         "chunks": [
+          "app/(auth)/signin/page:app/(auth)/signin/page"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./app/(default)/layout.tsx": {
+      "*": {
+        "id": "(sc_client)/./app/(default)/layout.tsx",
+        "name": "*",
+        "chunks": [
+          "app/(default)/layout:app/(default)/layout"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./app/(default)/layout.tsx",
+        "name": "",
+        "chunks": [
+          "app/(default)/layout:app/(default)/layout"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./app/(default)/layout.tsx",
+        "name": "default",
+        "chunks": [
           "app/(default)/layout:app/(default)/layout"
         ],
         "async": false
       }
     },
-    "(app-client)/./public/images/features-03-image-02.png": {
+    "(app-client)/./components/page-illustration.tsx": {
       "*": {
-        "id": "(sc_client)/./public/images/features-03-image-02.png",
+        "id": "(sc_client)/./components/page-illustration.tsx",
+        "name": "*",
+        "chunks": [
+          "app/(default)/layout:app/(default)/layout"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./components/page-illustration.tsx",
+        "name": "",
+        "chunks": [
+          "app/(default)/layout:app/(default)/layout"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./components/page-illustration.tsx",
+        "name": "default",
+        "chunks": [
+          "app/(default)/layout:app/(default)/layout"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./components/ui/footer.tsx": {
+      "*": {
+        "id": "(sc_client)/./components/ui/footer.tsx",
+        "name": "*",
+        "chunks": [
+          "app/(default)/layout:app/(default)/layout"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./components/ui/footer.tsx",
+        "name": "",
+        "chunks": [
+          "app/(default)/layout:app/(default)/layout"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./components/ui/footer.tsx",
+        "name": "default",
+        "chunks": [
+          "app/(default)/layout:app/(default)/layout"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./public/images/qfbanner.png": {
+      "*": {
+        "id": "(sc_client)/./public/images/qfbanner.png",
         "name": "*",
         "chunks": [
           "app/(default)/page:app/(default)/page"
@@ -3086,7 +3164,7 @@
         "async": false
       },
       "": {
-        "id": "(sc_client)/./public/images/features-03-image-02.png",
+        "id": "(sc_client)/./public/images/qfbanner.png",
         "name": "",
         "chunks": [
           "app/(default)/page:app/(default)/page"
@@ -3094,7 +3172,7 @@
         "async": false
       },
       "default": {
-        "id": "(sc_client)/./public/images/features-03-image-02.png",
+        "id": "(sc_client)/./public/images/qfbanner.png",
         "name": "default",
         "chunks": [
           "app/(default)/page:app/(default)/page"
@@ -3102,9 +3180,9 @@
         "async": false
       }
     },
-    "(app-client)/./public/images/features-03-image-03.png": {
+    "(app-client)/./public/images/questfren2.png": {
       "*": {
-        "id": "(sc_client)/./public/images/features-03-image-03.png",
+        "id": "(sc_client)/./public/images/questfren2.png",
         "name": "*",
         "chunks": [
           "app/(default)/page:app/(default)/page"
@@ -3112,7 +3190,7 @@
         "async": false
       },
       "": {
-        "id": "(sc_client)/./public/images/features-03-image-03.png",
+        "id": "(sc_client)/./public/images/questfren2.png",
         "name": "",
         "chunks": [
           "app/(default)/page:app/(default)/page"
@@ -3120,33 +3198,7 @@
         "async": false
       },
       "default": {
-        "id": "(sc_client)/./public/images/features-03-image-03.png",
-        "name": "default",
-        "chunks": [
-          "app/(default)/page:app/(default)/page"
-        ],
-        "async": false
-      }
-    },
-    "(app-client)/./public/images/hero-image-01.jpg": {
-      "*": {
-        "id": "(sc_client)/./public/images/hero-image-01.jpg",
-        "name": "*",
-        "chunks": [
-          "app/(default)/page:app/(default)/page"
-        ],
-        "async": false
-      },
-      "": {
-        "id": "(sc_client)/./public/images/hero-image-01.jpg",
-        "name": "",
-        "chunks": [
-          "app/(default)/page:app/(default)/page"
-        ],
-        "async": false
-      },
-      "default": {
-        "id": "(sc_client)/./public/images/hero-image-01.jpg",
+        "id": "(sc_client)/./public/images/questfren2.png",
         "name": "default",
         "chunks": [
           "app/(default)/page:app/(default)/page"
@@ -3173,6 +3225,32 @@
       },
       "default": {
         "id": "(sc_client)/./public/images/step1.png",
+        "name": "default",
+        "chunks": [
+          "app/(default)/page:app/(default)/page"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./public/images/step2.png": {
+      "*": {
+        "id": "(sc_client)/./public/images/step2.png",
+        "name": "*",
+        "chunks": [
+          "app/(default)/page:app/(default)/page"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./public/images/step2.png",
+        "name": "",
+        "chunks": [
+          "app/(default)/page:app/(default)/page"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./public/images/step2.png",
         "name": "default",
         "chunks": [
           "app/(default)/page:app/(default)/page"
@@ -3254,84 +3332,6 @@
         "name": "default",
         "chunks": [
           "app/(default)/page:app/(default)/page"
-        ],
-        "async": false
-      }
-    },
-    "(app-client)/./app/(default)/layout.tsx": {
-      "*": {
-        "id": "(sc_client)/./app/(default)/layout.tsx",
-        "name": "*",
-        "chunks": [
-          "app/(default)/layout:app/(default)/layout"
-        ],
-        "async": false
-      },
-      "": {
-        "id": "(sc_client)/./app/(default)/layout.tsx",
-        "name": "",
-        "chunks": [
-          "app/(default)/layout:app/(default)/layout"
-        ],
-        "async": false
-      },
-      "default": {
-        "id": "(sc_client)/./app/(default)/layout.tsx",
-        "name": "default",
-        "chunks": [
-          "app/(default)/layout:app/(default)/layout"
-        ],
-        "async": false
-      }
-    },
-    "(app-client)/./components/page-illustration.tsx": {
-      "*": {
-        "id": "(sc_client)/./components/page-illustration.tsx",
-        "name": "*",
-        "chunks": [
-          "app/(default)/layout:app/(default)/layout"
-        ],
-        "async": false
-      },
-      "": {
-        "id": "(sc_client)/./components/page-illustration.tsx",
-        "name": "",
-        "chunks": [
-          "app/(default)/layout:app/(default)/layout"
-        ],
-        "async": false
-      },
-      "default": {
-        "id": "(sc_client)/./components/page-illustration.tsx",
-        "name": "default",
-        "chunks": [
-          "app/(default)/layout:app/(default)/layout"
-        ],
-        "async": false
-      }
-    },
-    "(app-client)/./components/ui/footer.tsx": {
-      "*": {
-        "id": "(sc_client)/./components/ui/footer.tsx",
-        "name": "*",
-        "chunks": [
-          "app/(default)/layout:app/(default)/layout"
-        ],
-        "async": false
-      },
-      "": {
-        "id": "(sc_client)/./components/ui/footer.tsx",
-        "name": "",
-        "chunks": [
-          "app/(default)/layout:app/(default)/layout"
-        ],
-        "async": false
-      },
-      "default": {
-        "id": "(sc_client)/./components/ui/footer.tsx",
-        "name": "default",
-        "chunks": [
-          "app/(default)/layout:app/(default)/layout"
         ],
         "async": false
       }
@@ -7207,7 +7207,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/add-base-path.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -7215,7 +7215,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/add-base-path.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -7223,7 +7223,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/add-base-path.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -7231,7 +7231,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/add-base-path.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -7239,7 +7239,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/add-base-path.js",
       "name": "default",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -7247,7 +7247,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/add-base-path.js",
       "name": "default",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9319,7 +9319,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/normalize-trailing-slash.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9327,7 +9327,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/normalize-trailing-slash.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9335,7 +9335,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/normalize-trailing-slash.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9343,7 +9343,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/normalize-trailing-slash.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9351,7 +9351,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/normalize-trailing-slash.js",
       "name": "default",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9359,7 +9359,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/normalize-trailing-slash.js",
       "name": "default",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9431,7 +9431,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/add-path-prefix.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9439,7 +9439,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/add-path-prefix.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9447,7 +9447,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/add-path-prefix.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9455,7 +9455,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/add-path-prefix.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9463,7 +9463,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/add-path-prefix.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9471,7 +9471,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/add-path-prefix.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9479,7 +9479,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/add-path-prefix.js",
       "name": "addPathPrefix",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9487,7 +9487,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/add-path-prefix.js",
       "name": "addPathPrefix",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9703,7 +9703,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/parse-path.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9711,7 +9711,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/parse-path.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9719,7 +9719,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/parse-path.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9727,7 +9727,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/parse-path.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9735,7 +9735,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/parse-path.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9743,7 +9743,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/parse-path.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9751,7 +9751,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/parse-path.js",
       "name": "parsePath",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9759,7 +9759,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/parse-path.js",
       "name": "parsePath",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9767,7 +9767,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/remove-trailing-slash.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9775,7 +9775,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/remove-trailing-slash.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9783,7 +9783,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/remove-trailing-slash.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9791,7 +9791,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/remove-trailing-slash.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9799,7 +9799,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/remove-trailing-slash.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9807,7 +9807,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/remove-trailing-slash.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9815,7 +9815,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/remove-trailing-slash.js",
       "name": "removeTrailingSlash",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9823,7 +9823,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/remove-trailing-slash.js",
       "name": "removeTrailingSlash",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9900,7 +9900,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/add-locale.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9908,7 +9908,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/add-locale.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9916,7 +9916,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/add-locale.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9924,7 +9924,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/add-locale.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9932,7 +9932,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/add-locale.js",
       "name": "default",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9940,7 +9940,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/add-locale.js",
       "name": "default",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9948,7 +9948,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/get-domain-locale.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9956,7 +9956,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/get-domain-locale.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9964,7 +9964,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/get-domain-locale.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9972,7 +9972,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/get-domain-locale.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9980,7 +9980,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/get-domain-locale.js",
       "name": "default",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9988,7 +9988,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/get-domain-locale.js",
       "name": "default",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -9996,7 +9996,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/has-base-path.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10004,7 +10004,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/has-base-path.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10012,7 +10012,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/has-base-path.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10020,7 +10020,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/has-base-path.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10028,7 +10028,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/has-base-path.js",
       "name": "default",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10036,7 +10036,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/has-base-path.js",
       "name": "default",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10044,7 +10044,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10052,7 +10052,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10060,7 +10060,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10068,7 +10068,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10076,7 +10076,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "default",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10084,7 +10084,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "default",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10092,7 +10092,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/request-idle-callback.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10100,7 +10100,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/request-idle-callback.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10108,7 +10108,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/request-idle-callback.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10116,7 +10116,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/request-idle-callback.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10124,7 +10124,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/request-idle-callback.js",
       "name": "default",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10132,7 +10132,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/request-idle-callback.js",
       "name": "default",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10140,7 +10140,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/use-intersection.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10148,7 +10148,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/use-intersection.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10156,7 +10156,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/use-intersection.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10164,7 +10164,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/use-intersection.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10172,7 +10172,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/use-intersection.js",
       "name": "default",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10180,7 +10180,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/use-intersection.js",
       "name": "default",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10188,7 +10188,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/escape-regexp.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10196,7 +10196,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/escape-regexp.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10204,7 +10204,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/escape-regexp.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10212,7 +10212,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/escape-regexp.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10220,7 +10220,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/escape-regexp.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10228,7 +10228,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/escape-regexp.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10236,7 +10236,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/escape-regexp.js",
       "name": "escapeStringRegexp",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10244,7 +10244,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/escape-regexp.js",
       "name": "escapeStringRegexp",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10252,7 +10252,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router-context.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10260,7 +10260,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router-context.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10268,7 +10268,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router-context.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10276,7 +10276,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router-context.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10284,7 +10284,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router-context.js",
       "name": "RouterContext",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10292,7 +10292,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router-context.js",
       "name": "RouterContext",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10300,7 +10300,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router-context.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10308,7 +10308,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router-context.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10316,7 +10316,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/format-url.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10324,7 +10324,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/format-url.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10332,7 +10332,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/format-url.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10340,7 +10340,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/format-url.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10348,7 +10348,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/format-url.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10356,7 +10356,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/format-url.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10364,7 +10364,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/format-url.js",
       "name": "formatUrl",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10372,7 +10372,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/format-url.js",
       "name": "formatUrl",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10380,7 +10380,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/format-url.js",
       "name": "formatWithValidation",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10388,7 +10388,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/format-url.js",
       "name": "formatWithValidation",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10396,7 +10396,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/format-url.js",
       "name": "urlObjectKeys",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10404,7 +10404,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/format-url.js",
       "name": "urlObjectKeys",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10412,7 +10412,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/interpolate-as.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10420,7 +10420,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/interpolate-as.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10428,7 +10428,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/interpolate-as.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10436,7 +10436,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/interpolate-as.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10444,7 +10444,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/interpolate-as.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10452,7 +10452,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/interpolate-as.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10460,7 +10460,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/interpolate-as.js",
       "name": "interpolateAs",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10468,7 +10468,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/interpolate-as.js",
       "name": "interpolateAs",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10476,7 +10476,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/is-dynamic.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10484,7 +10484,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/is-dynamic.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10492,7 +10492,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/is-dynamic.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10500,7 +10500,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/is-dynamic.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10508,7 +10508,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/is-dynamic.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10516,7 +10516,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/is-dynamic.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10524,7 +10524,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/is-dynamic.js",
       "name": "isDynamicRoute",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10532,7 +10532,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/is-dynamic.js",
       "name": "isDynamicRoute",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10540,7 +10540,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/is-local-url.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10548,7 +10548,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/is-local-url.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10556,7 +10556,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/is-local-url.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10564,7 +10564,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/is-local-url.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10572,7 +10572,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/is-local-url.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10580,7 +10580,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/is-local-url.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10588,7 +10588,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/is-local-url.js",
       "name": "isLocalURL",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10596,7 +10596,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/is-local-url.js",
       "name": "isLocalURL",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10604,7 +10604,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/omit.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10612,7 +10612,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/omit.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10620,7 +10620,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/omit.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10628,7 +10628,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/omit.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10636,7 +10636,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/omit.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10644,7 +10644,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/omit.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10652,7 +10652,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/omit.js",
       "name": "omit",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10660,7 +10660,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/omit.js",
       "name": "omit",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10668,7 +10668,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/path-has-prefix.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10676,7 +10676,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/path-has-prefix.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10684,7 +10684,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/path-has-prefix.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10692,7 +10692,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/path-has-prefix.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10700,7 +10700,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/path-has-prefix.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10708,7 +10708,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/path-has-prefix.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10716,7 +10716,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/path-has-prefix.js",
       "name": "pathHasPrefix",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10724,7 +10724,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/path-has-prefix.js",
       "name": "pathHasPrefix",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10732,7 +10732,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/querystring.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10740,7 +10740,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/querystring.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10748,7 +10748,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/querystring.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10756,7 +10756,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/querystring.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10764,7 +10764,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/querystring.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10772,7 +10772,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/querystring.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10780,7 +10780,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/querystring.js",
       "name": "assign",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10788,7 +10788,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/querystring.js",
       "name": "assign",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10796,7 +10796,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/querystring.js",
       "name": "searchParamsToUrlQuery",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10804,7 +10804,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/querystring.js",
       "name": "searchParamsToUrlQuery",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10812,7 +10812,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/querystring.js",
       "name": "urlQueryToSearchParams",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10820,7 +10820,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/querystring.js",
       "name": "urlQueryToSearchParams",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10828,7 +10828,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/resolve-href.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10836,7 +10836,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/resolve-href.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10844,7 +10844,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/resolve-href.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10852,7 +10852,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/resolve-href.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10860,7 +10860,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/resolve-href.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10868,7 +10868,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/resolve-href.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10876,7 +10876,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/resolve-href.js",
       "name": "resolveHref",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10884,7 +10884,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/resolve-href.js",
       "name": "resolveHref",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10892,7 +10892,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-matcher.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10900,7 +10900,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-matcher.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10908,7 +10908,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-matcher.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10916,7 +10916,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-matcher.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10924,7 +10924,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-matcher.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10932,7 +10932,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-matcher.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10940,7 +10940,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-matcher.js",
       "name": "getRouteMatcher",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10948,7 +10948,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-matcher.js",
       "name": "getRouteMatcher",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10956,7 +10956,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-regex.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10964,7 +10964,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-regex.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10972,7 +10972,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-regex.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10980,7 +10980,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-regex.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10988,7 +10988,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-regex.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -10996,7 +10996,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-regex.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11004,7 +11004,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-regex.js",
       "name": "getNamedMiddlewareRegex",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11012,7 +11012,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-regex.js",
       "name": "getNamedMiddlewareRegex",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11020,7 +11020,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-regex.js",
       "name": "getNamedRouteRegex",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11028,7 +11028,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-regex.js",
       "name": "getNamedRouteRegex",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11036,7 +11036,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-regex.js",
       "name": "getRouteRegex",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11044,7 +11044,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/router/utils/route-regex.js",
       "name": "getRouteRegex",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11052,7 +11052,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11060,7 +11060,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "*",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11068,7 +11068,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11076,7 +11076,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11084,7 +11084,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "DecodeError",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11092,7 +11092,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "DecodeError",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11100,7 +11100,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "MiddlewareNotFoundError",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11108,7 +11108,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "MiddlewareNotFoundError",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11116,7 +11116,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "MissingStaticPage",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11124,7 +11124,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "MissingStaticPage",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11132,7 +11132,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "NormalizeError",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11140,7 +11140,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "NormalizeError",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11148,7 +11148,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "PageNotFoundError",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11156,7 +11156,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "PageNotFoundError",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11164,7 +11164,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "SP",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11172,7 +11172,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "SP",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11180,7 +11180,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "ST",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11188,7 +11188,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "ST",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11196,7 +11196,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "WEB_VITALS",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11204,7 +11204,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "WEB_VITALS",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11212,7 +11212,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11220,7 +11220,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "__esModule",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11228,7 +11228,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "execOnce",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11236,7 +11236,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "execOnce",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11244,7 +11244,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "getDisplayName",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11252,7 +11252,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "getDisplayName",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11260,7 +11260,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "getLocationOrigin",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11268,7 +11268,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "getLocationOrigin",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11276,7 +11276,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "getURL",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11284,7 +11284,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "getURL",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11292,7 +11292,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "isAbsoluteUrl",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11300,7 +11300,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "isAbsoluteUrl",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11308,7 +11308,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "isResSent",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11316,7 +11316,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "isResSent",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11324,7 +11324,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "loadGetInitialProps",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11332,7 +11332,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "loadGetInitialProps",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11340,7 +11340,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "normalizeRepeatedSlashes",
       "chunks": [
-        "app/(default)/layout:app/(default)/layout"
+        "app/(auth)/signin/page:app/(auth)/signin/page"
       ],
       "async": false
     },
@@ -11348,76 +11348,131 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/utils.js",
       "name": "normalizeRepeatedSlashes",
       "chunks": [
+        "app/(auth)/signin/page:app/(auth)/signin/page"
+      ],
+      "async": false
+    },
+    "/Users/blocklab/Documents/GitHub/questfrens_website/node_modules/aos/dist/aos.css#": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/(default)/layout.css"
+      ]
+    },
+    "/Users/blocklab/Documents/GitHub/questfrens_website/app/(default)/layout.tsx": {
+      "id": "(app-client)/./app/(default)/layout.tsx",
+      "name": "*",
+      "chunks": [
         "app/(default)/layout:app/(default)/layout"
       ],
       "async": false
     },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/features-03-image-02.png": {
-      "id": "(app-client)/./public/images/features-03-image-02.png",
+    "/Users/blocklab/Documents/GitHub/questfrens_website/app/(default)/layout.tsx#": {
+      "id": "(app-client)/./app/(default)/layout.tsx",
+      "name": "",
+      "chunks": [
+        "app/(default)/layout:app/(default)/layout"
+      ],
+      "async": false
+    },
+    "/Users/blocklab/Documents/GitHub/questfrens_website/app/(default)/layout.tsx#default": {
+      "id": "(app-client)/./app/(default)/layout.tsx",
+      "name": "default",
+      "chunks": [
+        "app/(default)/layout:app/(default)/layout"
+      ],
+      "async": false
+    },
+    "/Users/blocklab/Documents/GitHub/questfrens_website/components/page-illustration.tsx": {
+      "id": "(app-client)/./components/page-illustration.tsx",
+      "name": "*",
+      "chunks": [
+        "app/(default)/layout:app/(default)/layout"
+      ],
+      "async": false
+    },
+    "/Users/blocklab/Documents/GitHub/questfrens_website/components/page-illustration.tsx#": {
+      "id": "(app-client)/./components/page-illustration.tsx",
+      "name": "",
+      "chunks": [
+        "app/(default)/layout:app/(default)/layout"
+      ],
+      "async": false
+    },
+    "/Users/blocklab/Documents/GitHub/questfrens_website/components/page-illustration.tsx#default": {
+      "id": "(app-client)/./components/page-illustration.tsx",
+      "name": "default",
+      "chunks": [
+        "app/(default)/layout:app/(default)/layout"
+      ],
+      "async": false
+    },
+    "/Users/blocklab/Documents/GitHub/questfrens_website/components/ui/footer.tsx": {
+      "id": "(app-client)/./components/ui/footer.tsx",
+      "name": "*",
+      "chunks": [
+        "app/(default)/layout:app/(default)/layout"
+      ],
+      "async": false
+    },
+    "/Users/blocklab/Documents/GitHub/questfrens_website/components/ui/footer.tsx#": {
+      "id": "(app-client)/./components/ui/footer.tsx",
+      "name": "",
+      "chunks": [
+        "app/(default)/layout:app/(default)/layout"
+      ],
+      "async": false
+    },
+    "/Users/blocklab/Documents/GitHub/questfrens_website/components/ui/footer.tsx#default": {
+      "id": "(app-client)/./components/ui/footer.tsx",
+      "name": "default",
+      "chunks": [
+        "app/(default)/layout:app/(default)/layout"
+      ],
+      "async": false
+    },
+    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/qfbanner.png": {
+      "id": "(app-client)/./public/images/qfbanner.png",
       "name": "*",
       "chunks": [
         "app/(default)/page:app/(default)/page"
       ],
       "async": false
     },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/features-03-image-02.png#": {
-      "id": "(app-client)/./public/images/features-03-image-02.png",
+    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/qfbanner.png#": {
+      "id": "(app-client)/./public/images/qfbanner.png",
       "name": "",
       "chunks": [
         "app/(default)/page:app/(default)/page"
       ],
       "async": false
     },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/features-03-image-02.png#default": {
-      "id": "(app-client)/./public/images/features-03-image-02.png",
+    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/qfbanner.png#default": {
+      "id": "(app-client)/./public/images/qfbanner.png",
       "name": "default",
       "chunks": [
         "app/(default)/page:app/(default)/page"
       ],
       "async": false
     },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/features-03-image-03.png": {
-      "id": "(app-client)/./public/images/features-03-image-03.png",
+    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/questfren2.png": {
+      "id": "(app-client)/./public/images/questfren2.png",
       "name": "*",
       "chunks": [
         "app/(default)/page:app/(default)/page"
       ],
       "async": false
     },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/features-03-image-03.png#": {
-      "id": "(app-client)/./public/images/features-03-image-03.png",
+    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/questfren2.png#": {
+      "id": "(app-client)/./public/images/questfren2.png",
       "name": "",
       "chunks": [
         "app/(default)/page:app/(default)/page"
       ],
       "async": false
     },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/features-03-image-03.png#default": {
-      "id": "(app-client)/./public/images/features-03-image-03.png",
-      "name": "default",
-      "chunks": [
-        "app/(default)/page:app/(default)/page"
-      ],
-      "async": false
-    },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/hero-image-01.jpg": {
-      "id": "(app-client)/./public/images/hero-image-01.jpg",
-      "name": "*",
-      "chunks": [
-        "app/(default)/page:app/(default)/page"
-      ],
-      "async": false
-    },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/hero-image-01.jpg#": {
-      "id": "(app-client)/./public/images/hero-image-01.jpg",
-      "name": "",
-      "chunks": [
-        "app/(default)/page:app/(default)/page"
-      ],
-      "async": false
-    },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/hero-image-01.jpg#default": {
-      "id": "(app-client)/./public/images/hero-image-01.jpg",
+    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/questfren2.png#default": {
+      "id": "(app-client)/./public/images/questfren2.png",
       "name": "default",
       "chunks": [
         "app/(default)/page:app/(default)/page"
@@ -11442,6 +11497,30 @@
     },
     "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/step1.png#default": {
       "id": "(app-client)/./public/images/step1.png",
+      "name": "default",
+      "chunks": [
+        "app/(default)/page:app/(default)/page"
+      ],
+      "async": false
+    },
+    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/step2.png": {
+      "id": "(app-client)/./public/images/step2.png",
+      "name": "*",
+      "chunks": [
+        "app/(default)/page:app/(default)/page"
+      ],
+      "async": false
+    },
+    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/step2.png#": {
+      "id": "(app-client)/./public/images/step2.png",
+      "name": "",
+      "chunks": [
+        "app/(default)/page:app/(default)/page"
+      ],
+      "async": false
+    },
+    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/step2.png#default": {
+      "id": "(app-client)/./public/images/step2.png",
       "name": "default",
       "chunks": [
         "app/(default)/page:app/(default)/page"
@@ -12173,85 +12252,6 @@
       "name": "warnOnce",
       "chunks": [
         "app/(default)/page:app/(default)/page"
-      ],
-      "async": false
-    },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/node_modules/aos/dist/aos.css#": {
-      "id": "null",
-      "name": "default",
-      "chunks": [
-        "static/css/app/(default)/layout.css"
-      ]
-    },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/app/(default)/layout.tsx": {
-      "id": "(app-client)/./app/(default)/layout.tsx",
-      "name": "*",
-      "chunks": [
-        "app/(default)/layout:app/(default)/layout"
-      ],
-      "async": false
-    },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/app/(default)/layout.tsx#": {
-      "id": "(app-client)/./app/(default)/layout.tsx",
-      "name": "",
-      "chunks": [
-        "app/(default)/layout:app/(default)/layout"
-      ],
-      "async": false
-    },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/app/(default)/layout.tsx#default": {
-      "id": "(app-client)/./app/(default)/layout.tsx",
-      "name": "default",
-      "chunks": [
-        "app/(default)/layout:app/(default)/layout"
-      ],
-      "async": false
-    },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/components/page-illustration.tsx": {
-      "id": "(app-client)/./components/page-illustration.tsx",
-      "name": "*",
-      "chunks": [
-        "app/(default)/layout:app/(default)/layout"
-      ],
-      "async": false
-    },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/components/page-illustration.tsx#": {
-      "id": "(app-client)/./components/page-illustration.tsx",
-      "name": "",
-      "chunks": [
-        "app/(default)/layout:app/(default)/layout"
-      ],
-      "async": false
-    },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/components/page-illustration.tsx#default": {
-      "id": "(app-client)/./components/page-illustration.tsx",
-      "name": "default",
-      "chunks": [
-        "app/(default)/layout:app/(default)/layout"
-      ],
-      "async": false
-    },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/components/ui/footer.tsx": {
-      "id": "(app-client)/./components/ui/footer.tsx",
-      "name": "*",
-      "chunks": [
-        "app/(default)/layout:app/(default)/layout"
-      ],
-      "async": false
-    },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/components/ui/footer.tsx#": {
-      "id": "(app-client)/./components/ui/footer.tsx",
-      "name": "",
-      "chunks": [
-        "app/(default)/layout:app/(default)/layout"
-      ],
-      "async": false
-    },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/components/ui/footer.tsx#default": {
-      "id": "(app-client)/./components/ui/footer.tsx",
-      "name": "default",
-      "chunks": [
-        "app/(default)/layout:app/(default)/layout"
       ],
       "async": false
     }
