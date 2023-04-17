@@ -3076,32 +3076,6 @@ self.__RSC_MANIFEST={
         "async": false
       }
     },
-    "(app-client)/./public/images/features-03-image-01.png": {
-      "*": {
-        "id": "(sc_client)/./public/images/features-03-image-01.png",
-        "name": "*",
-        "chunks": [
-          "app/(default)/page:app/(default)/page"
-        ],
-        "async": false
-      },
-      "": {
-        "id": "(sc_client)/./public/images/features-03-image-01.png",
-        "name": "",
-        "chunks": [
-          "app/(default)/page:app/(default)/page"
-        ],
-        "async": false
-      },
-      "default": {
-        "id": "(sc_client)/./public/images/features-03-image-01.png",
-        "name": "default",
-        "chunks": [
-          "app/(default)/page:app/(default)/page"
-        ],
-        "async": false
-      }
-    },
     "(app-client)/./public/images/features-03-image-02.png": {
       "*": {
         "id": "(sc_client)/./public/images/features-03-image-02.png",
@@ -3173,6 +3147,32 @@ self.__RSC_MANIFEST={
       },
       "default": {
         "id": "(sc_client)/./public/images/hero-image-01.jpg",
+        "name": "default",
+        "chunks": [
+          "app/(default)/page:app/(default)/page"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./public/images/step1.png": {
+      "*": {
+        "id": "(sc_client)/./public/images/step1.png",
+        "name": "*",
+        "chunks": [
+          "app/(default)/page:app/(default)/page"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./public/images/step1.png",
+        "name": "",
+        "chunks": [
+          "app/(default)/page:app/(default)/page"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./public/images/step1.png",
         "name": "default",
         "chunks": [
           "app/(default)/page:app/(default)/page"
@@ -11352,30 +11352,6 @@ self.__RSC_MANIFEST={
       ],
       "async": false
     },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/features-03-image-01.png": {
-      "id": "(app-client)/./public/images/features-03-image-01.png",
-      "name": "*",
-      "chunks": [
-        "app/(default)/page:app/(default)/page"
-      ],
-      "async": false
-    },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/features-03-image-01.png#": {
-      "id": "(app-client)/./public/images/features-03-image-01.png",
-      "name": "",
-      "chunks": [
-        "app/(default)/page:app/(default)/page"
-      ],
-      "async": false
-    },
-    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/features-03-image-01.png#default": {
-      "id": "(app-client)/./public/images/features-03-image-01.png",
-      "name": "default",
-      "chunks": [
-        "app/(default)/page:app/(default)/page"
-      ],
-      "async": false
-    },
     "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/features-03-image-02.png": {
       "id": "(app-client)/./public/images/features-03-image-02.png",
       "name": "*",
@@ -11442,6 +11418,30 @@ self.__RSC_MANIFEST={
     },
     "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/hero-image-01.jpg#default": {
       "id": "(app-client)/./public/images/hero-image-01.jpg",
+      "name": "default",
+      "chunks": [
+        "app/(default)/page:app/(default)/page"
+      ],
+      "async": false
+    },
+    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/step1.png": {
+      "id": "(app-client)/./public/images/step1.png",
+      "name": "*",
+      "chunks": [
+        "app/(default)/page:app/(default)/page"
+      ],
+      "async": false
+    },
+    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/step1.png#": {
+      "id": "(app-client)/./public/images/step1.png",
+      "name": "",
+      "chunks": [
+        "app/(default)/page:app/(default)/page"
+      ],
+      "async": false
+    },
+    "/Users/blocklab/Documents/GitHub/questfrens_website/public/images/step1.png#default": {
+      "id": "(app-client)/./public/images/step1.png",
       "name": "default",
       "chunks": [
         "app/(default)/page:app/(default)/page"
