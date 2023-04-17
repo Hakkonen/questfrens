@@ -111,7 +111,7 @@ export default function Hero() {
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16" ref={buyRef}>
             <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-green-600 bg-green-200 rounded-full mb-4">Get minting</div>
             <h1 className="h2 mb-4">How to mint</h1>
-            <p className="text-xl text-gray-400">Excepteur sint occaecat Minting is as simple as purchasing a mint token from the dispenser, and destroying the token from your address!
+            <p className="text-xl text-gray-400">Minting is as simple as purchasing a mint token from the dispenser, and destroying the token from your address!
             <br></br><br></br>
             Follow the instructions below...
             </p>
