@@ -38,6 +38,10 @@ export default function Footer() {
                   <li className="mb-1">
                     <Link href="https://www.rarestamp.xyz/" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Rare Stamp</Link>
                   </li>
+                  <li className="mb-1">
+                    <Link href="https://frenzone.net/masterlist/masterlist.json" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Asset Master List</Link>
+                  </li>
+                  
                 </ul>
               </div>
 
