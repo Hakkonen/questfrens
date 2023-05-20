@@ -132,7 +132,7 @@ export default function Hero() {
                   <div className="font-architects-daughter text-xl text-purple-600 mb-2">Get started</div>
                   <h3 className="h3 mb-3">1. Buy a mint token</h3>
                   <p className="text-xl text-gray-400 mb-4">
-                    Find the <a href="https://xchain.io/asset/MINTTOKEN" target="_blank" style={{ color: "orange" }}>Mint Token</a> page on xchain and select the dispenser tab, or follow <a href="https://xchain.io/tx/ff760a4e0fc27808370c35b26b91f36fde02688f9379b03525b7575c656a4caf" target="_blank"  style={{ color: "orange" }}>this link</a> to go directly to the dispenser. Follow the instructions below to purchase a token:
+                    Find the <a href="https://xchain.io/asset/MINTTOKEN" target="_blank" style={{ color: "orange" }}>Mint Token</a> page on xchain and select the dispenser tab, or follow <a href="https://xchain.io/tx/306009d7adbbf2632837c33e624955d4d402c6769c5f648a6f989e9f868af253" target="_blank"  style={{ color: "orange" }}>this link</a> to go directly to the dispenser. Follow the instructions below to purchase a token:
                   </p>
 
                   <ul className="text-lg text-gray-400 -mb-2">
