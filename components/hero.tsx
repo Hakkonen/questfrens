@@ -52,7 +52,7 @@ export default function Hero() {
             <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
                 <a 
-                  className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0" href="https://xchain.io/tx/ff760a4e0fc27808370c35b26b91f36fde02688f9379b03525b7575c656a4caf" target='_blank'
+                  className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0" href="https://xchain.io/tx/306009d7adbbf2632837c33e624955d4d402c6769c5f648a6f989e9f868af253" target='_blank'
                 >Buy Mint Token</a>
               </div>
               <div data-aos="fade-up" data-aos-delay="600">
