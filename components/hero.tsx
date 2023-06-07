@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import Modal from '@/components/utils/modal'
 import HeroImage from '@/public/images/qfbanner.png'
@@ -10,15 +10,45 @@ import FeatImage01 from '@/public/images/step1.png'
 import FeatImage02 from '@/public/images/step2.png'
 import FeatImage03 from '@/public/images/questfren2.png'
 
+interface Asset {
+  base64: string;
+  asset: string;
+}
+
 export default function Hero() {
 
   const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false)
+  const [data, setData] = useState<any[]>([]);
 
   const buyRef = useRef<HTMLHeadingElement>(null);
 
   const scrollToBuy = (): void => {
     if (buyRef.current) {
       buyRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    console.log(data)
+  }, [data])
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://frenzone.net/masterlist/masterlist.json');
+      const json = await response.json();
+      const processedData = json.map((item: any) => {
+        if (item.blob && item.blob.startsWith('STAMP:')) {
+          item.blob = item.blob.replace(/^STAMP:/, '');
+        }
+        return item;
+      });
+      setData(processedData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
     }
   };
 
@@ -152,7 +182,7 @@ export default function Hero() {
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg> */}
                       <span>
-                        iii. Enter the amount of bitcoin defined by the "Price" in the dispenser address page, for Questfren Mint tokens the price is 0.002 BTC
+                        iii. Enter the amount of bitcoin defined by the "Price" in the dispenser address page, for Questfren Mint tokens the price is 0.006 BTC
                       </span>
                     </li>
                     <li className="flex items-center">
@@ -256,6 +286,36 @@ export default function Hero() {
               </div>
             </div>
 
+          </div>
+
+          <br></br>
+
+          <div>
+            <h3 className="h3 mb-3">Current collection</h3>
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: "center" }}>
+              {data.length > 0 &&
+                data.map((item, index) => (
+                  <div key={index} style={{ marginRight: '20px', marginBottom: '20px' }}>
+                    {item.blob && (
+                      <>
+                        <Image
+                          src={`data:image/gif;base64,${item.blob}`}
+                          alt={item.asset}
+                          width={300}
+                          height={300}
+                          style={{ imageRendering: 'pixelated' }}
+                        />
+                        <p style={{ color: "orange", textAlign: "center" }}> 
+                          <a href={`https://xchain.io/asset/${item.asset}`} target="_blank" rel="noopener noreferrer">
+                          {item.asset}
+                          </a>
+                        </p>
+                      </>
+                    )}
+                  </div>
+                ))}
+              </div>
           </div>
 
         </div>
